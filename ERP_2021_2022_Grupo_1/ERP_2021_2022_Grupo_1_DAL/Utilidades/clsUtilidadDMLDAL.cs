@@ -5,26 +5,25 @@ using System.Text;
 namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
 {
     /// <summary>
-    /// Contiene los atributos y métodos que SIEMPRE usaremos en las clases que ejecute sentencias DML, Insert, Update, Delete ...
+    /// Contains all the attributes and methos that are ALWAYS used in the classes that execute DML sentences, Insert, Update, Delete...
     /// </summary>
     public abstract class clsUtilidadDMLDAL : clsUtilidadBaseDAL
     {
-        //NOTA: Dichos métodos sobre esta clase no controlan ninguna SqlException ya que lo lanzan para
-        //que se encarguen el método que lo llama
+        //NOT: This class' methods don't catch any SqlException as they raise it so the method that calls it handle them
 
-        #region metodos publicos
+        #region public methods
         /// <summary>
-        /// <b>Prototipo:</b> public static int ejecutarSentenciaDML(String sentenciaDML)<br/>
-        /// <b>Comentarios:</b> Ejecuta una sentencia DML<br/>
-        /// <b>Precondiciones:</b> ninguna<br/>
-        /// <b>Postcondiciones:</b> Mediante las propiedades heredadas y una sentenciaDML, ejecuta dicha sentencia y devolviendo
+        /// <b>Prototipe:</b> public static int executeDMLSentence(String dmlSentence)<br/>
+        /// <b>Comments:</b> Executes a DML sentence<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Through las propiedades heredadas y una sentenciaDML, ejecuta dicha sentencia y devolviendo
         /// el numero de filas afectado
         /// </summary>
-        /// <param name="sentenciaDML"></param>
+        /// <param name="dmlSentence"></param>
         /// <returns> int representando el número de filas afectadas por dicha sentenciaDML</returns>
-        public static int ejecutarSentenciaDML(String sentenciaDML)
+        public static int executeDMLSentence(String dmlSentence)
         {
-            MiComando.CommandText = sentenciaDML;
+            MiComando.CommandText = dmlSentence;
             MiComando.Connection = MiConexion.Conexion;
             return MiComando.ExecuteNonQuery();
         }

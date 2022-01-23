@@ -19,64 +19,64 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         #endregion
         #region public methods
         /// <summary>
-        /// <b>Prototipo:</b> public static SqlDataReader ejecutarSelectCondicion(String instruccionSelect, int condicion)<br/>
-        /// <b>Comentarios:</b> Ejecuta una instrucción Select con condición, normalmente esta será una PK<br/>
-        /// <b>Precondiciones:</b> ninguna<br/>
-        /// <b>Postcondiciones:</b> Dado las propiedades heredadas, una instrucción select y una condición, ejecuta una instrucción Select con un parámetro condición,
-        /// devolviendo el resultado correspondiente 
+        /// <b>Prototype:</b> public static SqlDataReader executeSelectCondition(String selectInstruction, int condition)<br/>
+        /// <b>Commentaries:</b> Executes a Select instruction with a condition, usually it will be the PK<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Given the inherited properties, a Select instruction and a condition, executes a Slect instruction with a condition parameter,
+        /// returning the appropiate result
         /// </summary>
-        /// <param name="instruccionSelect"></param>
-        /// <param name="condicion"></param>
-        /// <returns> SqlDataReader flujo de filas de solo avance resultante de la instrucción</returns>
-        public static SqlDataReader ejecutarSelectCondicion(String instruccionSelect, int condicion)
+        /// <param name="selectInstruction"></param>
+        /// <param name="condition"></param>
+        /// <returns> SqlDataReader with the result of the instruction</returns>
+        public static SqlDataReader executeSelectCondition(String selectInstruction, int condition)
         {
-            MyCommand.Parameters.Add(ID_PARAMETER, System.Data.SqlDbType.Int).Value = condicion;
+            MyCommand.Parameters.Add(ID_PARAMETER, System.Data.SqlDbType.Int).Value = condition;
             MyCommand.Connection = MyConnection.Conexion;
-            MyCommand.CommandText = instruccionSelect + ID_PARAMETER;
+            MyCommand.CommandText = selectInstruction + ID_PARAMETER;
             return MyCommand.ExecuteReader();
         }
 
         /// <summary>
-        /// <b>Prototipo:</b> public static SqlDataReader ejecutarSelectCondicion(String instruccionSelect, String condicion)<br/>
-        /// <b>Comentarios:</b> Ejecuta una instrucción Select con condición, normalmente esta será una PK<br/>
-        /// <b>Precondiciones:</b> ninguna<br/>
-        /// <b>Postcondiciones:</b> Dado las propiedades heredadas, una instrucción select y una condición, ejecuta una instrucción Select con un parámetro condición,
-        /// devolviendo el resultado correspondiente 
+        /// <b>Prototype:</b> public static SqlDataReader executeSelectCondition(String selectInstruction, String condition)<br/>
+        /// <b>Commentaries:</b> Executes a Select instruction with a condition, usually it will be the PK<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Given the inherited properties, a Select instruction and a condition, executes a Slect instruction with a condition parameter,
+        /// returning the appropiate result 
         /// </summary>
-        /// <param name="instruccionSelect"></param>
-        /// <param name="condicion"></param>
-        /// <returns> SqlDataReader flujo de filas de solo avance resultante de la instrucción</returns>
-        public static SqlDataReader ejecutarSelectCondicion(String instruccionSelect, String condicion)
+        /// <param name="selectInstruction"></param>
+        /// <param name="condition"></param>
+        /// <returns> SqlDataReader with the result of the instruction</returns>
+        public static SqlDataReader executeSelectCondition(String selectInstruction, String condition)
         {
-            MyCommand.Parameters.Add(ID_PARAMETER, System.Data.SqlDbType.VarChar).Value = condicion;
+            MyCommand.Parameters.Add(ID_PARAMETER, System.Data.SqlDbType.VarChar).Value = condition;
             MyCommand.Connection = MyConnection.Conexion;
-            MyCommand.CommandText = instruccionSelect + ID_PARAMETER;
+            MyCommand.CommandText = selectInstruction + ID_PARAMETER;
             return MyCommand.ExecuteReader();
         }
 
         /// <summary>
-        /// <b>Prototipo:</b> public static SqlDataReader ejecutarSelect(String instruccionSelect)<br/>
-        /// <b>Comentarios:</b> Ejecuta una instrucción Select y la devuelve<br/>
-        /// <b>Precondiciones:</b> ninguna<br/>
-        /// <b>Postcondiciones:</b> Dado las propiedades heredadas y una instrucción select ejecuta dicha instrucción Select, luego,
-        /// devuelve el resultado correspondiente
+        /// <b>Prototype:</b> public static SqlDataReader executeSelect(String selectInstruction)<br/>
+        /// <b>Commentaries:</b> Executes a Select instructions and returns it<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Given the inherited properties and a Select instruction executes it, then,
+        /// returns the appropiate result
         /// </summary>
-        /// <param name="instruccionSelect"></param>
-        /// <returns> SqlDataReader flujo de filas de solo avance resultante de la instrucción</returns>
-        public static SqlDataReader ejecutarSelect(String instruccionSelect)
+        /// <param name="selectInstruction"></param>
+        /// <returns> SSqlDataReader with the result of the instruction</returns>
+        public static SqlDataReader executeSelect(String selectInstruction)
         {
-            MyCommand.CommandText = instruccionSelect;
+            MyCommand.CommandText = selectInstruction;
             MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteReader();
         }
 
         /// <summary>
-        /// <b>Prototipo:</b> public static void cerrarFlujos()<br/>
-        /// <b>Comentarios:</b> Cierra los flujos de conexión tantos de esta clase como los heredados<br/>
-        /// <b>Precondiciones:</b> ninguna<br/>
-        /// <b>Postcondiciones: </b>Cierra el flujo de conexión tanto del objeto tipo MiConexion como el tipo MiLector 
+        /// <b>Prototype:</b> public static void closeFlow()<br/>
+        /// <b>Commentaries:</b> Closes all the conection flows from this class and the inherited ones<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions: </b> Closes the conection flow from the object type MyConection and the type MyReader
         /// </summary>
-        public static void cerrarFlujos()
+        public static void closeFlow()
         {
             MyConnection.closeConnection();
             MyReader.Close();

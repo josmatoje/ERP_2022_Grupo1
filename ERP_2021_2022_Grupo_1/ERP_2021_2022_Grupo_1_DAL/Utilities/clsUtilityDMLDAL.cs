@@ -14,13 +14,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         #region public methods
         /// <summary>
         /// <b>Prototype:</b> public static int executeDMLSentence(String dmlSentence)<br/>
-        /// <b>Commentaries:</b> Executes a DML sentence<br/>
+        /// <b>Comments:</b> Executes a DML sentence<br/>
         /// <b>Preconditions:</b> none<br/>
-        /// <b>Postconditions:</b> Through las propiedades heredadas y una sentenciaDML, ejecuta dicha sentencia y devolviendo
-        /// el numero de filas afectado
+        /// <b>Postconditions:</b> Through the inherited properties and a DML sentence, executes said sentence, returning
+        /// the number of affected rows
         /// </summary>
         /// <param name="dmlSentence"></param>
-        /// <returns> int representando el número de filas afectadas por dicha sentenciaDML</returns>
+        /// <returns> int depicting the number of affected rows by said DML sentence</returns>
         public static int executeDMLSentence(String dmlSentence)
         {
             MyCommand.CommandText = dmlSentence;
@@ -29,37 +29,36 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         }
 
         /// <summary>
-        /// <b>Prototipo:</b> public static int ejecutarSentenciaDMLCondicion(String sentenciaDML, int condicion)<br/>
-        /// <b>Comentarios:</b> Ejecuta una sentenciaDML DML con una condición, siendo esta normalmente una PK<br/>
-        /// <b>Precondiciones:</b> ninguna<br/>
-        /// <b>Postcondiciones:</b> Mediante las propiedades heredadas y una sentenciaDML sql con una condición,
-        /// añade dicho parámetro y ejecuta la sentenciaDML completa, al final, devuelve el numero de filas afectado
+        /// <b>Prototype:</b> public static int executeDMLSentenceCondition(String dmlSentence, int condition)<br/>
+        /// <b>Comments:</b> Executes a DML sentence with a condition, being usually a PK<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Through the inherited properties and a DML sentence sql with a condition,
+        /// adds said parameter and executes said complete DML,finally, returns the number of affected rows
         /// </summary>
-        /// <param name="sentenciaDML"></param>
-        /// <param name="condicion"></param>
-        /// <returns> int representando el número de filas afectadas por dicha sentenciaDML</returns>
-        public static int ejecutarSentenciaDMLCondicion(String sentenciaDML, int condicion)
+        /// <param name="dmlSentence"></param>
+        /// <param name="condition"></param>
+        /// <returns> int depicting the number of affected rows by said DML sentence</returns>
+        public static int executeDMLSentenceCondition(String dmlSentence, int condition)
         {
-            MyCommand.Parameters.Add("@param", System.Data.SqlDbType.Int).Value = condicion;
-            MyCommand.CommandText = sentenciaDML + "@param";
+            MyCommand.Parameters.Add("@param", System.Data.SqlDbType.Int).Value = condition;
+            MyCommand.CommandText = dmlSentence + "@param";
             MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteNonQuery();
         }
 
         /// /// <summary>
-        /// <b>Prototipo:</b> public static int ejecutarProcedimientoAlmacenado(String procedimiento)<br/>
-        /// <b>Comentarios:</b> Ejecuta un procedimiento almacenado<br/>
-        /// <b>Precondiciones:</b> si el SP tiene variables, estas ya deben haber sido instanciadas en MyCommand<br/>
-        /// <b>Postcondiciones:</b> Mediante las propiedades heredadas y un procedimiento pasado por parámetro
-        /// ejecuta dicho SP, al final, devuelve el numero de filas afectado
+        /// <b>Prototype:</b> public static int executeStoredProcedure(String procedure)<br/>
+        /// <b>Comments:</b> Executes a stored procedure<br/>
+        /// <b>Preconditions:</b> if the SP has variabñes, those must ahad to be already  instanced in MyCommand<br/>
+        /// <b>Postconditions:</b> Through the inherited properties and a DML sentence and a procedure passed as parameter
+        /// executes said SP, finally, returns the number of affected rows
         /// </summary>
-        /// <param name="procedimiento"></param>
-        /// <returns></returns>
-        /// <returns> int representando el número de filas afectadas por dicha sentenciaDML</returns>
-        public static int ejecutarProcedimientoAlmacenado(String procedimiento)
+        /// <param name="procedure"></param>
+        /// <returns> int depicting the number of affected rows by said DML sentence</returns>
+        public static int executeStoredProcedure(String procedure)
         {
             MyCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            MyCommand.CommandText = procedimiento;
+            MyCommand.CommandText = procedure;
             MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteNonQuery();
 

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\ERP_2021_2022_Grupo_1_DAL.csproj": {}
+    "C:\\Users\\sadac\\Desktop\\ERP2022\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\ERP_2021_2022_Grupo_1_DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\ERP_2021_2022_Grupo_1_DAL.csproj": {
+    "C:\\Users\\sadac\\Desktop\\ERP2022\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\ERP_2021_2022_Grupo_1_DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\ERP_2021_2022_Grupo_1_DAL.csproj",
+        "projectUniqueName": "C:\\Users\\sadac\\Desktop\\ERP2022\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\ERP_2021_2022_Grupo_1_DAL.csproj",
         "projectName": "ERP_2021_2022_Grupo_1_DAL",
-        "projectPath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\ERP_2021_2022_Grupo_1_DAL.csproj",
-        "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\obj\\",
+        "projectPath": "C:\\Users\\sadac\\Desktop\\ERP2022\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\ERP_2021_2022_Grupo_1_DAL.csproj",
+        "packagesPath": "C:\\Users\\sadac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sadac\\Desktop\\ERP2022\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\germa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sadac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -65,7 +65,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

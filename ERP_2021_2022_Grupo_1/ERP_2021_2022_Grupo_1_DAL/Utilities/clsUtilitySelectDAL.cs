@@ -8,7 +8,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
     /// <summary>
     /// This class will have all the properties and methods that we will be using in a class that executes SELECT instructions
     /// </summary>
-    public abstract class clsUtilidadSelectDAL : clsUtilitiesBaseDal
+    public abstract class clsUtilidadSelectDAL : clsUtilityBaseDal
     {
         //NOTE: The methods in this class don't manage any SqlException as the raises it so the method that calls it handle them 
         #region public properties

@@ -235,7 +235,11 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+<<<<<<< Updated upstream
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
       }
     }
   },
@@ -244,7 +248,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< Updated upstream
       "message": "Problema al leer el archivo de caché D:\\PROGRAMACION\\Proyecto SGEMP\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\obj\\project.nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
+=======
+      "message": "Problema al leer el archivo de caché C:\\Users\\sadac\\Desktop\\ERP2022\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\obj\\project.nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
+>>>>>>> Stashed changes
     }
   ]
 }

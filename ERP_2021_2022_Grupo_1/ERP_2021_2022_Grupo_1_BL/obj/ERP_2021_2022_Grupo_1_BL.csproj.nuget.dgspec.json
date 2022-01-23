@@ -13,8 +13,17 @@
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
         "outputPath": "D:\\PROGRAMACION\\Proyecto SGEMP\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\obj\\",
         "projectStyle": "PackageReference",
+<<<<<<< Updated upstream
         "configFilePaths": [
           "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sadac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +66,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
         }
       }
     }

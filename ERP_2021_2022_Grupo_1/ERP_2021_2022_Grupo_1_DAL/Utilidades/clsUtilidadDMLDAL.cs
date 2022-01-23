@@ -7,14 +7,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
     /// <summary>
     /// Contains all the attributes and methos that are ALWAYS used in the classes that execute DML sentences, Insert, Update, Delete...
     /// </summary>
-    public abstract class clsUtilidadDMLDAL : clsUtilidadBaseDAL
+    public abstract class clsUtilidadDMLDAL : clsUtilitiesBaseDal
     {
-        //NOT: This class' methods don't catch any SqlException as they raise it so the method that calls it handle them
+        //NOT: This class methods don't catch any SqlException as they raise it so the method that calls it handle them
 
         #region public methods
         /// <summary>
-        /// <b>Prototipe:</b> public static int executeDMLSentence(String dmlSentence)<br/>
-        /// <b>Comments:</b> Executes a DML sentence<br/>
+        /// <b>Prototype:</b> public static int executeDMLSentence(String dmlSentence)<br/>
+        /// <b>Commentaries:</b> Executes a DML sentence<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Through las propiedades heredadas y una sentenciaDML, ejecuta dicha sentencia y devolviendo
         /// el numero de filas afectado
@@ -23,9 +23,9 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         /// <returns> int representando el número de filas afectadas por dicha sentenciaDML</returns>
         public static int executeDMLSentence(String dmlSentence)
         {
-            MiComando.CommandText = dmlSentence;
-            MiComando.Connection = MiConexion.Conexion;
-            return MiComando.ExecuteNonQuery();
+            MyCommand.CommandText = dmlSentence;
+            MyCommand.Connection = MiConexion.Conexion;
+            return MyCommand.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -40,16 +40,16 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         /// <returns> int representando el número de filas afectadas por dicha sentenciaDML</returns>
         public static int ejecutarSentenciaDMLCondicion(String sentenciaDML, int condicion)
         {
-            MiComando.Parameters.Add("@param", System.Data.SqlDbType.Int).Value = condicion;
-            MiComando.CommandText = sentenciaDML + "@param";
-            MiComando.Connection = MiConexion.Conexion;
-            return MiComando.ExecuteNonQuery();
+            MyCommand.Parameters.Add("@param", System.Data.SqlDbType.Int).Value = condicion;
+            MyCommand.CommandText = sentenciaDML + "@param";
+            MyCommand.Connection = MiConexion.Conexion;
+            return MyCommand.ExecuteNonQuery();
         }
 
         /// /// <summary>
         /// <b>Prototipo:</b> public static int ejecutarProcedimientoAlmacenado(String procedimiento)<br/>
         /// <b>Comentarios:</b> Ejecuta un procedimiento almacenado<br/>
-        /// <b>Precondiciones:</b> si el SP tiene variables, estas ya deben haber sido instanciadas en MiComando<br/>
+        /// <b>Precondiciones:</b> si el SP tiene variables, estas ya deben haber sido instanciadas en MyCommand<br/>
         /// <b>Postcondiciones:</b> Mediante las propiedades heredadas y un procedimiento pasado por parámetro
         /// ejecuta dicho SP, al final, devuelve el numero de filas afectado
         /// </summary>
@@ -58,10 +58,10 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         /// <returns> int representando el número de filas afectadas por dicha sentenciaDML</returns>
         public static int ejecutarProcedimientoAlmacenado(String procedimiento)
         {
-            MiComando.CommandType = System.Data.CommandType.StoredProcedure;
-            MiComando.CommandText = procedimiento;
-            MiComando.Connection = MiConexion.Conexion;
-            return MiComando.ExecuteNonQuery();
+            MyCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            MyCommand.CommandText = procedimiento;
+            MyCommand.Connection = MiConexion.Conexion;
+            return MyCommand.ExecuteNonQuery();
 
         }
         #endregion

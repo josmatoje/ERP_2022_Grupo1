@@ -10,25 +10,25 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
     /// Has all the attributes and methods that are used when we are working with data from the DAL layer,
     /// like the conection, the command and opening that conection
     /// </summary>
-    public abstract class clsUtilidadBaseDAL
+    public abstract class clsUtilitiesBaseDal
     {
-        #region propiedades publicas
+        #region public properties
         public static clsMyConnection MiConexion { get; set; }
-        public static SqlCommand MiComando { get; set; }
+        public static SqlCommand MyCommand { get; set; }
         #endregion
-        #region metodos publicos
+        #region public methods
         /// <summary>
         /// <b>Prototype:</b> public static void openConection()<br/>
         /// <b>Commentaries:</b> Method for opening a conection to a DB<br/>
         /// <b>Preconditions:</b> None<br/>
-        /// <b>Postconditions:</b> Los atributos MiConexion y MiCommando son instanciados,luego, se abre una conexión a la BD guardada en los atributos
-        /// del objeto tipo MiConexion
+        /// <b>Postconditions:</b> The attributes from MyConnection and MyCommand are instantiated, then, it opens a connection to the DB saved in the attributes
+        /// from the object MyConnection
         /// </summary>
         public static void instanciarConexion()
         {
-            MiConexion = new clsMyConnection();
-            MiComando = new SqlCommand();
-            MiConexion.getConnection();
+            MyConnection = new clsMyConnection();
+            MyCommand = new SqlCommand();
+            MyConnection.getConnection();
         }
         #endregion
     }

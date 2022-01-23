@@ -24,7 +24,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         /// <b>Postconditions:</b> The attributes from MyConnection and MyCommand are instantiated, then, it opens a connection to the DB saved in the attributes
         /// from the object MyConnection
         /// </summary>
-        public static void instanciarConexion()
+        public static void openConection()
         {
             MyConnection = new clsMyConnection();
             MyCommand = new SqlCommand();

@@ -199,11 +199,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\germa\\Source\\Repos\\GermanBustamante\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
+      "projectUniqueName": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
       "projectName": "ERP_2021_2022_Grupo_1_API",
-      "projectPath": "C:\\Users\\germa\\Source\\Repos\\GermanBustamante\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
+      "projectPath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
       "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\germa\\Source\\Repos\\GermanBustamante\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\obj\\",
+      "outputPath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

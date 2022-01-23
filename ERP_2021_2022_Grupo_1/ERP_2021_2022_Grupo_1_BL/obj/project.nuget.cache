@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DWdzJmRLjwK2xzCCo9gxl3rdpMm0M7IKABrGwwzrHGdm5dQnMrknwOqzJs9/W6tX1K3SirgxmpEyscEVipDBWw==",
+  "dgSpecHash": "B+6U+q/GR9MhM+4WUl+cKb1/bUmlKWE8URiw82wo1Yx16u0kvPbkQmyTVylhTPNPNwufH5OTp4uBd6f9y75PHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\germa\\Source\\Repos\\GermanBustamante\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\ERP_2021_2022_Grupo_1_BL.csproj",
+  "projectFilePath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\ERP_2021_2022_Grupo_1_BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\germa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\germa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"

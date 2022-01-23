@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L3kFDkVo96P5g19oxz8hv/E6o0RkhCXIz5eYjGGhZG9VjNKy+/ox+AsrK0lnobaSqyRaJAZaMbTxE4UW60I6xw==",
+  "dgSpecHash": "N3LhN7mWBk4LT/1+0rHxjQWNrMWzBBOBoZc/kAnGL+DO3Cles7ayrdmLAPduq00OQMk6xFSiMkCvaXkbivUMoQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\germa\\Source\\Repos\\GermanBustamante\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
+  "projectFilePath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\germa\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\germa\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

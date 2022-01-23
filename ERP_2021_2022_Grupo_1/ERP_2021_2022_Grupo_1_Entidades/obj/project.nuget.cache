@@ -1,24 +1,18 @@
-<<<<<<< HEAD
 {
   "version": 2,
-  "dgSpecHash": "ci+PmpIz9C1tGuSIrk2D3OuNlCokO9EPU1vpNTnQYKhvHmO+pK182KgWZoMCQjNlTj/JbrStmssZU3RihCuRuQ==",
+  "dgSpecHash": "TOKf3x/6Xky5wubKOIGvSmQRZGY7eBxXY9hYcA2fgZ7YWRcjHPxwOYF+oB0ENdX7iVvg6pGP4aXXuIVFR5Q4Xg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sadac\\Desktop\\ERP2022\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_Entidades\\ERP_2021_2022_Grupo_1_Entidades.csproj",
+  "projectFilePath": "D:\\PROGRAMACION\\Proyecto SGEMP\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_Entidades\\ERP_2021_2022_Grupo_1_Entidades.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sadac\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\sadac\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\usuario\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\usuario\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
-  "logs": []
-=======
-{
-  "version": 2,
-  "dgSpecHash": "IUQE866BGgnXkpkw6oHv2sCy6LHWOEDdOF7PcBd0c0P1/FByOO9WCdgytAASb7gJADYDsIbXPunv+zlXNLaaPA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Antonio Quevedo\\Desktop\\Antonio\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_Entidades\\ERP_2021_2022_Grupo_1_Entidades.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Antonio Quevedo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Antonio Quevedo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
-  "logs": []
->>>>>>> Backend
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\PROGRAMACION\\Proyecto SGEMP\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_Entidades\\obj\\project.nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
+    }
+  ]
 }

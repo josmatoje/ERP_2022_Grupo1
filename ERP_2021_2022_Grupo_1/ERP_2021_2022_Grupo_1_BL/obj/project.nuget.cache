@@ -1,24 +1,18 @@
-<<<<<<< HEAD
 {
   "version": 2,
-  "dgSpecHash": "z1vibTMut02A/qbpJ5apo6fDsSUHSctQoA94vHDRpO1WHdC9XOthQex+08LiNuXQyVbS56KOIPbN+QXzQEgecw==",
+  "dgSpecHash": "RtSEykjkMJrlVzPpmDjekohtV2hS3pQnQusG1ghEc4qRCp/3g13nVrqwqgAqj+KPhwwT6rs4wXin5ZI5tPBZkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sadac\\Desktop\\ERP2022\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\ERP_2021_2022_Grupo_1_BL.csproj",
+  "projectFilePath": "D:\\PROGRAMACION\\Proyecto SGEMP\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\ERP_2021_2022_Grupo_1_BL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sadac\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\sadac\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\usuario\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\usuario\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
-  "logs": []
-=======
-{
-  "version": 2,
-  "dgSpecHash": "uvM6Yii171Nj0OhQsIFgqxS/ITZtK0gBikpyPWXjYxWwyfbVEkqsF/gARJb/L+5qjl/YLPPVVMiqbH51n8VonQ==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Antonio Quevedo\\Desktop\\Antonio\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\ERP_2021_2022_Grupo_1_BL.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Antonio Quevedo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Antonio Quevedo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
-  "logs": []
->>>>>>> Backend
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\PROGRAMACION\\Proyecto SGEMP\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\obj\\project.nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
+    }
+  ]
 }

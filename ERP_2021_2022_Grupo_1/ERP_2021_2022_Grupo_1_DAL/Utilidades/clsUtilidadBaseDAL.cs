@@ -7,8 +7,8 @@ using System.Text;
 namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
 {
     /// <summary>
-    /// Contiene todos los atributos y metodos que SIEMPRE se usan al trabajar con datos en la capa DAL, 
-    /// como la conexion, el comando, e instanciar abrir dicha conexion 
+    /// Has all the attributes and methods that are used when we are working with data from the DAL layer,
+    /// like the conection, the command and opening that conection
     /// </summary>
     public abstract class clsUtilidadBaseDAL
     {
@@ -18,10 +18,10 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         #endregion
         #region metodos publicos
         /// <summary>
-        /// <b>Prototipo:</b> public static void instanciarConexion()<br/>
-        /// <b>Comentarios:</b> Método que instancia una conexión a una BBDD<br/>
-        /// <b>Precondiciones:</b> ninguna<br/>
-        /// <b>Postcondiciones:</b> Los atributos MiConexion y MiCommando son instanciados,luego, se abre una conexión a la BD guardada en los atributos
+        /// <b>Prototype:</b> public static void openConection()<br/>
+        /// <b>Commentaries:</b> Method for opening a conection to a DB<br/>
+        /// <b>Preconditions:</b> None<br/>
+        /// <b>Postconditions:</b> Los atributos MiConexion y MiCommando son instanciados,luego, se abre una conexión a la BD guardada en los atributos
         /// del objeto tipo MiConexion
         /// </summary>
         public static void instanciarConexion()

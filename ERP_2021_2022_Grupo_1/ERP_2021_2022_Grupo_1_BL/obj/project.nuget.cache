@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "B+6U+q/GR9MhM+4WUl+cKb1/bUmlKWE8URiw82wo1Yx16u0kvPbkQmyTVylhTPNPNwufH5OTp4uBd6f9y75PHg==",
+  "dgSpecHash": "uvM6Yii171Nj0OhQsIFgqxS/ITZtK0gBikpyPWXjYxWwyfbVEkqsF/gARJb/L+5qjl/YLPPVVMiqbH51n8VonQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\ERP_2021_2022_Grupo_1_BL.csproj",
+  "projectFilePath": "C:\\Users\\Antonio Quevedo\\Desktop\\Antonio\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_BL\\ERP_2021_2022_Grupo_1_BL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\germa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\germa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Antonio Quevedo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Antonio Quevedo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

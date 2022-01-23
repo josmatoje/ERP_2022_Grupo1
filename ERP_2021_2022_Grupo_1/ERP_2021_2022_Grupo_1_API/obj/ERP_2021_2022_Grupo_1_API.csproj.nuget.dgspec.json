@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj": {}
+    "C:\\Users\\Antonio Quevedo\\Desktop\\Antonio\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj": {
+    "C:\\Users\\Antonio Quevedo\\Desktop\\Antonio\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
+        "projectUniqueName": "C:\\Users\\Antonio Quevedo\\Desktop\\Antonio\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
         "projectName": "ERP_2021_2022_Grupo_1_API",
-        "projectPath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
-        "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\germa\\Desktop\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\obj\\",
+        "projectPath": "C:\\Users\\Antonio Quevedo\\Desktop\\Antonio\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
+        "packagesPath": "C:\\Users\\Antonio Quevedo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Antonio Quevedo\\Desktop\\Antonio\\ERP_2022_Grupo1\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\germa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Antonio Quevedo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -59,6 +59,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.12, 5.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
+namespace ERP_2021_2022_Grupo_1_DAL.Utilities
 {
     /// <summary>
     /// This class will have all the properties and methods that we will be using in a class that executes SELECT instructions
     /// </summary>
-    public abstract class clsUtilidadSelectDAL : clsUtilityBaseDal
+    public abstract class clsUtilitySelectDAL : clsUtilityBaseDAL
     {
         //NOTE: The methods in this class don't manage any SqlException as the raises it so the method that calls it handle them 
         #region public properties
@@ -30,9 +30,9 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         /// <returns> SqlDataReader flujo de filas de solo avance resultante de la instrucción</returns>
         public static SqlDataReader ejecutarSelectCondicion(String instruccionSelect, int condicion)
         {
-            MyCommand.Parameters.Add(ID_PARAMETRO, System.Data.SqlDbType.Int).Value = condicion;
-            MyCommand.Connection = MiConexion.Conexion;
-            MyCommand.CommandText = instruccionSelect + ID_PARAMETRO;
+            MyCommand.Parameters.Add(ID_PARAMETER, System.Data.SqlDbType.Int).Value = condicion;
+            MyCommand.Connection = MyConnection.Conexion;
+            MyCommand.CommandText = instruccionSelect + ID_PARAMETER;
             return MyCommand.ExecuteReader();
         }
 
@@ -48,9 +48,9 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         /// <returns> SqlDataReader flujo de filas de solo avance resultante de la instrucción</returns>
         public static SqlDataReader ejecutarSelectCondicion(String instruccionSelect, String condicion)
         {
-            MyCommand.Parameters.Add(ID_PARAMETRO, System.Data.SqlDbType.VarChar).Value = condicion;
-            MyCommand.Connection = MiConexion.Conexion;
-            MyCommand.CommandText = instruccionSelect + ID_PARAMETRO;
+            MyCommand.Parameters.Add(ID_PARAMETER, System.Data.SqlDbType.VarChar).Value = condicion;
+            MyCommand.Connection = MyConnection.Conexion;
+            MyCommand.CommandText = instruccionSelect + ID_PARAMETER;
             return MyCommand.ExecuteReader();
         }
 
@@ -66,7 +66,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         public static SqlDataReader ejecutarSelect(String instruccionSelect)
         {
             MyCommand.CommandText = instruccionSelect;
-            MyCommand.Connection = MiConexion.Conexion;
+            MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteReader();
         }
 
@@ -78,8 +78,8 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         /// </summary>
         public static void cerrarFlujos()
         {
-            MiConexion.closeConnection();
-            MiLector.Close();
+            MyConnection.closeConnection();
+            MyReader.Close();
         }
         #endregion
     }

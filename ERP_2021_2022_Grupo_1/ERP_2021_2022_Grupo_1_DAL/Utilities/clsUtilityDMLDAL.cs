@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
+namespace ERP_2021_2022_Grupo_1_DAL.Utilities
 {
     /// <summary>
     /// Contains all the attributes and methos that are ALWAYS used in the classes that execute DML sentences, Insert, Update, Delete...
     /// </summary>
-    public abstract class clsUtilidadDMLDAL : clsUtilitiesBaseDal
+    public abstract class clsUtilidadDMLDAL : clsUtilityBaseDAL
     {
         //NOT: This class methods don't catch any SqlException as they raise it so the method that calls it handle them
 
@@ -24,7 +24,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         public static int executeDMLSentence(String dmlSentence)
         {
             MyCommand.CommandText = dmlSentence;
-            MyCommand.Connection = MiConexion.Conexion;
+            MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteNonQuery();
         }
 
@@ -42,7 +42,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         {
             MyCommand.Parameters.Add("@param", System.Data.SqlDbType.Int).Value = condicion;
             MyCommand.CommandText = sentenciaDML + "@param";
-            MyCommand.Connection = MiConexion.Conexion;
+            MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteNonQuery();
         }
 
@@ -60,7 +60,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
         {
             MyCommand.CommandType = System.Data.CommandType.StoredProcedure;
             MyCommand.CommandText = procedimiento;
-            MyCommand.Connection = MiConexion.Conexion;
+            MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteNonQuery();
 
         }

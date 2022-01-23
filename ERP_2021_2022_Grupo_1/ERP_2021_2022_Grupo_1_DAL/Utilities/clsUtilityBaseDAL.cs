@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace ERP_2021_2022_Grupo_1_DAL.Utilidades
+namespace ERP_2021_2022_Grupo_1_DAL.Utilities
 {
     /// <summary>
     /// Has all the attributes and methods that are used when we are working with data from the DAL layer,
     /// like the conection, the command and opening that conection
     /// </summary>
-    public abstract class clsUtilitiesBaseDal
+    public abstract class clsUtilityBaseDAL
     {
         #region public properties
-        public static clsMyConnection MiConexion { get; set; }
+        public static clsMyConnection MyConnection { get; set; }
         public static SqlCommand MyCommand { get; set; }
         #endregion
         #region public methods

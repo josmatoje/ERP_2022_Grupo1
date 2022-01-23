@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "WWQC/L6avdaLy5vO0X0u5TcDqyGoShpJilGtBsXY6ui+jUPCsvEQ0RUfE4Yf2r8MlcpWrvwLOVPbElrLYwgqUg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\germa\\Source\\Repos\\GermanBustamante\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_Entidades\\ERP_2021_2022_Grupo_1_Entidades.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\germa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\germa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

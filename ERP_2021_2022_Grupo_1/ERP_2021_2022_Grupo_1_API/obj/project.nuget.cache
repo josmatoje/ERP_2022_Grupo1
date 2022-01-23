@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "L3kFDkVo96P5g19oxz8hv/E6o0RkhCXIz5eYjGGhZG9VjNKy+/ox+AsrK0lnobaSqyRaJAZaMbTxE4UW60I6xw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\germa\\Source\\Repos\\GermanBustamante\\ERP_2021_2022_Grupo_1\\ERP_2021_2022_Grupo_1_API\\ERP_2021_2022_Grupo_1_API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\germa\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\germa\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\germa\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\germa\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\germa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\germa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

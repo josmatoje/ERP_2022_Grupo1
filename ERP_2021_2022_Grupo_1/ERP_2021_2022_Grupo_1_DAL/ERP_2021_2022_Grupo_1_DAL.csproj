@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Listados\" />
-    <Folder Include="Manejadoras\" />
+    <Folder Include="Manager\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ERP_2021_2022_Grupo_1_Entities\ERP_2021_2022_Grupo_1_Entities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,12 +8,12 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
     public class clsProductsListDAL
     {
         /// <summary>
-        /// <b>Prototype:</b> public static List<clsProduct> getProductsListDAL()<br/>
+        /// <b>Prototype:</b> public static List(clsProduct) getProductsListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of products from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a list with the products from the Product table
         /// </summary>
-        /// <returns> List<clsProduct> productList representing the list of products from the DB</returns>
+        /// <returns> List(clsProduct) productList representing the list of products from the DB</returns>
         public static List<clsProduct> getProductsListDAL()
         {
             List<clsProduct> productList = new List<clsProduct>();

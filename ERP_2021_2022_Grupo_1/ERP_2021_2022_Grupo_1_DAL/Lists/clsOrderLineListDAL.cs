@@ -8,12 +8,12 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
     public class clsOrderLineListDAL
     {
         /// <summary>
-        /// <b>Prototype:</b> public static List<clsOrderLine> getOrderLineListDAL()<br/>
+        /// <b>Prototype:</b> public static List(clsOrderLine) getOrderLineListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of order line list from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a list with the order line list from the OrderLine table
         /// </summary>
-        /// <returns> List<clsOrderLine> orderLineList representing the list of order line from the DB</returns>
+        /// <returns> List(clsOrderLine) orderLineList representing the list of order line from the DB</returns>
         public static List<clsOrderLine> getOrderLineListDAL()
         {
             List<clsOrderLine> orderLineList = new List<clsOrderLine>();

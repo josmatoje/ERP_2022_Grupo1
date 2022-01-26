@@ -26,6 +26,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a specific supplier from the supplier table
         /// </summary>
+        /// <param name="int id"></param>
         /// <returns> clsSupplier supplier representing the specific supplier from the DB</returns>
         public static clsSupplier getSupplierDAL(int id)
         {

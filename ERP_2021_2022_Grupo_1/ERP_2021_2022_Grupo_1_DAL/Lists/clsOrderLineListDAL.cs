@@ -26,6 +26,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a specific order from the OrderLine table
         /// </summary>
+        /// <param name="int id"></param>
         /// <returns> clsOrderLine orderLine representing the specific order line from the DB</returns>
         public static clsOrderLine getOrderLineDAL(int id)
         {

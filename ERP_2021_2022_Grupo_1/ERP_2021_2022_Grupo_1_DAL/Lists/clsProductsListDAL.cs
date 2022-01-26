@@ -26,6 +26,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a specific product from the Product table
         /// </summary>
+        /// <param name="int id"></param>
         /// <returns> clsProduct product representing the specific product from the DB</returns>
         public static clsProduct getProductDAL(int id)
         {

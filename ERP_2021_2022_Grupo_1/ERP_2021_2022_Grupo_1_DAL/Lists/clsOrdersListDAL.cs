@@ -25,6 +25,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a specific order from the Order table
         /// </summary>
+        /// <param name="int id"></param>
         /// <returns> clsOrder order representing the specific order from the DB</returns>
         public static clsOrder getOrderDAL(int id)
         {

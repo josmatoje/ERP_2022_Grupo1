@@ -9,35 +9,38 @@ namespace ERP_2021_2022_Grupo_1_BL.Manager
     public class clsOrderManagerBL
     {
         /// <summary>
-        /// <b>Prototype:</b> public static bool createOrderBL(clsOrder order)<br/>
-        /// <b>Commentaries:</b>Applies the business logic to create an order<br/>
+        /// <b>Prototype:</b> public static int createOrderBL(clsOrder order)<br/>
+        /// <b>Commentaries:</b>Applies the business logic to store an order<br/>
         /// <b>Preconditions:</b> order is valid<br/>
-        /// <b>Postconditions:</b> Returns boolean indicating if the order was succesfully created
+        /// <b>Postconditions:</b> Returns int indicating how many rows were changed (stored)
         /// </summary>
-        /// <returns> bool succesful
-        public static bool createOrderBL(clsOrder order)
+        /// <param name="order">clsOrder</param>
+        /// <returns>int rowsChanged</returns>
+        public static int createOrderBL(clsOrder order)
         {
             return clsOrderManagerDAL.createOrderDAL(order);
         }
         /// <summary>
-        /// <b>Prototype:</b> public static bool updateOrderBL(clsOrder order)<br/>
+        /// <b>Prototype:</b> public static int updateOrderBL(clsOrder order)<br/>
         /// <b>Commentaries:</b>Applies the business logic to update an order<br/>
         /// <b>Preconditions:</b> order is valid<br/>
-        /// <b>Postconditions:</b> Returns boolean indicating if the order was succesfully updated
+        /// <b>Postconditions:</b> Returns int indicating how many rows were changed (updated)
         /// </summary>
-        /// <returns> bool succesful
-        public static bool updateOrderBL(clsOrder order)
+        /// <param name="order">clsOrder</param>
+        /// <returns>int rowsChanged</returns>
+        public static int updateOrderBL(clsOrder order)
         {
             return clsOrderManagerDAL.updateOrderDAL(order);
         }
         /// <summary>
-        /// <b>Prototype:</b> public static bool deleteOrderBL(int id)<br/>
+        /// <b>Prototype:</b> public static int deleteOrderBL(int id)<br/>
         /// <b>Commentaries:</b>Applies the business logic to delete an order<br/>
         /// <b>Preconditions:</b> id exists<br/>
-        /// <b>Postconditions:</b> Returns boolean indicating if the order was succesfully deleted
+        /// <b>Postconditions:</b> Returns int indicating how many rows were changed (deleted)
         /// </summary>
-        /// <returns> bool succesful
-        public static bool deleteOrderBL(int id)
+        /// <param name="id">int</param>
+        /// <returns>int rowsChanged</returns>
+        public static int deleteOrderBL(int id)
         {
             return clsOrderManagerDAL.deleteOrderDAL(id);
         }

@@ -1,0 +1,35 @@
+﻿using ERP_2021_2022_Grupo_1_DAL.Conexion;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Text;
+
+namespace ERP_2021_2022_Grupo_1_DAL.Utilities
+{
+    /// <summary>
+    /// Has all the attributes and methods that are used when we are working with data from the DAL layer,
+    /// like the conection, the command and opening that conection
+    /// </summary>
+    public abstract class clsUtilityBaseDAL
+    {
+        #region public properties
+        public static clsMyConnection MyConnection { get; set; }
+        public static SqlCommand MyCommand { get; set; }
+        #endregion
+        #region public methods
+        /// <summary>
+        /// <b>Prototype:</b> public static void openConection()<br/>
+        /// <b>Commentaries:</b> Method for opening a conection to a DB<br/>
+        /// <b>Preconditions:</b> None<br/>
+        /// <b>Postconditions:</b> The attributes from MyConnection and MyCommand are instantiated, then, it opens a connection to the DB saved in the attributes
+        /// from the object MyConnection
+        /// </summary>
+        public static void openConection()
+        {
+            MyConnection = new clsMyConnection();
+            MyCommand = new SqlCommand();
+            MyConnection.getConnection();
+        }
+        #endregion
+    }
+}

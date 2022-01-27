@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ERP_2021_2022_Grupo_1_BL\ERP_2021_2022_Grupo_1_BL.csproj" />
+    <ProjectReference Include="..\ERP_2021_2022_Grupo_1_Entities\ERP_2021_2022_Grupo_1_Entities.csproj" />
+  </ItemGroup>
+
+</Project>

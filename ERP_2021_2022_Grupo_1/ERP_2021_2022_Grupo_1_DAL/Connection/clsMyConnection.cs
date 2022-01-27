@@ -18,11 +18,11 @@ namespace ERP_2021_2022_Grupo_1_DAL.Conexion
         #region constructors
         public clsMyConnection()
         {
-            Server = "servidor-german-sql.database.windows.net";
-            DataBase = "PersonasDepartamentosDB";
-            User = "gdebustamante";
+            Server = "nadine.database.windows.net";
+            DataBase = "BBDDNadine";
+            User = "saboresdelatierra";
             Pass = "#Mitesoro";
-        }
+    }
         //Con parámetros por si quisiera cambiar las conexiones
         public clsMyConnection(String server, String database, String user, String pass)
         {

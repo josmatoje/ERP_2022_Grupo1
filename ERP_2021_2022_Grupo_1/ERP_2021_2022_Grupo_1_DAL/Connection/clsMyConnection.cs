@@ -7,7 +7,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Conexion
 {
     public class clsMyConnection
     {
-        #region propiedades publicas
+        #region public properties
         public String Server { get; set; }
         public String DataBase { get; set; }
         public String User { get; set; }
@@ -15,7 +15,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Conexion
         public SqlConnection Conexion { get; set; }
         #endregion
 
-        #region constructores
+        #region constructors
         public clsMyConnection()
         {
             Server = "servidor-german-sql.database.windows.net";
@@ -33,10 +33,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Conexion
         }
         #endregion
 
-
-
-
-        #region metodos publicos
+        #region public methods
         /// <summary>
         /// Método que abre una conexión con la base de datos
         /// </summary>

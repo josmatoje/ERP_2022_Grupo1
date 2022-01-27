@@ -6,7 +6,7 @@ using ERP_2021_2022_Grupo_1_Entities;
 
 namespace ERP_2021_2022_Grupo_1_BL.Lists
 {
-    public class clsOrderLineListBL
+    public class clsOrderLinesListBL
     {
         /// <summary>
         /// <b>Prototype:</b> public static List(clsOrderLine) getOrderLineListBL()<br/>
@@ -17,7 +17,7 @@ namespace ERP_2021_2022_Grupo_1_BL.Lists
         /// <returns>List(clsOrderLine) orderLineList representing the list of order line from the DAL</returns>
         public static List<clsOrderLine> getOrderLineListBL()
         {
-            return clsOrderLineListDAL.getOrderLineListDAL();
+            return clsOrderLinesListDAL.getOrderLineListDAL();
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace ERP_2021_2022_Grupo_1_BL.Lists
         /// <returns> clsOrder order representing the specific order line from the DAL</returns>
         public static clsOrderLine getOrderLineBL(int id)
         {
-            return clsOrderLineListDAL.getOrderLineDAL(id);
+            return clsOrderLinesListDAL.getOrderLineDAL(id);
         }
     }
 }

@@ -5,7 +5,7 @@ using ERP_2021_2022_Grupo_1_Entities;
 
 namespace ERP_2021_2022_Grupo_1_DAL.Lists
 {
-    public class clsOrderLineListDAL
+    public class clsOrderLinesListDAL
     {
         /// <summary>
         /// <b>Prototype:</b> public static List(clsOrderLine) getOrderLineListDAL()<br/>

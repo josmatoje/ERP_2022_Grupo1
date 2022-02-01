@@ -124,7 +124,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Put(int id, [FromBody] clsOrder oOrder)
         {
             int rowsAffected = 0;
-            IActionResult result;
+            IActionResult result = Ok();
             try
             {
                 rowsAffected = clsOrderManagerBL.updateOrderBL(oOrder);
@@ -136,10 +136,6 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             if (rowsAffected == 0)
             {
                 result = NotFound();
-            }
-            else
-            {
-                result = Ok();
             }
             return result;
         }

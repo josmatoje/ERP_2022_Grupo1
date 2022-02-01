@@ -1,6 +1,17 @@
 ﻿using ERP_2021_2022_Grupo_1_Entities;
+using ERP_2021_2022_Grupo_1_BL.Lists;
+using ERP_2021_2022_Grupo_1_BL.Manager;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Web.Http;
+using FromBodyAttribute = Microsoft.AspNetCore.Mvc.FromBodyAttribute;
+using HttpDeleteAttribute = Microsoft.AspNetCore.Mvc.HttpDeleteAttribute;
+using HttpGetAttribute = Microsoft.AspNetCore.Mvc.HttpGetAttribute;
+using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
+using HttpPutAttribute = Microsoft.AspNetCore.Mvc.HttpPutAttribute;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,6 +38,12 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            int rowsAffected = 0;
+            IActionResult result;
+            try
+            {
+                rowsAffected = clsOrdersListBL.getOrdersListBL();
+            }
             return null;//TODO
         }
 
@@ -67,7 +84,25 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] clsOrder oOrder)
         {
-            return null;
+            int rowsAffected = 0;
+            IActionResult result;
+            try
+            {
+                rowsAffected = clsOrderManagerBL.createOrderBL(oOrder);
+            }
+            catch (HttpResponseException e)
+            {
+                result = BadRequest();
+            }
+            if (rowsAffected == 0)
+            {
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok();
+            }
+            return result;
         }
 
 
@@ -88,7 +123,25 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] clsOrder oOrder)
         {
-            return null;
+            int rowsAffected = 0;
+            IActionResult result;
+            try
+            {
+                rowsAffected = clsOrderManagerBL.updateOrderBL(oOrder);
+            }
+            catch (HttpResponseException e)
+            {
+                result = BadRequest();
+            }
+            if (rowsAffected == 0)
+            {
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok();
+            }
+            return result;
         }
 
         /// <summary>
@@ -107,7 +160,26 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            int rowsAffected = 0;
+            IActionResult result;
             return null;
+            try
+            {
+                rowsAffected = clsOrderManagerBL.deleteOrderBL(id);
+            }
+            catch (HttpResponseException e)
+            {
+                result = BadRequest();
+            }
+            if (rowsAffected == 0)
+            {
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok();
+            }
+            return result;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> clsOrderLine orderLine representing the specific order line from the DB</returns>
         public static clsOrderLine getOrderLineDAL(int id)
         {
-            clsOrderLine orderLine = new clsOrderLine();
+            clsOrderLine orderLine = new clsOrderLine(id);
             return orderLine;
         }
     }

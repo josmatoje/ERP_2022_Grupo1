@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
+using ERP_2021_2022_Grupo_1_DAL.Conexion;
+using ERP_2021_2022_Grupo_1_DAL.Utilities;
 using ERP_2021_2022_Grupo_1_Entities;
 
 namespace ERP_2021_2022_Grupo_1_DAL.Lists
 {
-    public class clsSuppliersListDAL
+    public class clsSuppliersListDAL : clsUtilitySelectDAL
     {
         /// <summary>
         /// <b>Prototype:</b> public static List(clsSupplier) getSuppliersListDAL()<br/>
@@ -17,6 +20,16 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static List<clsSupplier> getSuppliersListDAL()
         {
             List<clsSupplier> supplierList = new List<clsSupplier>();
+            executeSelect("SELECT * FROM Suppliers");
+            if (MyReader.HasRows)
+            {
+                while (MyReader.Read())
+                {
+                    clsSupplier supplier = new clsSupplier((int)MyReader["ID"],(string)MyReader["Name"]);
+                    supplierList.Add(supplier);
+                }
+            }
+            closeFlow();
             return supplierList;
         }
 
@@ -30,7 +43,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> clsSupplier supplier representing the specific supplier from the DB</returns>
         public static clsSupplier getSupplierDAL(int id)
         {
-            clsSupplier supplier = new clsSupplier();
+            clsSupplier supplier = null;
+            executeSelectCondition("SELECT * FROM Suppliers",id);
+            if (MyReader.HasRows)
+            {
+                supplier = new clsSupplier((int)MyReader["ID"], (string)MyReader["Name"]);
+            }
+            closeFlow();
             return supplier;
         }
     }

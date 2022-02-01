@@ -10,22 +10,22 @@ namespace ERP_2021_2022_Grupo_1_Entities
         string name;
         string description;
         double unitPrice;
-        string category;
+        int categoryId;
 
-        public clsProduct(int orderId, string name, string description, double unitPrice, string category)
+        public clsProduct(int orderId, string name, string description, double unitPrice, int categoryId)
         {
             this.orderId = orderId;
             this.name = name;
             this.description = description;
             this.unitPrice = unitPrice;
-            this.category = category;
+            this.categoryId = categoryId;
         }
 
         public int OrderId { get => orderId; }
         public string Name { get => name; set => name = value; }
         public string Description { get => description; set => description = value; }
         public double UnitPrice { get => unitPrice; set => unitPrice = value; }
-        public string Category { get => category; set => category = value; }
+        public int CategoryId { get => categoryId; set => categoryId = value; }
 
     }
 }

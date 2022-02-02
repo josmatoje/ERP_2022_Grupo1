@@ -23,9 +23,8 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         /// <returns>int rowsChanged</returns>
         public static void createOrderLineDAL(clsOrderLine orderLine)
         {
-            //ID es identity, el subtotal no se pone porque es calculado y faltan en la clase las FK orderID, productID
-            //MyCommand.Parameters.Add("@OrderID", System.Data.SqlDbType.Int).Value = 
-            //MyCommand.Parameters.Add("@ProductID", System.Data.SqlDbType.Int).Value = 
+            MyCommand.Parameters.Add("@OrderID", System.Data.SqlDbType.Int).Value = orderLine.OrderId;
+            MyCommand.Parameters.Add("@ProductID", System.Data.SqlDbType.Int).Value = orderLine.ProductId;
             MyCommand.Parameters.Add("@Quantity", System.Data.SqlDbType.Int).Value = orderLine.Quantity;
             MyCommand.Parameters.Add("@UnitPriceAtTime", System.Data.SqlDbType.Money).Value = orderLine.CurrentUnitPrice;
 

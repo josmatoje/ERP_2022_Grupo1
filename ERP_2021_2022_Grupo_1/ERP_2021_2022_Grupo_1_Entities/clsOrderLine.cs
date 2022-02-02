@@ -6,10 +6,12 @@ namespace ERP_2021_2022_Grupo_1_Entities
 {
     public class clsOrderLine
     {
-        int id;
-        int quantity;
-        double currentUnitPrice;
-        int subtotal;
+        private int id;
+        private int quantity;
+        private double currentUnitPrice;
+        private int subtotal;
+        private int orderId;
+        private int productId;
 
         public clsOrderLine(int id, int quantity, double currentUnitPrice, int subtotal)
         {
@@ -22,6 +24,9 @@ namespace ERP_2021_2022_Grupo_1_Entities
         public int Id { get => id; }
         public int Quantity { get => quantity; set => quantity = value; }
         public double CurrentUnitPrice { get => currentUnitPrice; set => currentUnitPrice = value; }
-        public int Subtotal { get => subtotal; set => subtotal = value; }
+        public int Subtotal { get => subtotal; }
+
+        public int OrderId { get => orderId; set => orderId = value; }
+        public int ProductId { get => productId; set => productId = value; }
     }
 }

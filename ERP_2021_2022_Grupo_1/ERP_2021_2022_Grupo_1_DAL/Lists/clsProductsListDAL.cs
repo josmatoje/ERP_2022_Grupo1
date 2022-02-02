@@ -20,12 +20,15 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static List<clsProduct> getProductsListDAL()
         {
             List<clsProduct> productList = new List<clsProduct>();
-            executeSelect("SELECT * FROM Products");
+            //executeSelect("SELECT * FROM Products");
+            executeSelect("SELECT P.ID, P.Name, P.Description, UnitPrice, C.Name AS Category from products AS P" +
+                            "INNER JOIN Categories AS C" +
+                            "ON P.CategoryID = C.ID");
             if (MyReader.HasRows)
             {
                 while (MyReader.Read())
                 {
-                    clsProduct product = new clsProduct((int)MyReader["ID"], (string)MyReader["Name"],(string)MyReader["Description"],(double)MyReader["UnitPrice"],(int)MyReader["CategoryID"]);
+                    clsProduct product = new clsProduct((int)MyReader["ID"], (string)MyReader["Name"],(string)MyReader["Description"],(double)MyReader["UnitPrice"],(string)MyReader["Category"]);
                     productList.Add(product);
                 }
             }
@@ -44,10 +47,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static clsProduct getProductDAL(int id)
         {
             clsProduct product = null;
-            executeSelectCondition("SELECT * FROM Products",id);
+            executeSelectCondition("SELECT P.ID, P.Name, P.Description, UnitPrice, C.Name AS Category from products AS P" +
+                                    "INNER JOIN Categories AS C" +
+                                    "ON P.CategoryID = C.ID"
+                                    , id);
             if (MyReader.HasRows)
             {
-                product = new clsProduct((int)MyReader["ID"], (string)MyReader["Name"], (string)MyReader["Description"], (double)MyReader["UnitPrice"], (int)MyReader["CategoryID"]);
+                product = new clsProduct((int)MyReader["ID"], (string)MyReader["Name"], (string)MyReader["Description"], (double)MyReader["UnitPrice"], (string)MyReader["Category"]);
             }
             closeFlow();
             return product;

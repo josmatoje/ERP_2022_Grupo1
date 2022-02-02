@@ -20,6 +20,13 @@ namespace ERP_2021_2022_Grupo_1_Entities
             this.currentUnitPrice = currentUnitPrice;
             this.subtotal = subtotal;
         }
+        public clsOrderLine()
+        {
+            this.id = 0;
+            this.quantity = 0;
+            this.currentUnitPrice = 0;
+            this.subtotal = 0;
+        }
 
         public int Id { get => id; }
         public int Quantity { get => quantity; set => quantity = value; }

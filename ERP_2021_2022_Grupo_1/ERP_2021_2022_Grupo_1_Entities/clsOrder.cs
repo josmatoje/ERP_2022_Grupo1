@@ -13,7 +13,7 @@ namespace ERP_2021_2022_Grupo_1_Entities
         private String notes;
         private int supplierId;
 
-        public clsOrder(int orderId, int total, DateTime orderDate, DateTime limitOrderDate, string notes,int supplierId)
+        public clsOrder(int orderId, int total, DateTime orderDate, DateTime limitOrderDate, string notes, int supplierId)
         {
             this.orderId = orderId;
             this.total = total;
@@ -21,6 +21,15 @@ namespace ERP_2021_2022_Grupo_1_Entities
             this.limitOrderDate = limitOrderDate;
             this.notes = notes;
             this.supplierId = supplierId;
+        }
+        public clsOrder()
+        {
+            this.orderId = 0;
+            this.total = 0;
+            this.orderDate = DateTime.Now;
+            this.limitOrderDate = DateTime.Now;
+            this.notes = "notes";
+            this.supplierId = 0;
         }
 
         public int OrderId { get => orderId; }

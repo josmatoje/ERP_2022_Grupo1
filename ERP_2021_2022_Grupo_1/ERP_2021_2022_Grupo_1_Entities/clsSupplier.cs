@@ -6,8 +6,8 @@ namespace ERP_2021_2022_Grupo_1_Entities
 {
     public class clsSupplier
     {
-        int idSupplier;
-        string name;
+        private int idSupplier;
+        private string name;
 
         public clsSupplier(int idSupplier, string name)
         {

@@ -8,7 +8,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
 {
     public class clsOrderLineManagerDAL : clsUtilityDMLDAL
     {
-        #region constantes
+        #region constants
         public const String UPDATE_INSTRUCTION_ORDER_LINE = "UPDATE OrderLines SET OrderID = @OrderID, ProductID = @ProductID, Quantity = @Quantity, UnitPriceAtTime = @UnitPriceAtTime WHERE ID = ";
         public const String INSERT_INSTRUCTION_ORDER_LINE = "INSERT INTO OrderLines VALUES (@OrderID, @ProductID, @Quantity, @UnitPriceAtTime)";
         public const String DELETE_INSTRUCTION_ORDER_LINE = "DELETE FROM OrderLines WHERE ID = @ID";
@@ -65,6 +65,15 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
             return resultado;
         }
 
+
+        /// <summary>
+        /// <b>Prototype:</b> private static void createCommand(clsOrderLine orderLine) <br/>
+        /// <b>Commentaries:</b>Create a command with orderLine atributes<br/>
+        /// <b>Preconditions:</b> orderLine not null<br/>
+        /// <b>Postconditions:</b> nothing
+        /// </summary>
+        /// <param name="orderLine"></param>
+
         private static void createCommand(clsOrderLine orderLine) {
             MyCommand.Parameters.Add("@OrderID", System.Data.SqlDbType.Int).Value = orderLine.OrderId;
             MyCommand.Parameters.Add("@ProductID", System.Data.SqlDbType.Int).Value = orderLine.ProductId;
@@ -75,3 +84,4 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
 
     }
 }
+#endregion

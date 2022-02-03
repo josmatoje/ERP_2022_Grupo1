@@ -9,13 +9,12 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
     public class clsOrderManagerDAL : clsUtilityDMLDAL
     {
 
-        #region constantes
+        #region constants
         public const String UPDATE_INSTRUCTION_ORDER = "UPDATE Order SET Total = @Total, OrderDate = @Orderdate, LimitDate = @LimitDate, Notes = @Notes, SupplierID = @SupplierID  WHERE ID = ";
         public const String INSERT_INSTRUCTION_ORDER = "INSERT INTO Order VALUES (@Total, @OrderDate, @LimitDate, @Notes, @Supplierid)";
         public const String DELETE_INSTRUCTION_ORDER = "DELETE FROM Order WHERE ID = @ID";
         #endregion
-
-
+        #region methods
         /// <summary>
         /// <b>Prototype:</b> public static int createOrderDAL(clsOrder order)<br/>
         /// <b>Commentaries:</b>Connects to the DB to store an order<br/>
@@ -64,6 +63,15 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
             return resultado;
         }
 
+
+        /// <summary>
+        /// <b>Prototype:</b> private static void createCommand(clsOrderLine orderLine) <br/>
+        /// <b>Commentaries:</b>Create a command with order atributes<br/>
+        /// <b>Preconditions:</b> order not null<br/>
+        /// <b>Postconditions:</b> nothing
+        /// </summary>
+        /// <param name="order"></param>
+
         private static void createCommand(clsOrder order) {
             MyCommand.Parameters.Add("@Total", System.Data.SqlDbType.Int).Value = order.Total;
             MyCommand.Parameters.Add("@OrderDate", System.Data.SqlDbType.Date).Value = order.OrderDate;
@@ -74,3 +82,4 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
 
     }
 }
+#endregion

@@ -69,7 +69,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <param name="id"></param>
         /// <returns>IActionResult depending on the result of the call</returns>
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public clsOrder Get(int id)
         {
             clsOrder oOrder;
             try
@@ -86,7 +86,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-            return null;
+            return oOrder;
         }
 
 
@@ -107,7 +107,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Post([FromBody] clsOrder oOrder)
         {
             int rowsAffected = 0;
-            IActionResult result;
+            IActionResult result = Ok();
             try
             {
                 rowsAffected = clsOrderManagerBL.createOrderBL(oOrder);
@@ -120,10 +120,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 result = NotFound();
             }
-            else
-            {
-                result = Ok();
-            }
+
             return result;
         }
 
@@ -179,7 +176,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Delete(int id)
         {
             int rowsAffected = 0;
-            IActionResult result;
+            IActionResult result = Ok();
             try
             {
                 rowsAffected = clsOrderManagerBL.deleteOrderBL(id);
@@ -192,10 +189,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 result = NotFound();
             }
-            else
-            {
-                result = Ok();
-            }
+
             return result;
         }
     }

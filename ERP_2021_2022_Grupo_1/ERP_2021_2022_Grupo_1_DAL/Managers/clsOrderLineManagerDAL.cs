@@ -6,7 +6,7 @@ using ERP_2021_2022_Grupo_1_DAL.Utilities;
 
 namespace ERP_2021_2022_Grupo_1_DAL.Managers
 {
-    public class clsOrderLineManagerDAL : clsUtilidadDMLDAL
+    public class clsOrderLineManagerDAL : clsUtilityDMLDAL
     {
         #region constantes
         public const String UPDATE_INSTRUCTION_ORDER_LINE = "UPDATE OrderLines SET OrderID = @OrderID, ProductID = @ProductID, Quantity = @Quantity, UnitPriceAtTime = @UnitPriceAtTime WHERE ID = ";
@@ -23,12 +23,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         /// </summary>
         /// <param name="orderLine">clsOrderLine</param>
         /// <returns>int rowsChanged</returns>
-        public static void createOrderLineDAL(clsOrderLine orderLine)
+        public static int createOrderLineDAL(clsOrderLine orderLine)
         {
-            MyCommand.Parameters.Add("@OrderID", System.Data.SqlDbType.Int).Value = orderLine.OrderId;
-            MyCommand.Parameters.Add("@ProductID", System.Data.SqlDbType.Int).Value = orderLine.ProductId;
-            MyCommand.Parameters.Add("@Quantity", System.Data.SqlDbType.Int).Value = orderLine.Quantity;
-            MyCommand.Parameters.Add("@UnitPriceAtTime", System.Data.SqlDbType.Money).Value = orderLine.CurrentUnitPrice;
+
+            createCommand(orderLine);
+            openConection();
+            int resultado = executeDMLSentence(INSERT_INSTRUCTION_ORDER_LINE); 
+            MyConnection.closeConnection();
+            return resultado;
 
         }
         /// <summary>
@@ -41,6 +43,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         /// <returns>int rowsChanged</returns>
         public static int updateOrderLineDAL(clsOrderLine orderLine)
         {
+            createCommand(orderLine);
             openConection();
             int resultado = orderLine.Id == 0 ? executeDMLSentence(INSERT_INSTRUCTION_ORDER_LINE) : executeDMLSentence(UPDATE_INSTRUCTION_ORDER_LINE);
             MyConnection.closeConnection();
@@ -56,11 +59,19 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         /// <returns>int rowsChanged</returns>
         public static int deleteOrderLineDAL(int id)
         {
-            int resultado = 0;
             openConection();
-            resultado = executeDMLSentenceCondition(DELETE_INSTRUCTION_ORDER_LINE, id);
-            return 0;
+            int resultado = executeDMLSentenceCondition(DELETE_INSTRUCTION_ORDER_LINE, id);
+            MyConnection.closeConnection();
+            return resultado;
         }
-        #endregion
+
+        private static void createCommand(clsOrderLine orderLine) {
+            MyCommand.Parameters.Add("@OrderID", System.Data.SqlDbType.Int).Value = orderLine.OrderId;
+            MyCommand.Parameters.Add("@ProductID", System.Data.SqlDbType.Int).Value = orderLine.ProductId;
+            MyCommand.Parameters.Add("@Quantity", System.Data.SqlDbType.Int).Value = orderLine.Quantity;
+            MyCommand.Parameters.Add("@UnitPriceAtTime", System.Data.SqlDbType.Money).Value = orderLine.CurrentUnitPrice;
+        }
+
+
     }
 }

@@ -20,9 +20,10 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> List(clsProduct) productList representing the list of products from the DB</returns>
         public static List<clsProduct> getProductsListDAL()
         {
+            openConection();
             List<clsProduct> productList = new List<clsProduct>();
             //executeSelect("SELECT * FROM Products");
-            executeSelect("SELECT P.ID, P.Name, P.Description, UnitPrice, C.Name AS Category from products AS P" +
+            MyReader = executeSelect("SELECT P.ID, P.Name, P.Description, UnitPrice, C.Name AS Category from products AS P" +
                             "INNER JOIN Categories AS C" +
                             "ON P.CategoryID = C.ID");
             if (MyReader.HasRows)
@@ -47,8 +48,9 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> clsProduct product representing the specific product from the DB</returns>
         public static clsProduct getProductDAL(int id)
         {
+            openConection();
             clsProduct product = null;
-            executeSelectCondition("SELECT P.ID, P.Name, P.Description, UnitPrice, C.Name AS Category from products AS P" +
+            MyReader = executeSelectCondition("SELECT P.ID, P.Name, P.Description, UnitPrice, C.Name AS Category from products AS P" +
                                     "INNER JOIN Categories AS C" +
                                     "ON P.CategoryID = C.ID"
                                     , id);

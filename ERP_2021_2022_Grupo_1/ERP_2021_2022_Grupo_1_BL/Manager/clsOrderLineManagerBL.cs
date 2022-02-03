@@ -1,4 +1,4 @@
-﻿using ERP_2021_2022_Grupo_1_DAL.Manager;
+﻿using ERP_2021_2022_Grupo_1_DAL.Managers;
 using ERP_2021_2022_Grupo_1_Entities;
 using System;
 using System.Collections.Generic;

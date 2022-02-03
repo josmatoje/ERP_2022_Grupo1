@@ -20,3 +20,11 @@ ERP_2021_2022_Grupo_1/.vs/ERP_2021_2022_Grupo_1/v17/
 ERP_2021_2022_Grupo_1/.vs/
 
 .vs/
+
+*.props
+
+ERP_2021_2022_Grupo_1/ERP_2021_2022_Grupo_1_Entidades/obj/Debug/netstandard2.0/
+
+ERP_2021_2022_Grupo_1/ERP_2021_2022_Grupo_1_Entidades/obj/ERP_2021_2022_Grupo_1_Entidades.csproj.nuget.g.targets
+
+ERP_2021_2022_Grupo_1/ERP_2021_2022_Grupo_1_Entidades/obj/

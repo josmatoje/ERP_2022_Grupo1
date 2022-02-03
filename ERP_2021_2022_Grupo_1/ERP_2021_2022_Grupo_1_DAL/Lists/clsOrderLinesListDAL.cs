@@ -19,7 +19,8 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static List<clsOrderLine> getOrderLineListDAL()
         {
             List<clsOrderLine> orderLineList = new List<clsOrderLine>();
-            executeSelect("SELECT * FROM Products");
+            executeSelect("SELECT ID, Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM ORDER_LINE");
+
             if (MyReader.HasRows)
             {
                 while (MyReader.Read())
@@ -43,10 +44,10 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static clsOrderLine getOrderLineDAL(int id)
         {
             clsOrderLine orderLine = new clsOrderLine();
-            executeSelectCondition("SELECT * FROM Products", id);
+            executeSelectCondition("SELECT Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM ORDER_LINE", id);
             if (MyReader.HasRows)
             {
-                orderLine = new clsOrderLine((int)MyReader["ID"], (int)MyReader["Quantity"], (double)MyReader["UnitPriceAtTime"], (int)MyReader["Subtotal"], (int)MyReader["OrderID"], (int)MyReader["ProductID"]);
+                orderLine = new clsOrderLine(id, (int)MyReader["Quantity"], (double)MyReader["UnitPriceAtTime"], (int)MyReader["Subtotal"], (int)MyReader["OrderID"], (int)MyReader["ProductID"]);
             }
             closeFlow();
             return orderLine;

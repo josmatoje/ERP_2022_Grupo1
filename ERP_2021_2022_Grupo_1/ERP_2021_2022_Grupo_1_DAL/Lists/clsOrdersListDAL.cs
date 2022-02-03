@@ -18,7 +18,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static List<clsOrder> getOrdersListDAL()
         {
             List<clsOrder> ordersList = new List<clsOrder>();
-            executeSelect("SELECT * FROM Orders");
+            executeSelect("SELECT ID, Total, OrderDate, LimitDate, Notes, SuppliersID FROM Orders");
             if (MyReader.HasRows)
             {
                 while (MyReader.Read())
@@ -42,10 +42,10 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static clsOrder getOrderDAL(int id)
         {
             clsOrder order = new clsOrder();
-            executeSelectCondition("SELECT * FROM Products", id);
+            executeSelectCondition("SELECT Total, OrderDate, LimitDate, Notes, SuppliersID FROM Orders", id);
             if (MyReader.HasRows)
             {
-                order = new clsOrder((int)MyReader["ID"], (int)MyReader["Total"], (DateTime)MyReader["OrderDate"], (DateTime)MyReader["LimitDate"], (string)MyReader["Notes"], (int)MyReader["SupplierID"]);
+                order = new clsOrder(id, (int)MyReader["Total"], (DateTime)MyReader["OrderDate"], (DateTime)MyReader["LimitDate"], (string)MyReader["Notes"], (int)MyReader["SupplierID"]);
             }
             closeFlow();
             return order;

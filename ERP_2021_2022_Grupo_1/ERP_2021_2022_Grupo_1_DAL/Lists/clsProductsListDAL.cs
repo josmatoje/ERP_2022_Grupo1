@@ -10,6 +10,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
 {
     public class clsProductsListDAL : clsUtilitySelectDAL
     {
+        #region public methods
         /// <summary>
         /// <b>Prototype:</b> public static List(clsProduct) getProductsListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of products from the DB<br/>
@@ -58,5 +59,6 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             closeFlow();
             return product;
         }
+        #endregion
     }
 }

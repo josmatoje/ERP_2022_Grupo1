@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ERP_2021_2022_Grupo_1_DAL.Utilities;
 using ERP_2021_2022_Grupo_1_Entities;
 namespace ERP_2021_2022_Grupo_1_DAL.Lists
 {
-    public class clsOrdersListDAL
+    public class clsOrdersListDAL : clsUtilitySelectDAL
     {
+        #region public methods
         /// <summary>
         /// <b>Prototype:</b> public static List(clsOrder) getOrdersListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of orders from the DB<br/>
@@ -16,6 +18,16 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static List<clsOrder> getOrdersListDAL()
         {
             List<clsOrder> ordersList = new List<clsOrder>();
+            executeSelect("SELECT * FROM Orders");
+            if (MyReader.HasRows)
+            {
+                while (MyReader.Read())
+                {
+                    clsOrder order = new clsOrder((int)MyReader["ID"], (int)MyReader["Total"], (DateTime)MyReader["OrderDate"], (DateTime)MyReader["LimitDate"], (string)MyReader["Notes"], (int)MyReader["SupplierID"]);
+                    ordersList.Add(order);
+                }
+            }
+            closeFlow();
             return ordersList;
         }
 
@@ -30,7 +42,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static clsOrder getOrderDAL(int id)
         {
             clsOrder order = new clsOrder();
+            executeSelectCondition("SELECT * FROM Products", id);
+            if (MyReader.HasRows)
+            {
+                order = new clsOrder((int)MyReader["ID"], (int)MyReader["Total"], (DateTime)MyReader["OrderDate"], (DateTime)MyReader["LimitDate"], (string)MyReader["Notes"], (int)MyReader["SupplierID"]);
+            }
+            closeFlow();
             return order;
         }
+        #endregion
     }
 }

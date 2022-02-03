@@ -10,6 +10,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
 {
     public class clsSuppliersListDAL : clsUtilitySelectDAL
     {
+        #region public methods
         /// <summary>
         /// <b>Prototype:</b> public static List(clsSupplier) getSuppliersListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of suppliers from the DB<br/>
@@ -52,5 +53,6 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             closeFlow();
             return supplier;
         }
+        #endregion
     }
 }

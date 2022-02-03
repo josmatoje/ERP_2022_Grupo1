@@ -40,7 +40,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         /// <b>Prototype:</b> public static SqlDataReader executeSelectCondition(String selectInstruction, String condition)<br/>
         /// <b>Commentaries:</b> Executes a Select instruction with a condition, usually it will be the PK<br/>
         /// <b>Preconditions:</b> none<br/>
-        /// <b>Postconditions:</b> Given the inherited properties, a Select instruction and a condition, executes a Slect instruction with a condition parameter,
+        /// <b>Postconditions:</b> Given the inherited properties, a Select instruction and a condition, executes a Select instruction with a condition parameter,
         /// returning the appropiate result 
         /// </summary>
         /// <param name="selectInstruction"></param>

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ERP_2021_2022_Grupo_1_DAL.Utilities;
 using ERP_2021_2022_Grupo_1_Entities;
 
 namespace ERP_2021_2022_Grupo_1_DAL.Lists
 {
-    public class clsOrderLinesListDAL
+    public class clsOrderLinesListDAL : clsUtilitySelectDAL
     {
+        #region public methods
         /// <summary>
         /// <b>Prototype:</b> public static List(clsOrderLine) getOrderLineListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of order line list from the DB<br/>
@@ -17,6 +19,16 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static List<clsOrderLine> getOrderLineListDAL()
         {
             List<clsOrderLine> orderLineList = new List<clsOrderLine>();
+            executeSelect("SELECT * FROM Products");
+            if (MyReader.HasRows)
+            {
+                while (MyReader.Read())
+                {
+                    clsOrderLine orderLine = new clsOrderLine((int)MyReader["ID"], (int)MyReader["Quantity"], (double)MyReader["UnitPriceAtTime"], (int)MyReader["Subtotal"], (int)MyReader["OrderID"], (int)MyReader["ProductID"]);
+                    orderLineList.Add(orderLine);
+                }
+            }
+            closeFlow();
             return orderLineList;
         }
 
@@ -30,8 +42,15 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> clsOrderLine orderLine representing the specific order line from the DB</returns>
         public static clsOrderLine getOrderLineDAL(int id)
         {
-            clsOrderLine orderLine = new clsOrderLine(id);
+            clsOrderLine orderLine = new clsOrderLine();
+            executeSelectCondition("SELECT * FROM Products", id);
+            if (MyReader.HasRows)
+            {
+                orderLine = new clsOrderLine((int)MyReader["ID"], (int)MyReader["Quantity"], (double)MyReader["UnitPriceAtTime"], (int)MyReader["Subtotal"], (int)MyReader["OrderID"], (int)MyReader["ProductID"]);
+            }
+            closeFlow();
             return orderLine;
         }
+        #endregion
     }
 }

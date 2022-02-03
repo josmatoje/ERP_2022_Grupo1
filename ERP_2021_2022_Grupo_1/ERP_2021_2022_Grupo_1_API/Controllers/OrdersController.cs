@@ -180,7 +180,6 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         {
             int rowsAffected = 0;
             IActionResult result;
-            return null;
             try
             {
                 rowsAffected = clsOrderManagerBL.deleteOrderBL(id);

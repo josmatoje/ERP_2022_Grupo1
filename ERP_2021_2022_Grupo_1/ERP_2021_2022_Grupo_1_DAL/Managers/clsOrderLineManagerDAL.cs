@@ -13,6 +13,8 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         public const String INSERT_INSTRUCTION_ORDER_LINE = "INSERT INTO OrderLines VALUES (@OrderID, @ProductID, @Quantity, @UnitPriceAtTime)";
         public const String DELETE_INSTRUCTION_ORDER_LINE = "DELETE FROM OrderLines WHERE ID = @ID";
         #endregion
+
+        #region public methods
         /// <summary>
         /// <b>Prototype:</b> public static int createOrderLineDAL(clsOrderLine orderLine)<br/>
         /// <b>Commentaries:</b>Connects to the DB to store an order line<br/>
@@ -59,6 +61,6 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
             resultado = executeDMLSentenceCondition(DELETE_INSTRUCTION_ORDER_LINE, id);
             return 0;
         }
-
+        #endregion
     }
 }

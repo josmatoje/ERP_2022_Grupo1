@@ -33,6 +33,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
             return resultado;
 
         }
+
         /// <summary>
         /// <b>Prototype:</b> public static int updateOrderLineDAL(clsOrderLine orderLine)<br/>
         /// <b>Commentaries:</b>Connects to the DB to update an order line<br/>
@@ -49,6 +50,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
             MyConnection.closeConnection();
             return resultado;
         }
+
         /// <summary>
         /// <b>Prototype:</b> public static int deleteOrderLineDAL(int id)<br/>
         /// <b>Commentaries:</b>Connects to the DB to delete an order line<br/>
@@ -64,7 +66,6 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
             MyConnection.closeConnection();
             return resultado;
         }
-
 
         /// <summary>
         /// <b>Prototype:</b> private static void createCommand(clsOrderLine orderLine) <br/>
@@ -84,4 +85,3 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
 
     }
 }
-#endregion

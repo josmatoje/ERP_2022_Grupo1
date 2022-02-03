@@ -18,8 +18,8 @@ namespace ERP_2021_2022_Grupo_1_Entities
         }
         #endregion
         #region public methods
-        public int IdSupplier { get => idSupplier; }
-        public string Name { get => name; set => name = value; }
+        public int IdSupplier { get => idSupplier;}
+        public string Name { get => name;}
         #endregion
     }
 }

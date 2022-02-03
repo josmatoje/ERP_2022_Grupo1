@@ -25,10 +25,10 @@ namespace ERP_2021_2022_Grupo_1_Entities
         #endregion
         #region public methods
         public int OrderId { get => orderId; }
-        public string Name { get => name; set => name = value; }
-        public string Description { get => description; set => description = value; }
-        public double UnitPrice { get => unitPrice; set => unitPrice = value; }
-        public string Category { get => category; set => category = value; }
+        public string Name { get => name;}
+        public string Description { get => description;}
+        public double UnitPrice { get => unitPrice;}
+        public string Category { get => category;}
         #endregion
     }
 }

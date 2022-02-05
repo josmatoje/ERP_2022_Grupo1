@@ -20,7 +20,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         {
             openConection();
             List<clsOrderLine> orderLineList = new List<clsOrderLine>();
-            MyReader = executeSelect("SELECT ID, Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM ORDER_LINE");
+            MyReader = executeSelect("SELECT ID, Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM OrderLines");
 
             if (MyReader.HasRows)
             {
@@ -46,7 +46,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         {
             openConection();
             clsOrderLine orderLine = new clsOrderLine();
-            MyReader = executeSelectCondition("SELECT Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM ORDER_LINE", id);
+            MyReader = executeSelectCondition("SELECT Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM OrderLines", id);
             if (MyReader.HasRows)
             {
                 orderLine = new clsOrderLine(id, (int)MyReader["Quantity"], (double)MyReader["UnitPriceAtTime"], (int)MyReader["Subtotal"], (int)MyReader["OrderID"], (int)MyReader["ProductID"]);

@@ -38,6 +38,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IEnumerable<clsOrder> Get()
         {
             List<clsOrder> orderList;
+            ObjectResult result;
             try
             {
                 orderList = new List<clsOrder>(clsOrdersListBL.getOrdersListBL());

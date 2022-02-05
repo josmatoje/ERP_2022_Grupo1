@@ -20,14 +20,15 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> List(clsSupplier) supplierList representing the list of suppliers from the DB</returns>
         public static List<clsSupplier> getSuppliersListDAL()
         {
-            openConection();
+            clsSupplier supplier;
             List<clsSupplier> supplierList = new List<clsSupplier>();
+            openConection();
             MyReader = executeSelect("SELECT ID, Name FROM Suppliers");
             if (MyReader.HasRows)
             {
                 while (MyReader.Read())
                 {
-                    clsSupplier supplier = new clsSupplier((int)MyReader["ID"],(string)MyReader["Name"]);
+                    supplier = new clsSupplier((int)MyReader["ID"],(string)MyReader["Name"]);
                     supplierList.Add(supplier);
                 }
             }
@@ -45,8 +46,8 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> clsSupplier supplier representing the specific supplier from the DB</returns>
         public static clsSupplier getSupplierDAL(int id)
         {
-            openConection();
             clsSupplier supplier = null;
+            openConection();
             MyReader = executeSelectCondition("SELECT ID, Name FROM Suppliers", id);
             if (MyReader.HasRows)
             {

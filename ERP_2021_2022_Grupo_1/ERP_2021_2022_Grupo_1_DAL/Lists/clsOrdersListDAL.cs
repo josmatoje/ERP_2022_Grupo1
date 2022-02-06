@@ -17,14 +17,20 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> List(clsOrder) orderList representing the list of orders from the DB</returns>
         public static List<clsOrder> getOrdersListDAL()
         {
-            openConection();
             List<clsOrder> ordersList = new List<clsOrder>();
+            clsOrder order ;
+            openConection();
             MyReader = executeSelect("SELECT ID, Total, OrderDate, LimitDate, Notes, SuppliersID FROM Orders");
             if (MyReader.HasRows)
             {
                 while (MyReader.Read())
                 {
-                    clsOrder order = new clsOrder((int)MyReader["ID"], (int)MyReader["Total"], (DateTime)MyReader["OrderDate"], (DateTime)MyReader["LimitDate"], (string)MyReader["Notes"], (int)MyReader["SupplierID"]);
+                    order = new clsOrder((int)MyReader["ID"], 
+                                        (int)MyReader["Total"], 
+                                        (DateTime)MyReader["OrderDate"], 
+                                        (DateTime)MyReader["LimitDate"], 
+                                        (string)MyReader["Notes"], 
+                                        (int)MyReader["SupplierID"]);
                     ordersList.Add(order);
                 }
             }
@@ -39,15 +45,20 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <b>Postconditions:</b> Returns a specific order from the Order table
         /// </summary>
         /// <param name="int id"></param>
-        /// <returns> clsOrder order representing the specific order from the DB</returns>
+        /// <returns> clsOrder order representing the specific order from the DB or null if it doesn't exists or ie isn't found</returns>
         public static clsOrder getOrderDAL(int id)
         {
+            clsOrder order = null;
             openConection();
-            clsOrder order = new clsOrder();
             MyReader = executeSelectCondition("SELECT Total, OrderDate, LimitDate, Notes, SuppliersID FROM Orders", id);
             if (MyReader.HasRows)
             {
-                order = new clsOrder(id, (int)MyReader["Total"], (DateTime)MyReader["OrderDate"], (DateTime)MyReader["LimitDate"], (string)MyReader["Notes"], (int)MyReader["SupplierID"]);
+                order = new clsOrder(id, 
+                                    (int)MyReader["Total"], 
+                                    (DateTime)MyReader["OrderDate"], 
+                                    (DateTime)MyReader["LimitDate"], 
+                                    (string)MyReader["Notes"], 
+                                    (int)MyReader["SupplierID"]);
             }
             closeFlow();
             return order;

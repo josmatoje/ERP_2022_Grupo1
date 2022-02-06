@@ -18,15 +18,21 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> List(clsOrderLine) orderLineList representing the list of order line from the DB</returns>
         public static List<clsOrderLine> getOrderLineListDAL()
         {
-            openConection();
+            clsOrderLine orderLine;
             List<clsOrderLine> orderLineList = new List<clsOrderLine>();
+            openConection();
             MyReader = executeSelect("SELECT ID, Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM OrderLines");
 
             if (MyReader.HasRows)
             {
                 while (MyReader.Read())
                 {
-                    clsOrderLine orderLine = new clsOrderLine((int)MyReader["ID"], (int)MyReader["Quantity"], (double)MyReader["UnitPriceAtTime"], (int)MyReader["Subtotal"], (int)MyReader["OrderID"], (int)MyReader["ProductID"]);
+                    orderLine = new clsOrderLine((int)MyReader["ID"], 
+                                                    (int)MyReader["Quantity"], 
+                                                    (double)MyReader["UnitPriceAtTime"], 
+                                                    (int)MyReader["Subtotal"], 
+                                                    (int)MyReader["OrderID"], 
+                                                    (int)MyReader["ProductID"]);
                     orderLineList.Add(orderLine);
                 }
             }
@@ -44,12 +50,17 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         /// <returns> clsOrderLine orderLine representing the specific order line from the DB</returns>
         public static clsOrderLine getOrderLineDAL(int id)
         {
-            openConection();
             clsOrderLine orderLine = new clsOrderLine();
+            openConection();
             MyReader = executeSelectCondition("SELECT Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM OrderLines", id);
             if (MyReader.HasRows)
             {
-                orderLine = new clsOrderLine(id, (int)MyReader["Quantity"], (double)MyReader["UnitPriceAtTime"], (int)MyReader["Subtotal"], (int)MyReader["OrderID"], (int)MyReader["ProductID"]);
+                orderLine = new clsOrderLine(id, 
+                                            (int)MyReader["Quantity"], 
+                                            (double)MyReader["UnitPriceAtTime"], 
+                                            (int)MyReader["Subtotal"], 
+                                            (int)MyReader["OrderID"], 
+                                            (int)MyReader["ProductID"]);
             }
             closeFlow();
             return orderLine;

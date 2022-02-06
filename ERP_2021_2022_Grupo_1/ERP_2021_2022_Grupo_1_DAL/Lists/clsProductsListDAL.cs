@@ -21,16 +21,21 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         public static List<clsProduct> getProductsListDAL()
         {
             openConection();
+            clsProduct product;
             List<clsProduct> productList = new List<clsProduct>();
             //executeSelect("SELECT * FROM Products");
-            MyReader = executeSelect("SELECT P.ID, P.Name, P.Description, UnitPrice, C.Name AS Category from products AS P" +
-                            "INNER JOIN Categories AS C" +
-                            "ON P.CategoryID = C.ID");
+            MyReader = executeSelect("SELECT [Products].ID, [Products].Name, [Products].Description, UnitPrice, [Categories].Name AS Category from products " +
+                                        "INNER JOIN Categories " +
+                                        "ON [Products].CategoryID = [Categories].ID");
             if (MyReader.HasRows)
             {
                 while (MyReader.Read())
                 {
-                    clsProduct product = new clsProduct((int)MyReader["ID"], (string)MyReader["Name"],(string)MyReader["Description"],(double)MyReader["UnitPrice"],(string)MyReader["Category"]);
+                    product = new clsProduct((int)MyReader["ID"], 
+                                            (string)MyReader["Name"],
+                                            (string)(MyReader["Description"]== System.DBNull.Value ? "" : (MyReader["Description"])),
+                                            Decimal.ToDouble((decimal)MyReader["UnitPrice"]),
+                                            (string)MyReader["Category"]);
                     productList.Add(product);
                 }
             }
@@ -50,13 +55,17 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         {
             openConection();
             clsProduct product = null;
-            MyReader = executeSelectCondition("SELECT P.ID, P.Name, P.Description, UnitPrice, C.Name AS Category from products AS P" +
-                                    "INNER JOIN Categories AS C" +
-                                    "ON P.CategoryID = C.ID"
-                                    , id);
+            MyReader = executeSelectCondition("SELECT [Products].ID, [Products].Name, [Products].Description, UnitPrice, [Categories].Name AS Category from products " +
+                                                "INNER JOIN Categories " +
+                                                "ON [Products].CategoryID = [Categories].ID"
+                                                , id);
             if (MyReader.HasRows)
             {
-                product = new clsProduct((int)MyReader["ID"], (string)MyReader["Name"], (string)MyReader["Description"], (double)MyReader["UnitPrice"], (string)MyReader["Category"]);
+                product = new clsProduct((int)MyReader["ID"],
+                                        (string)MyReader["Name"],
+                                        (string)(MyReader["Description"] == System.DBNull.Value ? "" : (MyReader["Description"])),
+                                        Decimal.ToDouble((decimal)MyReader["UnitPrice"]),
+                                        (string)MyReader["Category"]);
             }
             closeFlow();
             return product;

@@ -8,18 +8,7 @@ namespace ERP_2021_2022_Grupo_1_BL.Manager
 {
     public class clsOrderLineManagerBL
     {
-        /// <summary>
-        /// <b>Prototype:</b> public static int createOrderLineBL(clsOrderLine orderLine)<br/>
-        /// <b>Commentaries:</b>Applies the business logic to store an order line<br/>
-        /// <b>Preconditions:</b> order line is valid<br/>
-        /// <b>Postconditions:</b> Returns int indicating how many rows were changed (created)
-        /// </summary>
-        /// <param name="orderLine">clsOrderLine</param>
-        /// <returns>int rowsChanged</returns>
-        public static int createOrderLineBL(clsOrderLine orderLine)
-        {
-            return clsOrderLineManagerDAL.createOrderLineDAL(orderLine);
-        }
+      
         /// <summary>
         /// <b>Prototype:</b> public static int updateOrderLineBL(clsOrderLine orderLine)<br/>
         /// <b>Commentaries:</b>Applies the business logic to update an order line<br/>

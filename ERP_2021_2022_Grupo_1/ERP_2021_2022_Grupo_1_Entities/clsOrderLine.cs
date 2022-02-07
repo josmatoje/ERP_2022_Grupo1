@@ -35,7 +35,7 @@ namespace ERP_2021_2022_Grupo_1_Entities
         }
         #endregion
         #region public methods
-        public int Id { get => id; }
+        public int Id { get => id; set => id = value; }
         public int Quantity { get => quantity; set => quantity = value; }
         public double CurrentUnitPrice { get => currentUnitPrice; set => currentUnitPrice = value; }
         public double Subtotal { get => subtotal; }

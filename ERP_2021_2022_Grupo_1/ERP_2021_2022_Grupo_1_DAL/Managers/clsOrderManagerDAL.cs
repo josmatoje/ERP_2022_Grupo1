@@ -10,27 +10,12 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
     {
 
         #region constants
-        public const String UPDATE_INSTRUCTION_ORDER = "UPDATE Orders SET Total = @Total, OrderDate = @Orderdate, LimitDate = @LimitDate, Notes = @Notes, SupplierID = @SupplierID  WHERE ID = ";
+        public const String UPDATE_INSTRUCTION_ORDER = "UPDATE Orders SET Total = @Total, OrderDate = @Orderdate, LimitDate = @LimitDate, Notes = @Notes, SupplierID = @SupplierID  WHERE ID = @param";
         public const String INSERT_INSTRUCTION_ORDER = "INSERT INTO Orders VALUES (@Total, @OrderDate, @LimitDate, @Notes, @Supplierid)";
         public const String DELETE_INSTRUCTION_ORDER = "DELETE FROM Orders WHERE ID = @param";
         #endregion
         #region methods
-        /// <summary>
-        /// <b>Prototype:</b> public static int createOrderDAL(clsOrder order)<br/>
-        /// <b>Commentaries:</b>Connects to the DB to store an order<br/>
-        /// <b>Preconditions:</b> order is valid<br/>
-        /// <b>Postconditions:</b> Returns  int indicating how many rows were changed (stored)
-        /// </summary>
-        /// <param name="order">clsOrder</param>
-        /// <returns>int rowsChanged</returns>
-        public static int createOrderDAL(clsOrder order)
-        {
-            openConection();
-            createCommand(order);
-            int resultado = executeDMLSentence(INSERT_INSTRUCTION_ORDER);
-            MyConnection.closeConnection();
-            return resultado;
-        }
+      
         /// <summary>
         /// <b>Prototype:</b> public static int updateOrderDAL(clsOrder order)<br/>
         /// <b>Commentaries:</b>Connects to the DB to update an order<br/>
@@ -43,7 +28,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         {
             openConection();
             createCommand(order);
-            int resultado = order.OrderId == 0 ? executeDMLSentence(INSERT_INSTRUCTION_ORDER) : executeDMLSentence(UPDATE_INSTRUCTION_ORDER);
+            int resultado = order.OrderId == 0 ? executeDMLSentence(INSERT_INSTRUCTION_ORDER) : executeDMLSentenceCondition(UPDATE_INSTRUCTION_ORDER, order.OrderId);
             MyConnection.closeConnection();
             return resultado;
         }

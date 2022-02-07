@@ -9,30 +9,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
     public class clsOrderLineManagerDAL : clsUtilityDMLDAL
     {
         #region constants
-        public const String UPDATE_INSTRUCTION_ORDER_LINE = "UPDATE OrderLines SET OrderID = @OrderID, ProductID = @ProductID, Quantity = @Quantity, UnitPriceAtTime = @UnitPriceAtTime WHERE ID = ";
+        public const String UPDATE_INSTRUCTION_ORDER_LINE = "UPDATE OrderLines SET OrderID = @OrderID, ProductID = @ProductID, Quantity = @Quantity, UnitPriceAtTime = @UnitPriceAtTime WHERE ID = @param";
         public const String INSERT_INSTRUCTION_ORDER_LINE = "INSERT INTO OrderLines VALUES (@OrderID, @ProductID, @Quantity, @UnitPriceAtTime)";
         public const String DELETE_INSTRUCTION_ORDER_LINE = "DELETE FROM OrderLines WHERE ID = @param";
         #endregion
 
         #region public methods
-        /// <summary>
-        /// <b>Prototype:</b> public static int createOrderLineDAL(clsOrderLine orderLine)<br/>
-        /// <b>Commentaries:</b>Connects to the DB to store an order line<br/>
-        /// <b>Preconditions:</b> order line is valid<br/>
-        /// <b>Postconditions:</b> Returns int indicating how many rows were changed (stored)
-        /// </summary>
-        /// <param name="orderLine">clsOrderLine</param>
-        /// <returns>int rowsChanged</returns>
-        public static int createOrderLineDAL(clsOrderLine orderLine)
-        {
-
-            createCommand(orderLine);
-            openConection();
-            int resultado = executeDMLSentence(INSERT_INSTRUCTION_ORDER_LINE); 
-            MyConnection.closeConnection();
-            return resultado;
-
-        }
+        
 
         /// <summary>
         /// <b>Prototype:</b> public static int updateOrderLineDAL(clsOrderLine orderLine)<br/>
@@ -44,9 +27,9 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         /// <returns>int rowsChanged</returns>
         public static int updateOrderLineDAL(clsOrderLine orderLine)
         {
-            createCommand(orderLine);
             openConection();
-            int resultado = orderLine.Id == 0 ? executeDMLSentence(INSERT_INSTRUCTION_ORDER_LINE) : executeDMLSentence(UPDATE_INSTRUCTION_ORDER_LINE);
+            createCommand(orderLine);
+            int resultado = orderLine.Id == 0 ? executeDMLSentence(INSERT_INSTRUCTION_ORDER_LINE) : executeDMLSentenceCondition(UPDATE_INSTRUCTION_ORDER_LINE, orderLine.Id);
             MyConnection.closeConnection();
             return resultado;
         }

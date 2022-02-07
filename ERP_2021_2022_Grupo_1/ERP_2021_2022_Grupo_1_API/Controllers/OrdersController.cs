@@ -95,13 +95,13 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             IActionResult result = Ok();
             try
             {
-                rowsAffected = clsOrderManagerBL.createOrderBL(oOrder);
+                rowsAffected = clsOrderManagerBL.updateOrderBL(oOrder);
                 if (rowsAffected == 0)
                 {
                     result = NotFound();
                 }
             }
-            catch (HttpResponseException e)
+            catch (Exception e)
             {
                 result = BadRequest();
             }
@@ -137,7 +137,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
                     result = NotFound();
                 }
             }
-            catch (HttpResponseException e)
+            catch (Exception e)
             {
                 result = BadRequest();
             }

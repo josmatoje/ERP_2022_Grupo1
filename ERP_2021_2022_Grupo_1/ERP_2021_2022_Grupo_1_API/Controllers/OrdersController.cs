@@ -37,21 +37,13 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpGet]
         public IEnumerable<clsOrder> Get()
         {
-            List<clsOrder> orderList;
-            ObjectResult result;
+            List<clsOrder> orderList = null;
+            //ObjectResult result;
             try
             {
-                orderList = new List<clsOrder>(clsOrdersListBL.getOrdersListBL());
+                orderList = clsOrdersListBL.getOrdersListBL();
             }
-            catch (Exception e)
-            {
-                throw new HttpResponseException(HttpStatusCode.ServiceUnavailable);
-            }
-
-            if (orderList == null || orderList.Count == 0)
-            {
-                throw new HttpResponseException(HttpStatusCode.NoContent);
-            }
+            catch (Exception e){}
 
             return orderList;
         }
@@ -72,21 +64,12 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpGet("{id}")]
         public clsOrder Get(int id)
         {
-            clsOrder oOrder;
+            clsOrder oOrder = null;
             try
             {
                 oOrder = clsOrdersListBL.getOrderBL(id);
             }
-            catch (Exception e)
-            {
-                throw new HttpResponseException(HttpStatusCode.ServiceUnavailable);
-
-            }
-            
-            if (oOrder == null)
-            {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            }
+            catch (Exception e) { }
             return oOrder;
         }
 

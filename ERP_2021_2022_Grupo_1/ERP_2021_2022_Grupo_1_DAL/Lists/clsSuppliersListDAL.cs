@@ -48,9 +48,10 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         {
             clsSupplier supplier = null;
             openConection();
-            MyReader = executeSelectCondition("SELECT ID, Name FROM Suppliers", id);
+            MyReader = executeSelectCondition("SELECT ID, Name FROM Suppliers WHERE ID = @id", id);
             if (MyReader.HasRows)
             {
+                MyReader.Read();
                 supplier = new clsSupplier((int)MyReader["ID"], (string)MyReader["Name"]);
             }
             closeFlow();

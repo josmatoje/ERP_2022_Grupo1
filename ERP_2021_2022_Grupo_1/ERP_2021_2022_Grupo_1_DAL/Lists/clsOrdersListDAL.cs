@@ -20,16 +20,17 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             List<clsOrder> ordersList = new List<clsOrder>();
             clsOrder order ;
             openConection();
-            MyReader = executeSelect("SELECT ID, Total, OrderDate, LimitDate, Notes, SuppliersID FROM Orders");
+            MyReader = executeSelect("SELECT ID, Total, OrderDate, LimitDate, Notes, SupplierID FROM Orders");
             if (MyReader.HasRows)
             {
                 while (MyReader.Read())
                 {
-                    order = new clsOrder((int)MyReader["ID"], 
-                                        (int)MyReader["Total"], 
-                                        (DateTime)MyReader["OrderDate"], 
-                                        (DateTime)MyReader["LimitDate"], 
-                                        (string)MyReader["Notes"], 
+
+                    order = new clsOrder((int)MyReader["ID"],
+                                        Decimal.ToDouble((decimal)MyReader["Total"]),
+                                        (DateTime)MyReader["OrderDate"],
+                                        (DateTime)(MyReader["LimitDate"] == System.DBNull.Value ? DateTime.MinValue : MyReader["LimitDate"]),
+                                        (string)(MyReader["Notes"] == System.DBNull.Value ? "" : MyReader["Notes"]),
                                         (int)MyReader["SupplierID"]);
                     ordersList.Add(order);
                 }
@@ -50,14 +51,15 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         {
             clsOrder order = null;
             openConection();
-            MyReader = executeSelectCondition("SELECT Total, OrderDate, LimitDate, Notes, SuppliersID FROM Orders", id);
+            MyReader = executeSelectCondition("SELECT Total, OrderDate, LimitDate, Notes, SupplierID FROM Orders WHERE ID = @id", id);
             if (MyReader.HasRows)
             {
-                order = new clsOrder(id, 
-                                    (int)MyReader["Total"], 
-                                    (DateTime)MyReader["OrderDate"], 
-                                    (DateTime)MyReader["LimitDate"], 
-                                    (string)MyReader["Notes"], 
+                MyReader.Read();
+                order = new clsOrder(id,
+                                    Decimal.ToDouble((decimal)MyReader["Total"]),
+                                    (DateTime)MyReader["OrderDate"],
+                                    (DateTime)(MyReader["LimitDate"] == System.DBNull.Value ? DateTime.MinValue : MyReader["LimitDate"]),
+                                    (string)(MyReader["Notes"] == System.DBNull.Value ? "" : (MyReader["Notes"])),
                                     (int)MyReader["SupplierID"]);
             }
             closeFlow();

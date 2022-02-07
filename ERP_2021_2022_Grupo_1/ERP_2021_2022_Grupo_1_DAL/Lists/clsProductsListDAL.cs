@@ -57,10 +57,12 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             clsProduct product = null;
             MyReader = executeSelectCondition("SELECT [Products].ID, [Products].Name, [Products].Description, UnitPrice, [Categories].Name AS Category from products " +
                                                 "INNER JOIN Categories " +
-                                                "ON [Products].CategoryID = [Categories].ID"
+                                                "ON [Products].CategoryID = [Categories].ID " +
+                                                "WHERE [Products].ID = @id"
                                                 , id);
             if (MyReader.HasRows)
             {
+                MyReader.Read();
                 product = new clsProduct((int)MyReader["ID"],
                                         (string)MyReader["Name"],
                                         (string)(MyReader["Description"] == System.DBNull.Value ? "" : (MyReader["Description"])),

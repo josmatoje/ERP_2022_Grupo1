@@ -15,7 +15,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         public static SqlDataReader MyReader { get; set; }
         #endregion
         #region constants
-        public const string ID_PARAMETER = "WHERE ID = @id";
+        public const string ID_PARAMETER = "@id";
         #endregion
         #region public methods
         /// <summary>
@@ -32,7 +32,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         {
             MyCommand.Parameters.Add(ID_PARAMETER, System.Data.SqlDbType.Int).Value = condition;
             MyCommand.Connection = MyConnection.Conexion;
-            MyCommand.CommandText = selectInstruction + ID_PARAMETER;
+            MyCommand.CommandText = selectInstruction;
             return MyCommand.ExecuteReader();
         }
 

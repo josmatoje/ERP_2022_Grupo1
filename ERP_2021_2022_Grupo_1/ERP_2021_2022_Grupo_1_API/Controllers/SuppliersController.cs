@@ -28,10 +28,9 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             List<clsSupplier> suppliersList = null;
             try
             {
-                suppliersList = new List<clsSupplier>(clsSuppliersListBL.getSuppliersListBL());
+                suppliersList = clsSuppliersListBL.getSuppliersListBL();
             }
-            catch (Exception e)
-            { }
+            catch (Exception e){ }
 
             return suppliersList;
         }
@@ -43,6 +42,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             clsSupplier supplier = null;
             try
             {
+               
                 supplier = clsSuppliersListBL.getSupplierBL(id);
             }
             catch (Exception e) { }

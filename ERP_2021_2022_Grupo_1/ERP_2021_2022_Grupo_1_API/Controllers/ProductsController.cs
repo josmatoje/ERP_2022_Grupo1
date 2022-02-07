@@ -28,7 +28,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             List<clsProduct> productList = null;
             try
             {
-                productList = new List<clsProduct>(clsProductsListBL.getProductsListBL());
+                productList = clsProductsListBL.getProductsListBL();
             }
             catch (Exception e)
             { }

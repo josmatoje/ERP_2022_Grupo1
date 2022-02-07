@@ -10,9 +10,9 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
     {
 
         #region constants
-        public const String UPDATE_INSTRUCTION_ORDER = "UPDATE Order SET Total = @Total, OrderDate = @Orderdate, LimitDate = @LimitDate, Notes = @Notes, SupplierID = @SupplierID  WHERE ID = ";
-        public const String INSERT_INSTRUCTION_ORDER = "INSERT INTO Order VALUES (@Total, @OrderDate, @LimitDate, @Notes, @Supplierid)";
-        public const String DELETE_INSTRUCTION_ORDER = "DELETE FROM Order WHERE ID = @ID";
+        public const String UPDATE_INSTRUCTION_ORDER = "UPDATE Orders SET Total = @Total, OrderDate = @Orderdate, LimitDate = @LimitDate, Notes = @Notes, SupplierID = @SupplierID  WHERE ID = ";
+        public const String INSERT_INSTRUCTION_ORDER = "INSERT INTO Orders VALUES (@Total, @OrderDate, @LimitDate, @Notes, @Supplierid)";
+        public const String DELETE_INSTRUCTION_ORDER = "DELETE FROM Orders WHERE ID = @param";
         #endregion
         #region methods
         /// <summary>
@@ -25,8 +25,8 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         /// <returns>int rowsChanged</returns>
         public static int createOrderDAL(clsOrder order)
         {
-            createCommand(order);
             openConection();
+            createCommand(order);
             int resultado = executeDMLSentence(INSERT_INSTRUCTION_ORDER);
             MyConnection.closeConnection();
             return resultado;
@@ -58,7 +58,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         public static int deleteOrderDAL(int id)
         {
             openConection();
-            int resultado = executeDMLSentence(DELETE_INSTRUCTION_ORDER);
+            int resultado = executeDMLSentenceCondition(DELETE_INSTRUCTION_ORDER, id);
             MyConnection.closeConnection();
             return resultado;
         }

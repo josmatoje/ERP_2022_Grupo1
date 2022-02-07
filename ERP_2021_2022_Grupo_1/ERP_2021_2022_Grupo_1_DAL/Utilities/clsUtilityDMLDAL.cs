@@ -41,7 +41,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         public static int executeDMLSentenceCondition(String dmlSentence, int condition)
         {
             MyCommand.Parameters.Add("@param", System.Data.SqlDbType.Int).Value = condition;
-            MyCommand.CommandText = dmlSentence + "@param";
+            MyCommand.CommandText = dmlSentence;
             MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteNonQuery();
         }

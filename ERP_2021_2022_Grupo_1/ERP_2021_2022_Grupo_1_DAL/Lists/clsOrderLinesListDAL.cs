@@ -28,9 +28,9 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
                 while (MyReader.Read())
                 {
                     orderLine = new clsOrderLine((int)MyReader["ID"], 
-                                                    (int)MyReader["Quantity"], 
-                                                    (double)MyReader["UnitPriceAtTime"], 
-                                                    (int)MyReader["Subtotal"], 
+                                                    (int)MyReader["Quantity"],
+                                                    Decimal.ToDouble((decimal)MyReader["UnitPriceAtTime"]),
+                                                    Decimal.ToDouble((decimal)MyReader["UnitPriceAtTime"]),
                                                     (int)MyReader["OrderID"], 
                                                     (int)MyReader["ProductID"]);
                     orderLineList.Add(orderLine);
@@ -52,14 +52,15 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         {
             clsOrderLine orderLine = new clsOrderLine();
             openConection();
-            MyReader = executeSelectCondition("SELECT Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM OrderLines", id);
+            MyReader = executeSelectCondition("SELECT Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM OrderLines WHERE ID = @id", id);
             if (MyReader.HasRows)
             {
-                orderLine = new clsOrderLine(id, 
-                                            (int)MyReader["Quantity"], 
-                                            (double)MyReader["UnitPriceAtTime"], 
-                                            (int)MyReader["Subtotal"], 
-                                            (int)MyReader["OrderID"], 
+                MyReader.Read();
+                orderLine = new clsOrderLine(id,
+                                            (int)MyReader["Quantity"],
+                                            Decimal.ToDouble((decimal)MyReader["UnitPriceAtTime"]),
+                                            Decimal.ToDouble((decimal)MyReader["UnitPriceAtTime"]),
+                                            (int)MyReader["OrderID"],
                                             (int)MyReader["ProductID"]);
             }
             closeFlow();

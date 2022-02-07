@@ -39,10 +39,9 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             List<clsOrderLine> oOrderLinesList = null;
             try
             {
-                oOrderLinesList = new List<clsOrderLine>(clsOrderLinesListBL.getOrderLineListBL());
+                oOrderLinesList = clsOrderLinesListBL.getOrderLineListBL();
             }
-            catch (Exception e)
-            {            }
+            catch (Exception e){}
 
             return oOrderLinesList;
         }
@@ -69,8 +68,8 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 oOrderLine = clsOrderLinesListBL.getOrderLineBL(id);
             }
-            catch (Exception e)
-            {}
+            catch (Exception e){}
+
             return oOrderLine;
         }
 
@@ -95,15 +94,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             try
             {
                 rowsAffected = clsOrderLineManagerBL.createOrderLineBL(oOrderLine);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
             }
             catch (HttpResponseException e)
             {
                 result = BadRequest();
             }
-            if (rowsAffected == 0)
-            {
-                result = NotFound();
-            }
+
             return result;
         }
 
@@ -129,15 +129,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             try
             {
                 rowsAffected = clsOrderLineManagerBL.updateOrderLineBL(oOrderLine);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
             }
             catch (HttpResponseException e)
             {
                 result = BadRequest();
             }
-            if (rowsAffected == 0)
-            {
-                result = NotFound();
-            }
+
             return result;
         }
 
@@ -162,15 +163,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             try
             {
                 rowsAffected = clsOrderLineManagerBL.deleteOrderLineBL(id);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
             }
-            catch (HttpResponseException e)
+            catch (Exception e)
             {
                 result = BadRequest();
             }
-            if (rowsAffected == 0)
-            {
-                result = NotFound();
-            }
+
             return result;
         }
     }

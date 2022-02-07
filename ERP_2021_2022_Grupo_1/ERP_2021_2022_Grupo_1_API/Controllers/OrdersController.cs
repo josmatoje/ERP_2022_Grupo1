@@ -43,7 +43,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 orderList = clsOrdersListBL.getOrdersListBL();
             }
-            catch (Exception e){}
+            catch (Exception e) { }
 
             return orderList;
         }
@@ -90,19 +90,20 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] clsOrder oOrder)
         {
+            //TODO NO LE LLEGAN BIEN LOS PAPARÁMETROS
             int rowsAffected = 0;
             IActionResult result = Ok();
             try
             {
                 rowsAffected = clsOrderManagerBL.createOrderBL(oOrder);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
             }
             catch (HttpResponseException e)
             {
                 result = BadRequest();
-            }
-            if (rowsAffected == 0)
-            {
-                result = NotFound();
             }
 
             return result;
@@ -131,15 +132,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             try
             {
                 rowsAffected = clsOrderManagerBL.updateOrderBL(oOrder);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
             }
             catch (HttpResponseException e)
             {
                 result = BadRequest();
             }
-            if (rowsAffected == 0)
-            {
-                result = NotFound();
-            }
+
             return result;
         }
 
@@ -164,14 +166,14 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             try
             {
                 rowsAffected = clsOrderManagerBL.deleteOrderBL(id);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
             }
-            catch (HttpResponseException e)
+            catch (Exception e)
             {
                 result = BadRequest();
-            }
-            if (rowsAffected == 0)
-            {
-                result = NotFound();
             }
 
             return result;

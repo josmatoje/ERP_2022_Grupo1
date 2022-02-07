@@ -1,5 +1,17 @@
-﻿using ERP_2021_2022_Grupo_1_Entities;
+﻿using ERP_2021_2022_Grupo_1_BL.Lists;
+using ERP_2021_2022_Grupo_1_BL.Manager;
+using ERP_2021_2022_Grupo_1_Entities;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Web.Http;
+using FromBodyAttribute = Microsoft.AspNetCore.Mvc.FromBodyAttribute;
+using HttpDeleteAttribute = Microsoft.AspNetCore.Mvc.HttpDeleteAttribute;
+using HttpGetAttribute = Microsoft.AspNetCore.Mvc.HttpGetAttribute;
+using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
+using HttpPutAttribute = Microsoft.AspNetCore.Mvc.HttpPutAttribute;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,9 +34,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// </summary>
         /// <returns>IActionResult depending on the result of the call</returns>
         [HttpGet]
-        public IActionResult Get()
+        public IEnumerable<clsOrderLine> Get()
         {
-            return null;
+            List<clsOrderLine> oOrderLinesList = null;
+            try
+            {
+                oOrderLinesList = clsOrderLinesListBL.getOrderLineListBL();
+            }
+            catch (Exception e){}
+
+            return oOrderLinesList;
         }
 
         
@@ -42,9 +61,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <param name="id"></param>
         /// <returns>IActionResult depending on the result of the call</returns>
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public clsOrderLine Get(int id)
         {
-            return null;
+            clsOrderLine oOrderLine = null;
+            try
+            {
+                oOrderLine = clsOrderLinesListBL.getOrderLineBL(id);
+            }
+            catch (Exception e){}
+
+            return oOrderLine;
         }
 
         /// <summary>
@@ -63,7 +89,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] clsOrderLine oOrderLine)
         {
-            return null;
+            int rowsAffected = 0;
+            IActionResult result = Ok();
+            try
+            {
+                rowsAffected = clsOrderLineManagerBL.updateOrderLineBL(oOrderLine);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                result = BadRequest();
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -83,7 +124,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] clsOrderLine oOrderLine)
         {
-            return null;
+            int rowsAffected = 0;
+            IActionResult result = Ok();
+            try
+            {
+                rowsAffected = clsOrderLineManagerBL.updateOrderLineBL(oOrderLine);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                result = BadRequest();
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -102,7 +158,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            return null;
+            int rowsAffected = 0;
+            IActionResult result = Ok();
+            try
+            {
+                rowsAffected = clsOrderLineManagerBL.deleteOrderLineBL(id);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                result = BadRequest();
+            }
+
+            return result;
         }
     }
 }

@@ -1,6 +1,17 @@
 ﻿using ERP_2021_2022_Grupo_1_Entities;
+using ERP_2021_2022_Grupo_1_BL.Lists;
+using ERP_2021_2022_Grupo_1_BL.Manager;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Web.Http;
+using FromBodyAttribute = Microsoft.AspNetCore.Mvc.FromBodyAttribute;
+using HttpDeleteAttribute = Microsoft.AspNetCore.Mvc.HttpDeleteAttribute;
+using HttpGetAttribute = Microsoft.AspNetCore.Mvc.HttpGetAttribute;
+using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
+using HttpPutAttribute = Microsoft.AspNetCore.Mvc.HttpPutAttribute;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,21 +24,28 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
 
         /// <summary>
         /// <b>GET: api/*OrdersController*</b><br/>
-        /// <b>Prototype:</b> public IActionResult Get()<br/>
+        /// <b>Prototype:</b> public IEnumerable(clsOrder) Get()<br/>
         /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of orders and 
-        /// returning the response of the call<br/>
+        /// returning list of orders<br/>
         /// <b>Preconditions:</b> none<br/>
-        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of orders, 
-        /// if no error has occurred and the list is not empty, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the list is empty, it will return a 404 NotFound(), and if an exception has occurred, it will 
-        /// return a 400 BadRequest()
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of orders,
+        /// if an error occurs during the execution, the user will be prompted with a ServiceUnavaible excepttion and if
+        /// the list is empty it will promp a NoContent exception
         /// </summary>
-        /// <returns>IActionResult depending on the result of the call</returns>
+        /// <returns>IEnumerable(clsOrder)</returns>
 
         [HttpGet]
-        public IActionResult Get()
+        public IEnumerable<clsOrder> Get()
         {
-            return null;//TODO
+            List<clsOrder> orderList = null;
+            //ObjectResult result;
+            try
+            {
+                orderList = clsOrdersListBL.getOrdersListBL();
+            }
+            catch (Exception e) { }
+
+            return orderList;
         }
 
 
@@ -35,19 +53,24 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <b>GET api/*OrdersController*/5</b><br/>
         /// <b>Prototype:</b> public IActionResult Get(int id)<br/>
         /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for a order with id
-        /// returning the response of the call<br/>
+        /// returning the order<br/>
         /// <b>Preconditions:</b> none<br/>
-        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a order with the id parameter, 
-        /// if no error has occurred and the order is not null, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the order is null, it will return a 404 NotFound(), and if an exception has occurred, it will 
-        /// return a 400 BadRequest()
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect an order with the id parameter,
+        /// if an error occurs during the execution, the user will be prompted with a ServiceUnavaible excepttion and if
+        /// the list is empty it will promp a NoContent exception
         /// </summary>
         /// <param name="id"></param>
         /// <returns>IActionResult depending on the result of the call</returns>
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public clsOrder Get(int id)
         {
-            return null;
+            clsOrder oOrder = null;
+            try
+            {
+                oOrder = clsOrdersListBL.getOrderBL(id);
+            }
+            catch (Exception e) { }
+            return oOrder;
         }
 
 
@@ -67,7 +90,23 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] clsOrder oOrder)
         {
-            return null;
+            //TODO NO LE LLEGAN BIEN LOS PAPARÁMETROS
+            int rowsAffected = 0;
+            IActionResult result = Ok();
+            try
+            {
+                rowsAffected = clsOrderManagerBL.updateOrderBL(oOrder);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                result = BadRequest();
+            }
+
+            return result;
         }
 
 
@@ -88,7 +127,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] clsOrder oOrder)
         {
-            return null;
+            int rowsAffected = 0;
+            IActionResult result = Ok();
+            try
+            {
+                rowsAffected = clsOrderManagerBL.updateOrderBL(oOrder);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                result = BadRequest();
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -107,7 +161,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            return null;
+            int rowsAffected = 0;
+            IActionResult result = Ok();
+            try
+            {
+                rowsAffected = clsOrderManagerBL.deleteOrderBL(id);
+                if (rowsAffected == 0)
+                {
+                    result = NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                result = BadRequest();
+            }
+
+            return result;
         }
     }
 }

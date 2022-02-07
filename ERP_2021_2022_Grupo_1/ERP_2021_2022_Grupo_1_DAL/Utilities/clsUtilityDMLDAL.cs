@@ -7,7 +7,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
     /// <summary>
     /// Contains all the attributes and methos that are ALWAYS used in the classes that execute DML sentences, Insert, Update, Delete...
     /// </summary>
-    public abstract class clsUtilidadDMLDAL : clsUtilityBaseDAL
+    public abstract class clsUtilityDMLDAL : clsUtilityBaseDAL
     {
         //NOT: This class methods don't catch any SqlException as they raise it so the method that calls it handle them
 
@@ -41,7 +41,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         public static int executeDMLSentenceCondition(String dmlSentence, int condition)
         {
             MyCommand.Parameters.Add("@param", System.Data.SqlDbType.Int).Value = condition;
-            MyCommand.CommandText = dmlSentence + "@param";
+            MyCommand.CommandText = dmlSentence;
             MyCommand.Connection = MyConnection.Conexion;
             return MyCommand.ExecuteNonQuery();
         }

@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { initializeApp } from 'firebase/app';
 import {  } from 'firebase/auth';
-import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -24,7 +23,6 @@ const app = initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     AppComponent,
-    AuthSigninComponent
   ],
   imports: [
     BrowserModule,

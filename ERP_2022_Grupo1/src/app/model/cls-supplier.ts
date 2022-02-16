@@ -1,2 +1,5 @@
-export interface ClsSupplier {
+interface ClsSupplier {
+    //Atributos
+    idSupplier: number ;
+    name: String;
 }

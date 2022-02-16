@@ -8,12 +8,18 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#firebaseui-auth-container', {
   signInOptions: [
     // List of OAuth providers supported.
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
   ],
   // Other config options...
 });
 
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
 const auth = getAuth();
+var email = 'vacio';
+var password = 'vacio';
+
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in

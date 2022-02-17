@@ -36,10 +36,11 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpGet]
         public IEnumerable<clsOrderLine> Get()
         {
+
             List<clsOrderLine> oOrderLinesList = null;
             try
             {
-                oOrderLinesList = clsOrderLinesListBL.getOrderLineListBL();
+                oOrderLinesList = new clsOrderLinesListBL().getOrderLineListBL();
             }
             catch (Exception e){}
 
@@ -66,7 +67,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             clsOrderLine oOrderLine = null;
             try
             {
-                oOrderLine = clsOrderLinesListBL.getOrderLineBL(id);
+                oOrderLine = new clsOrderLinesListBL().getOrderLineBL(id);
             }
             catch (Exception e){}
 
@@ -93,7 +94,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             IActionResult result = Ok();
             try
             {
-                rowsAffected = clsOrderLineManagerBL.updateOrderLineBL(oOrderLine);
+                rowsAffected = new clsOrderLineManagerBL().updateOrderLineBL(oOrderLine);
                 if (rowsAffected == 0)
                 {
                     result = NotFound();
@@ -128,7 +129,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             IActionResult result = Ok();
             try
             {
-                rowsAffected = clsOrderLineManagerBL.updateOrderLineBL(oOrderLine);
+                rowsAffected = new clsOrderLineManagerBL().updateOrderLineBL(oOrderLine);
                 if (rowsAffected == 0)
                 {
                     result = NotFound();
@@ -162,7 +163,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             IActionResult result = Ok();
             try
             {
-                rowsAffected = clsOrderLineManagerBL.deleteOrderLineBL(id);
+                rowsAffected = new clsOrderLineManagerBL().deleteOrderLineBL(id);
                 if (rowsAffected == 0)
                 {
                     result = NotFound();

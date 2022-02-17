@@ -12,13 +12,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
     {
         #region public methods
         /// <summary>
-        /// <b>Prototype:</b> public static List(clsSupplier) getSuppliersListDAL()<br/>
+        /// <b>Prototype:</b> public List(clsSupplier) getSuppliersListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of suppliers from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a list with the suppliers from the Supplier table
         /// </summary>
         /// <returns> List(clsSupplier) supplierList representing the list of suppliers from the DB</returns>
-        public static List<clsSupplier> getSuppliersListDAL()
+        public List<clsSupplier> getSuppliersListDAL()
         {
             clsSupplier supplier;
             List<clsSupplier> supplierList = new List<clsSupplier>();
@@ -37,14 +37,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         }
 
         /// <summary>
-        /// <b>Prototype:</b> public static clsSupplier getSupplierDAL(int id)<br/>
+        /// <b>Prototype:</b> public clsSupplier getSupplierDAL(int id)<br/>
         /// <b>Commentaries:</b>Returns a specific supplier from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a specific supplier from the supplier table
         /// </summary>
         /// <param name="int id"></param>
         /// <returns> clsSupplier supplier representing the specific supplier from the DB</returns>
-        public static clsSupplier getSupplierDAL(int id)
+        public clsSupplier getSupplierDAL(int id)
         {
             clsSupplier supplier = null;
             openConection();

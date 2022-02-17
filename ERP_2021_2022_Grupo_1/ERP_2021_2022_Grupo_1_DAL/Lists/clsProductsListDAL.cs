@@ -12,13 +12,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
     {
         #region public methods
         /// <summary>
-        /// <b>Prototype:</b> public static List(clsProduct) getProductsListDAL()<br/>
+        /// <b>Prototype:</b> public List(clsProduct) getProductsListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of products from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a list with the products from the Product table
         /// </summary>
         /// <returns> List(clsProduct) productList representing the list of products from the DB</returns>
-        public static List<clsProduct> getProductsListDAL()
+        public List<clsProduct> getProductsListDAL()
         {
             openConection();
             clsProduct product;
@@ -44,14 +44,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         }
 
         /// <summary>
-        /// <b>Prototype:</b> public static clsProduct getProductDAL(int id)<br/>
+        /// <b>Prototype:</b> public clsProduct getProductDAL(int id)<br/>
         /// <b>Commentaries:</b>Returns a specific product from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a specific product from the Product table
         /// </summary>
         /// <param name="int id"></param>
         /// <returns> clsProduct product representing the specific product from the DB</returns>
-        public static clsProduct getProductDAL(int id)
+        public clsProduct getProductDAL(int id)
         {
             openConection();
             clsProduct product = null;

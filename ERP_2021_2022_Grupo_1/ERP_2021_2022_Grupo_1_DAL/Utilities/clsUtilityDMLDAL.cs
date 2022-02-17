@@ -13,7 +13,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
 
         #region public methods
         /// <summary>
-        /// <b>Prototype:</b> public static int executeDMLSentence(String dmlSentence)<br/>
+        /// <b>Prototype:</b> public int executeDMLSentence(String dmlSentence)<br/>
         /// <b>Comments:</b> Executes a DML sentence<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Through the inherited properties and a DML sentence, executes said sentence, returning
@@ -21,7 +21,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         /// </summary>
         /// <param name="dmlSentence"></param>
         /// <returns> int depicting the number of affected rows by said DML sentence</returns>
-        public static int executeDMLSentence(String dmlSentence)
+        public int executeDMLSentence(String dmlSentence)
         {
             MyCommand.CommandText = dmlSentence;
             MyCommand.Connection = MyConnection.Conexion;
@@ -29,7 +29,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         }
 
         /// <summary>
-        /// <b>Prototype:</b> public static int executeDMLSentenceCondition(String dmlSentence, int condition)<br/>
+        /// <b>Prototype:</b> public int executeDMLSentenceCondition(String dmlSentence, int condition)<br/>
         /// <b>Comments:</b> Executes a DML sentence with a condition, being usually a PK<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Through the inherited properties and a DML sentence sql with a condition,
@@ -38,7 +38,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         /// <param name="dmlSentence"></param>
         /// <param name="condition"></param>
         /// <returns> int depicting the number of affected rows by said DML sentence</returns>
-        public static int executeDMLSentenceCondition(String dmlSentence, int condition)
+        public int executeDMLSentenceCondition(String dmlSentence, int condition)
         {
             MyCommand.Parameters.Add("@param", System.Data.SqlDbType.Int).Value = condition;
             MyCommand.CommandText = dmlSentence;
@@ -47,7 +47,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         }
 
         /// /// <summary>
-        /// <b>Prototype:</b> public static int executeStoredProcedure(String procedure)<br/>
+        /// <b>Prototype:</b> public int executeStoredProcedure(String procedure)<br/>
         /// <b>Comments:</b> Executes a stored procedure<br/>
         /// <b>Preconditions:</b> if the SP has variabñes, those must ahad to be already  instanced in MyCommand<br/>
         /// <b>Postconditions:</b> Through the inherited properties and a DML sentence and a procedure passed as parameter
@@ -55,7 +55,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
         /// </summary>
         /// <param name="procedure"></param>
         /// <returns> int depicting the number of affected rows by said DML sentence</returns>
-        public static int executeStoredProcedure(String procedure)
+        public int executeStoredProcedure(String procedure)
         {
             MyCommand.CommandType = System.Data.CommandType.StoredProcedure;
             MyCommand.CommandText = procedure;

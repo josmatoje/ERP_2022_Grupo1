@@ -9,13 +9,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
     {
         #region public methods
         /// <summary>
-        /// <b>Prototype:</b> public static List(clsOrder) getOrdersListDAL()<br/>
+        /// <b>Prototype:</b> public List(clsOrder) getOrdersListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of orders from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a list with all the orders from the Order table
         /// </summary>
         /// <returns> List(clsOrder) orderList representing the list of orders from the DB</returns>
-        public static List<clsOrder> getOrdersListDAL()
+        public List<clsOrder> getOrdersListDAL()
         {
             List<clsOrder> ordersList = new List<clsOrder>();
             clsOrder order ;
@@ -40,14 +40,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         }
 
         /// <summary>
-        /// <b>Prototype:</b> public static clsOrder getOrderDAL(int id)<br/>
+        /// <b>Prototype:</b> public clsOrder getOrderDAL(int id)<br/>
         /// <b>Commentaries:</b>Returns a specific order from the DB given its id<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a specific order from the Order table
         /// </summary>
         /// <param name="int id"></param>
         /// <returns> clsOrder order representing the specific order from the DB or null if it doesn't exists or ie isn't found</returns>
-        public static clsOrder getOrderDAL(int id)
+        public clsOrder getOrderDAL(int id)
         {
             clsOrder order = null;
             openConection();

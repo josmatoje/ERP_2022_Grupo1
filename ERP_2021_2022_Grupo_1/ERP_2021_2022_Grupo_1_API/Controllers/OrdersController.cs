@@ -41,7 +41,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             //ObjectResult result;
             try
             {
-                orderList = clsOrdersListBL.getOrdersListBL();
+                orderList = new clsOrdersListBL().getOrdersListBL();
             }
             catch (Exception e) { }
 
@@ -67,7 +67,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             clsOrder oOrder = null;
             try
             {
-                oOrder = clsOrdersListBL.getOrderBL(id);
+                oOrder = new clsOrdersListBL().getOrderBL(id);
             }
             catch (Exception e) { }
             return oOrder;
@@ -95,7 +95,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             IActionResult result = Ok();
             try
             {
-                rowsAffected = clsOrderManagerBL.updateOrderBL(oOrder);
+                rowsAffected = new clsOrderManagerBL().updateOrderBL(oOrder);
                 if (rowsAffected == 0)
                 {
                     result = NotFound();
@@ -131,7 +131,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             IActionResult result = Ok();
             try
             {
-                rowsAffected = clsOrderManagerBL.updateOrderBL(oOrder);
+                rowsAffected = new clsOrderManagerBL().updateOrderBL(oOrder);
                 if (rowsAffected == 0)
                 {
                     result = NotFound();
@@ -165,7 +165,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             IActionResult result = Ok();
             try
             {
-                rowsAffected = clsOrderManagerBL.deleteOrderBL(id);
+                rowsAffected = new clsOrderManagerBL().deleteOrderBL(id);
                 if (rowsAffected == 0)
                 {
                     result = NotFound();

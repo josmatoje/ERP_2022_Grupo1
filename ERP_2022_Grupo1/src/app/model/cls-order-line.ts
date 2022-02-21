@@ -1,4 +1,4 @@
-interface ClsOrderLine {
+export interface ClsOrderLine {
     //Atributos
     id: number ;
     quantity: number;

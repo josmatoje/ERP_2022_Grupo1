@@ -7,6 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { initializeApp } from 'firebase/app';
 import {  } from 'firebase/auth';
 import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
+import { ListadoPedidosComponent } from './components/listado_pedidos_component/listado-pedidos.component';
+import { ListadoProductosPorSupplierComponent } from './components/listado-productos-por-supplier/listado-productos-por-supplier.component';
+import { ListadoProductosAnhadidosComponent } from './components/listado-productos-anhadidos/listado-productos-anhadidos.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -25,12 +30,17 @@ const app = initializeApp(firebaseConfig);
   declarations: [
     AppComponent,
     AuthSigninComponent,
+    ListadoPedidosComponent,
+    ListadoProductosPorSupplierComponent,
+    ListadoProductosAnhadidosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

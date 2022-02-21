@@ -1,4 +1,4 @@
-interface ClsProduct {
+export interface ClsProduct {
     //Atributos
     orderId: number;
     name: String ;

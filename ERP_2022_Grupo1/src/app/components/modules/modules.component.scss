@@ -1,14 +1,33 @@
+
 img{
     border-radius: 4px;
     width: 50px;
     margin: 20px;
+    align-self: center;
 }
 table{
     margin-top: 80px;
-    margin-left: 80px;
+    margin-left: 100px;
     align-content: center;
 }
 .exampleCard{
-    border-radius: 100%;
+    align-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: aquamarine;
+}
+.barra{
+    width: auto; 
+    height: 100px; 
+    background: #2C3333;
 }
 
+.celda {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #2666CF;
+    background-color: azure;
+    border-radius: 50%;
+    margin: 30px; 
+}

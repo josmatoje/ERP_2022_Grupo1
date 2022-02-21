@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './signin-form.component.html',
   styleUrls: ['./signin-form.component.scss']
 })
-export class SigninFormComponent implements OnInit {
+export class SigninFormComponent  {
 
-  constructor() { }
+  email = "";
+  password = "";
 
-  ngOnInit(): void {
-  }
+  submitted = false;
+
+  onSubmit() { this.submitted = true; }
 
 }

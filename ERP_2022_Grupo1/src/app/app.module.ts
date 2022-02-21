@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { initializeApp } from 'firebase/app';
 import {  } from 'firebase/auth';
 import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
+import { ModulesComponent } from './components/modules/modules.component';
+import {MatCardModule} from '@angular/material/card';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -25,12 +27,14 @@ const app = initializeApp(firebaseConfig);
   declarations: [
     AppComponent,
     AuthSigninComponent,
+    ModulesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

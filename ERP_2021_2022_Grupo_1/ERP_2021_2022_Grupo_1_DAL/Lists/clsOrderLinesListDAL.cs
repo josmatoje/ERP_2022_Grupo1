@@ -10,13 +10,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
     {
         #region public methods
         /// <summary>
-        /// <b>Prototype:</b> public static List(clsOrderLine) getOrderLineListDAL()<br/>
+        /// <b>Prototype:</b> public List(clsOrderLine) getOrderLineListDAL()<br/>
         /// <b>Commentaries:</b>Returns a list of order line list from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a list with the order line list from the OrderLine table
         /// </summary>
         /// <returns> List(clsOrderLine) orderLineList representing the list of order line from the DB</returns>
-        public static List<clsOrderLine> getOrderLineListDAL()
+        public List<clsOrderLine> getOrderLineListDAL()
         {
             clsOrderLine orderLine;
             List<clsOrderLine> orderLineList = new List<clsOrderLine>();
@@ -41,14 +41,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
         }
 
         /// <summary>
-        /// <b>Prototype:</b> public static clsOrderLine getOrderLineDAL()<br/>
+        /// <b>Prototype:</b> public clsOrderLine getOrderLineDAL()<br/>
         /// <b>Commentaries:</b>Returns a specific order line from the DB<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> Returns a specific order from the OrderLine table
         /// </summary>
         /// <param name="int id"></param>
         /// <returns> clsOrderLine orderLine representing the specific order line from the DB</returns>
-        public static clsOrderLine getOrderLineDAL(int id)
+        public clsOrderLine getOrderLineDAL(int id)
         {
             clsOrderLine orderLine = new clsOrderLine();
             openConection();

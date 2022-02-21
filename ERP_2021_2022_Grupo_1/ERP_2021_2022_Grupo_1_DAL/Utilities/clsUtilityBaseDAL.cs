@@ -13,18 +13,18 @@ namespace ERP_2021_2022_Grupo_1_DAL.Utilities
     public abstract class clsUtilityBaseDAL
     {
         #region public properties
-        public static clsMyConnection MyConnection { get; set; }
-        public static SqlCommand MyCommand { get; set; }
+        public clsMyConnection MyConnection { get; set; }
+        public SqlCommand MyCommand { get; set; }
         #endregion
         #region public methods
         /// <summary>
-        /// <b>Prototype:</b> public static void openConection()<br/>
+        /// <b>Prototype:</b> public void openConection()<br/>
         /// <b>Commentaries:</b> Method for opening a conection to a DB<br/>
         /// <b>Preconditions:</b> None<br/>
         /// <b>Postconditions:</b> The attributes from MyConnection and MyCommand are instantiated, then, it opens a connection to the DB saved in the attributes
         /// from the object MyConnection
         /// </summary>
-        public static void openConection()
+        public void openConection()
         {
             MyConnection = new clsMyConnection();
             MyCommand = new SqlCommand();

@@ -18,14 +18,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         
 
         /// <summary>
-        /// <b>Prototype:</b> public static int updateOrderLineDAL(clsOrderLine orderLine)<br/>
+        /// <b>Prototype:</b> public int updateOrderLineDAL(clsOrderLine orderLine)<br/>
         /// <b>Commentaries:</b>Connects to the DB to update an order line<br/>
         /// <b>Preconditions:</b> order line is valid<br/>
         /// <b>Postconditions:</b> Returns int indicating how many rows were changed (updated)
         /// </summary>
         /// <param name="orderLine">clsOrderLine</param>
         /// <returns>int rowsChanged</returns>
-        public static int updateOrderLineDAL(clsOrderLine orderLine)
+        public int updateOrderLineDAL(clsOrderLine orderLine)
         {
             openConection();
             createCommand(orderLine);
@@ -35,14 +35,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         }
 
         /// <summary>
-        /// <b>Prototype:</b> public static int deleteOrderLineDAL(int id)<br/>
+        /// <b>Prototype:</b> public int deleteOrderLineDAL(int id)<br/>
         /// <b>Commentaries:</b>Connects to the DB to delete an order line<br/>
         /// <b>Preconditions:</b> id exists<br/>
         /// <b>Postconditions:</b> Returns int indicating how many rows were changed (deleted)
         /// </summary>
         /// <param name="id">int</param>
         /// <returns>int rowsChanged</returns>
-        public static int deleteOrderLineDAL(int id)
+        public int deleteOrderLineDAL(int id)
         {
             openConection();
             int resultado = executeDMLSentenceCondition(DELETE_INSTRUCTION_ORDER_LINE, id);
@@ -51,14 +51,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         }
 
         /// <summary>
-        /// <b>Prototype:</b> private static void createCommand(clsOrderLine orderLine) <br/>
+        /// <b>Prototype:</b> private void createCommand(clsOrderLine orderLine) <br/>
         /// <b>Commentaries:</b>Create a command with orderLine atributes<br/>
         /// <b>Preconditions:</b> orderLine not null<br/>
         /// <b>Postconditions:</b> nothing
         /// </summary>
         /// <param name="orderLine"></param>
 
-        private static void createCommand(clsOrderLine orderLine) {
+        private void createCommand(clsOrderLine orderLine) {
             MyCommand.Parameters.Add("@OrderID", System.Data.SqlDbType.Int).Value = orderLine.OrderId;
             MyCommand.Parameters.Add("@ProductID", System.Data.SqlDbType.Int).Value = orderLine.ProductId;
             MyCommand.Parameters.Add("@Quantity", System.Data.SqlDbType.Int).Value = orderLine.Quantity;

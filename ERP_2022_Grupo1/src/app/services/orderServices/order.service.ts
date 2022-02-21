@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +14,7 @@ export class OrderService {
   constructor(private http: HttpClient) {}
    
   /**
-   * Prototype: getAllOrders(): Observable<clsOrder[]> 
+   * Prototype: getAllOrders(): Observable<ClsOrder[]> 
    * Description: Calls the api to get a list with all the orders in the database
    * Preconditions: none
    * Postconditions: Full orders' list of the database

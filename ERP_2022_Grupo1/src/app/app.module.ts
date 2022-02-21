@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { initializeApp } from 'firebase/app';
-import {  } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
+import { SigninFormComponent } from './components/signin-form/signin-form.component';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -25,6 +26,7 @@ const app = initializeApp(firebaseConfig);
   declarations: [
     AppComponent,
     AuthSigninComponent,
+    SigninFormComponent,
   ],
   imports: [
     BrowserModule,

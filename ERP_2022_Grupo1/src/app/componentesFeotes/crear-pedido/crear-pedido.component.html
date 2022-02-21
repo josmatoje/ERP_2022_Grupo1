@@ -1,0 +1,4 @@
+<select [ngModel]="supplierSeleccionado" (ngModelChange)="onChangeObj($event)">
+    <option [ngValue]="suppliers" *ngFor="let suppliers of arrayDeSuppliers">{{suppliers.name}}</option>
+</select>
+

@@ -1,0 +1,18 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+
+  .contenedor {
+    display: flexbox;
+    flex-direction: column;
+    margin:1rem auto;
+    padding: 20px;
+}  
+
+// body {
+//     padding: 50px;
+// }

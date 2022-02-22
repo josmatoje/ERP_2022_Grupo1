@@ -1,14 +1,18 @@
-
-img{
-    border-radius: 4px;
-    width: 50px;
+.logo{
+    width: 140px;
     margin: 20px;
-    align-self: center;
+    padding-right: 20px;
+}
+body{
+    background: url("./../../../assets/fondobueno.jpg");
 }
 table{
-    margin-top: 80px;
-    margin-left: 100px;
+    padding: 180px;
     align-content: center;
+}
+.card{
+    background: url("./../../../assets/burbujaBuena.png");
+    border: rgba(0, 0, 0, 0);
 }
 .exampleCard{
     align-content: center;
@@ -17,10 +21,9 @@ table{
     border-radius: 50%;
     background-color: aquamarine;
 }
-.barra{
-    width: auto; 
-    height: 100px; 
-    background: #2C3333;
+.celda {
+    width: 150px;
+    margin: 50px;
 }
 
 .celda {

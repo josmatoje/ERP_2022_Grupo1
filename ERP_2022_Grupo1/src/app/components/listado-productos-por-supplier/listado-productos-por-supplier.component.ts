@@ -10,9 +10,14 @@ export class ListadoProductosPorSupplierComponent implements OnInit {
 
   listadoProductos: ClsProduct[] = [
     {orderId:1, name:'Patata', description: 'patata', unitPrice:12, category:'patata'},
+    {orderId:1, name:'a', description: 'patata', unitPrice:12, category:'patata'},
+    {orderId:1, name:'a', description: 'patata', unitPrice:12, category:'patata'},
+    {orderId:1, name:'a', description: 'patata', unitPrice:12, category:'patata'},
+    {orderId:1, name:'a', description: 'patata', unitPrice:12, category:'patata'},
+    {orderId:1, name:'a', description: 'patata', unitPrice:12, category:'patata'},
     {orderId:1, name:'a', description: 'patata', unitPrice:12, category:'patata'}
   ]
-  displayedColumns: string[] = ['Nombre', 'Precio', 'Cantidad', 'Anhadir'];
+  displayedColumns: string[] = ['Nombre', 'Descripcion', 'Categoria', 'Precio', 'Cantidad', 'Anhadir'];
   
   constructor() { }
 

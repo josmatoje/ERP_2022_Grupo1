@@ -12,6 +12,10 @@ import { ListadoProductosPorSupplierComponent } from './components/listado-produ
 import { ListadoProductosAnhadidosComponent } from './components/listado-productos-anhadidos/listado-productos-anhadidos.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatStepperModule} from '@angular/material/stepper';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -40,7 +44,11 @@ const app = initializeApp(firebaseConfig);
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule,
+    MatCardModule,
+    MatSelectModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

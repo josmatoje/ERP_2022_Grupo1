@@ -1,0 +1,16 @@
+body {
+    padding: 100px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    margin:1rem auto;
+    padding: 20px;
+}  
+
+td {
+    max-width: 400px;
+}
+
+

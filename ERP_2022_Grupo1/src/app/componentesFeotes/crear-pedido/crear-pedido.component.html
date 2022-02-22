@@ -2,3 +2,44 @@
     <option [ngValue]="suppliers" *ngFor="let suppliers of arrayDeSuppliers">{{suppliers.name}}</option>
 </select>
 
+<table>
+    <tr>
+        <th>NombreProd</th>
+        <th>Precio</th>
+        <th>Cantidad a añadir</th>
+        <th>Añadir</th>
+    </tr>
+    <tr *ngFor="let product of arrayProduct">
+        <td>{{product.name}}</td>
+        
+        <td>{{product.unitPrice}}</td>
+        <td> 
+            <input type="tel" [(ngModel)]="product.amount" >            
+        </td>   
+        <td>
+            <button (click)="aniadirProducto(product)">Añadir</button>            
+        </td>        
+    </tr>
+    
+</table>
+
+<table>
+    <tr>
+        <th>NombreProd</th>
+        <th>Precio</th>
+        <th>Cantidad a añadir</th>
+        <th>Quitar</th>
+    </tr>
+    <tr *ngFor="let product of arrayCart">
+        <td>{{product.name}}</td>
+        
+        <td>{{product.unitPrice}}</td>
+        <td> 
+            {{product.amount}}          
+        </td>   
+        <td>
+            <button (click)="eliminarProducto(product)">Eliminar</button>            
+        </td>        
+    </tr>
+    
+</table>

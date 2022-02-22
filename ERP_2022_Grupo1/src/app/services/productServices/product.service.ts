@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { ClsProduct } from 'src/app/model/cls-product';
+
 import { Observable } from 'rxjs';
 
 @Injectable({

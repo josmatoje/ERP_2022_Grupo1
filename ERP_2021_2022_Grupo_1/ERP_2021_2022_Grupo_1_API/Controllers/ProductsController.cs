@@ -50,6 +50,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             return product;
         }
 
+        //Dado un id de supplier te devuelve una lista con estos
+        // GET api/<ProductsController>/Supplier/5
+        [HttpGet("Supplier/{id}")]
+        public IEnumerable<clsProduct> GetProductListSupplier(int id)
+        {
+            List<clsProduct> productList = null;
+            try
+            {
+                productList = new clsProductsListBL().getProductListSupplierBL(id);
+            }
+            catch (Exception e)
+            { }
+
+            return productList;
+        }
+
         // POST api/<ProductsController>
         [HttpPost]
         public void Post([FromBody] string value)

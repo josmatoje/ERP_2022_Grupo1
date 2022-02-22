@@ -32,5 +32,10 @@ namespace ERP_2021_2022_Grupo_1_BL.Lists
         {
             return new clsProductsListDAL().getProductDAL(id);
         }
+
+        public List<clsProduct> getProductListSupplierBL(int idSupplier)
+        {
+            return new clsProductsListDAL().getProductListSupplierDAL(idSupplier);
+        }
     }
 }

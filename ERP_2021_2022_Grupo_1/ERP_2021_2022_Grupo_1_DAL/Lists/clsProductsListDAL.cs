@@ -43,6 +43,29 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             return productList;
         }
 
+        public List<clsProduct> getProductListSupplierDAL(int idSupplier)
+        {
+            openConection();
+            clsProduct product;
+            List<clsProduct> productList = new List<clsProduct>();
+            //executeSelect("SELECT * FROM Products");
+            MyReader = executeSelect("SELECT [Products].ID, [Products].Name, [Products].Description, UnitPrice, [Categories].Name AS Category FROM Categories "+
+                                    "INNER JOIN Products ON[Categories].ID = [Products].CategoryID "+
+                                    "INNER JOIN ProductsSuppliers ON[Products].ID = [ProductsSuppliers].IdProduct " +
+                                    "INNER JOIN Suppliers ON[ProductsSuppliers].IdSupplier = [Suppliers].ID "+
+                                    "WHERE IdSupplier = "+ idSupplier);
+            while (MyReader.Read())
+            {
+                product = new clsProduct((int)MyReader["ID"],
+                                        (string)MyReader["Name"],
+                                        (string)(MyReader["Description"] == System.DBNull.Value ? "" : (MyReader["Description"])),
+                                        Decimal.ToDouble((decimal)MyReader["UnitPrice"]),
+                                        (string)MyReader["Category"]);
+                productList.Add(product);
+            }
+            return productList;
+        }
+
         /// <summary>
         /// <b>Prototype:</b> public clsProduct getProductDAL(int id)<br/>
         /// <b>Commentaries:</b>Returns a specific product from the DB<br/>
@@ -71,7 +94,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             }
             closeFlow();
             return product;
-        }
+        }      
         #endregion
     }
 }

@@ -28,7 +28,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             List<clsProduct> productList = null;
             try
             {
-                productList = clsProductsListBL.getProductsListBL();
+                productList = new clsProductsListBL().getProductsListBL();
             }
             catch (Exception e)
             { }
@@ -44,7 +44,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             clsProduct product = null;
             try
             {
-                product = clsProductsListBL.getProductBL(id);
+                product = new clsProductsListBL().getProductBL(id);
             }
             catch (Exception e) { }
             return product;

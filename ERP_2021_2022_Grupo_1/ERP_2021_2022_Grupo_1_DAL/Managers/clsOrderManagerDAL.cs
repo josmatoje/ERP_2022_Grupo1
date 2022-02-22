@@ -17,14 +17,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         #region methods
       
         /// <summary>
-        /// <b>Prototype:</b> public static int updateOrderDAL(clsOrder order)<br/>
+        /// <b>Prototype:</b> public int updateOrderDAL(clsOrder order)<br/>
         /// <b>Commentaries:</b>Connects to the DB to update an order<br/>
         /// <b>Preconditions:</b> order is valid<br/>
         /// <b>Postconditions:</b> Returns int indicating how many rows were changed (updated)
         /// </summary>
         /// <param name="order">clsOrder</param>
         /// <returns>int rowsChanged</returns>
-        public static int updateOrderDAL(clsOrder order)
+        public int updateOrderDAL(clsOrder order)
         {
             openConection();
             createCommand(order);
@@ -33,14 +33,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
             return resultado;
         }
         /// <summary>
-        /// <b>Prototype:</b> public static int deleteOrderDAL(int id)<br/>
+        /// <b>Prototype:</b> public int deleteOrderDAL(int id)<br/>
         /// <b>Commentaries:</b>Connects to the DB to delete an order<br/>
         /// <b>Preconditions:</b> id exists<br/>
         /// <b>Postconditions:</b> Returns int indicating how many rows were changed (deleted)
         /// </summary>
         /// <param name="id">int</param>
         /// <returns>int rowsChanged</returns>
-        public static int deleteOrderDAL(int id)
+        public int deleteOrderDAL(int id)
         {
             openConection();
             int resultado = executeDMLSentenceCondition(DELETE_INSTRUCTION_ORDER, id);
@@ -50,14 +50,14 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
 
 
         /// <summary>
-        /// <b>Prototype:</b> private static void createCommand(clsOrderLine orderLine) <br/>
+        /// <b>Prototype:</b> private void createCommand(clsOrderLine orderLine) <br/>
         /// <b>Commentaries:</b>Create a command with order atributes<br/>
         /// <b>Preconditions:</b> order not null<br/>
         /// <b>Postconditions:</b> nothing
         /// </summary>
         /// <param name="order"></param>
 
-        private static void createCommand(clsOrder order) {
+        private void createCommand(clsOrder order) {
             MyCommand.Parameters.Add("@Total", System.Data.SqlDbType.Int).Value = order.Total;
             MyCommand.Parameters.Add("@OrderDate", System.Data.SqlDbType.Date).Value = order.OrderDate;
             MyCommand.Parameters.Add("@LimitDate", System.Data.SqlDbType.Date).Value = order.LimitOrderDate;

@@ -10,7 +10,6 @@ export class StepperCreateOrderCompleteComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  isOptional = false;
 
   constructor(private _formBuilder: FormBuilder) {}
 

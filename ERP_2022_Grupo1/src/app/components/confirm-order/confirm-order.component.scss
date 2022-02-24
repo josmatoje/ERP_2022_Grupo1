@@ -1,5 +1,7 @@
 .example-card {
     max-width: 400px;
+    align-items: center;
+    justify-content: center;
   }
   
   .example-header-image {
@@ -7,12 +9,9 @@
   }
 
   .contenedor {
-    display: flexbox;
-    flex-direction: column;
-    margin:1rem auto;
     padding: 20px;
 }  
 
-// body {
-//     padding: 50px;
-// }
+ body {
+     padding: 50px;
+ }

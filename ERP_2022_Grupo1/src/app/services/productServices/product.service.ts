@@ -46,7 +46,7 @@ export class ProductService {
    * @param supplierId 
    * @returns Observable<ClsProduct>
    */
-  getProductBySupplierId(supplierId: number): Observable<ClsProduct> {
-    return this.http.get<ClsProduct>(this.url + '/Supplier/'+ supplierId);
+  getProductBySupplierId(supplierId: number): Observable<ClsProduct[]> {
+    return this.http.get<ClsProduct[]>(this.url + '/Supplier/'+ supplierId);
   }
 }

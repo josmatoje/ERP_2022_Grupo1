@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { ClsProduct } from 'src/app/model/cls-product';
 
 import { Observable } from 'rxjs';
+import { ClsProduct } from 'src/app/model/cls-product'; 
 
 @Injectable({
   providedIn: 'root'

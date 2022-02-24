@@ -1,0 +1,22 @@
+// body {
+//     padding: 50px;
+// }
+
+ table {
+    min-width: 1300px;
+}
+
+.contenedor {
+    display: flexbox;
+    flex-direction: column;
+    margin:1rem auto;
+    padding: 20px;
+}  
+
+.espacio {
+    width: 40px;
+}
+
+button {
+    margin: 50px;
+}

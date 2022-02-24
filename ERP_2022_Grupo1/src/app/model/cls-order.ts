@@ -1,4 +1,4 @@
-interface ClsOrder {
+export interface ClsOrder {
     //Attributes
     orderId: number;
     total: number;

@@ -40,4 +40,16 @@ export class ProductService {
   getProductById(productId: number): Observable<ClsProduct> {
     return this.http.get<ClsProduct>(this.url +'/'+ productId);
   }
+
+  /**
+   * Prototype: getProductoBySupplierId(supplierId: number): Observable<ClsProduct>
+   * Description: Calls the api to get a list of products given the id of a supplier in the database
+   * Preconditions: none
+   * Postconditions: List of products gotten with the given supplier id
+   * @param supplierId 
+   * @returns Observable<ClsProduct>
+   */
+  getProductBySupplierId(supplierId: number): Observable<ClsProduct> {
+    return this.http.get<ClsProduct>(this.url + '/Supplier/'+ supplierId);
+  }
 }

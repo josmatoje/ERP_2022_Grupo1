@@ -9,6 +9,13 @@ import {  } from 'firebase/auth';
 import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
 import { ModulesComponent } from './components/modules/modules.component';
 import {MatCardModule} from '@angular/material/card';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -28,13 +35,18 @@ const app = initializeApp(firebaseConfig);
     AppComponent,
     AuthSigninComponent,
     ModulesComponent,
+    OrderListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

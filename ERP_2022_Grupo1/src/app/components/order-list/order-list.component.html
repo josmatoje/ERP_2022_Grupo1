@@ -1,0 +1,49 @@
+<head>
+
+</head>
+<body>
+    <div class="barra"></div>
+    <button  mat-raised-button color="primary" class="boton">HACER NUEVO PEDIDO</button>
+    <div>
+        <table mat-table [dataSource]="dataSource" class="contenedor">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID</th>
+                <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
+            </ng-container>
+            <ng-container matColumnDef="total">
+                <th mat-header-cell *matHeaderCellDef> TOTAL </th>
+                <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef> DATE </th>
+                <td mat-cell *matCellDef="let element"> {{element.orderDate | date : 'shortDate'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="limit">
+                <th mat-header-cell *matHeaderCellDef> LIMIT DATE </th>
+                <td mat-cell *matCellDef="let element"> {{ element.limitOrderDate | date : 'shortDate' }} </td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button  mat-icon-button color="aria-label">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button  mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator class="contenedor" [pageSizeOptions]="[12]"
+                     showFirstLastButtons 
+                     aria-label="Select page of orders">
+      </mat-paginator>
+    </div>
+</body>

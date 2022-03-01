@@ -1,20 +1,22 @@
 <form class="form-horizontal" [formGroup]="form">
     <div class="example-container">
         <mat-form-field appearance="outline">
-          <mat-label>Enter your email</mat-label>
+          <mat-label>Email</mat-label>
           <input matInput placeholder="pat@example.com" [formControl]="email" required>
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
         </mat-form-field>
       </div>
 
       <div class="example-container">
         <mat-form-field appearance="outline">
-          <mat-label>Enter your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
-          <mat-error *ngIf="email.invalid">{{getErrorMessagePassword()}}</mat-error>
+          <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
         </mat-form-field>
     </div>
+    <button mat-raised-button color="primary" (click)="login()">Log in</button>
+    <button id="btnCreateAccount" mat-raised-button color="primary" (click)="createAccount()">Create Account</button>
 </form>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators, FormGroup} from '@angular/forms';
+import { FormControl, Validators, FormGroup} from '@angular/forms';
+import * as firebase from '../../../firebase/firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@firebase/auth';
 
 @Component({
   selector: 'app-login-form',
@@ -14,20 +16,6 @@ export class LoginFormComponent implements OnInit {
   password: FormControl;
   constructor() { }
   
-  getErrorMessage() {
-    var text : String;
-    if (this.email.hasError('required')) {
-      text = 'You must enter a value';
-    }
-
-    text = this.email.hasError('email') ? 'Not a valid email' : '';
-    return text;
-  }
-
-  getErrorMessagePassword() {  
-    return this.email.hasError('required') ? 'You must enter a value' : '';    
-  }
-
   ngOnInit(): void {
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required]);
@@ -37,6 +25,51 @@ export class LoginFormComponent implements OnInit {
         password : this.password
       }      
     );
+  }
+
+  getErrorMessageEmail() {
+    var text : String;
+    if (this.email.hasError('required')) {
+      text = 'You must enter a value';
+    }else{
+      text = this.email.hasError('email') ? 'Not a valid email' : '';
+    }
+    
+    return text;
+  }
+
+  getErrorMessagePassword() {  
+    return this.password.hasError('required') ? 'You must enter a value' : '';    
+  }
+
+  public createAccount() {
+    const auth = firebase.default;
+    var email = this.email.value;
+    var password = this.password.value;
+    console.log(email+' '+password);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        alert(user.email);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  }
+
+  public login(){
+    const auth = firebase.default;
+    signInWithEmailAndPassword(auth, this.email.value, this.password.value).then((userCredential) => {
+        const user = userCredential.user;
+        alert('Usuario inició sesión');
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
   }
 
 }

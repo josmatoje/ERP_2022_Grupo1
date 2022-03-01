@@ -8,6 +8,12 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
 import { SigninFormComponent } from './components/signin-form/signin-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
+
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -27,12 +33,17 @@ const app = initializeApp(firebaseConfig);
     AppComponent,
     AuthSigninComponent,
     SigninFormComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule, 
+    MatFormFieldModule,
+    ReactiveFormsModule, 
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

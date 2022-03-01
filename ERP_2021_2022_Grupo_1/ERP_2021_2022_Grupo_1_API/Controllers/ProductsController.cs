@@ -30,8 +30,10 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 productList = new clsProductsListBL().getProductsListBL();
             }
-            catch (Exception e)
-            { }
+            catch (Exception)
+            { 
+                throw;
+            }
 
             return productList;
         }
@@ -46,7 +48,10 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 product = new clsProductsListBL().getProductBL(id);
             }
-            catch (Exception e) { }
+            catch (Exception) 
+            {
+                throw;
+            }
             return product;
         }
 
@@ -60,8 +65,10 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 productList = new clsProductsListBL().getProductListSupplierBL(id);
             }
-            catch (Exception e)
-            { }
+            catch (Exception)
+            {
+                throw;
+            }
 
             return productList;
         }

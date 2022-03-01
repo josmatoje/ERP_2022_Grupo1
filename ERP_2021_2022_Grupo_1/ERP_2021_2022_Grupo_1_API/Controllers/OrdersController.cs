@@ -43,7 +43,10 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 orderList = new clsOrdersListBL().getOrdersListBL();
             }
-            catch (Exception e) { }
+            catch (Exception) 
+            {
+                throw;
+            }
 
             return orderList;
         }
@@ -69,7 +72,10 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 oOrder = new clsOrdersListBL().getOrderBL(id);
             }
-            catch (Exception e) { }
+            catch (Exception) 
+            {
+                throw;
+            }
             return oOrder;
         }
 
@@ -92,7 +98,10 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 id = new clsOrdersListBL().getLastOrderIDBL();
             }
-            catch (Exception e) { }
+            catch (Exception) 
+            { 
+                throw;
+            }
             return id;
         }
 
@@ -124,7 +133,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
                     result = NotFound();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 result = BadRequest();
             }
@@ -160,7 +169,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
                     result = NotFound();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 result = BadRequest();
             }
@@ -194,7 +203,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
                     result = NotFound();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 result = BadRequest();
             }

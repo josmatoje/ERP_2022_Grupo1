@@ -1,23 +1,34 @@
-.mat-stepper-horizontal {
-    margin-top: 8px;
-  }
-  
-  .mat-form-field {
-    margin-top: 16px;
-  }
-
-.contenedor {
-  display: flexbox;
-  flex-direction: column;
-  margin:1rem auto;
-  padding: 20px;
-} 
-
-body {
-  padding: 50px;
+body{
+  background-color: #F5F2E7;
 }
 
-button {
-  margin-left: 15px;
-  justify-content: right;
+mat-stepper{
+  background-color: #F5F2E7;
+}
+
+.mat-stepper-horizontal {
+    margin-top: 8px;
+}
+  
+ .minheight {
+  min-height: 500px;
+}
+
+button{
+  margin-left: 20px;
+}
+
+.buttoncreate{
+  float: right;
+  margin-top: 30px;
+}
+
+.buttons{
+  margin-left: 250px;
+}
+
+.bar{
+  width: 100%;
+  height: 60px;
+  background-color: #395B64;
 }

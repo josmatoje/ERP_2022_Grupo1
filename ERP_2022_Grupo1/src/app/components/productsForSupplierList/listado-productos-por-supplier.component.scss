@@ -1,14 +1,3 @@
-.example-container {
-  position: relative;
-}
-
-.example-table-container {
-  position: relative;
-  min-height: 200px;
-  max-height: 400px;
-  overflow: auto;
-}
-
 td.mat-cell {
   border-bottom-style: none;
 }
@@ -21,16 +10,10 @@ input {
   width: 50px;
 }
 
-.example-rate-limit-reached {
-  max-width: 360px;
-  text-align: center;
+th{
+  color: #395B64;
 }
 
-/* Column Widths */
-.mat-column-number,
-.mat-column-state {
-  max-width: 64px;
-}
 
 
 

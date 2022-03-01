@@ -1,26 +1,27 @@
 <body>
-  <mat-card class="example-card">
-    <mat-card-content>
-      <mat-stepper #stepper>
-        <mat-step label="Crear pedido">
+  <div class="bar"></div>
+    <mat-stepper #stepper>
+      <mat-step label="Crear pedido">
+        <div class="minheight">
           <app-listado-pedidos></app-listado-pedidos>
-          <button mat-raised-button color="primary" matStepperNext>Create</button>
-        </mat-step>
-        <mat-step label="Confirmar pedido">
+        </div>
+        <button class="buttoncreate" mat-raised-button color="primary" matStepperNext>Create</button>
+      </mat-step>
+      <mat-step label="Confirmar pedido">
+        <div class="minheight">
           <app-confirm-order></app-confirm-order>
-          <div>
-            <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-            <button mat-raised-button color="primary" matStepperNext>Confirm</button>
-          </div>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Pedido realizado</ng-template>
-          <p>You are now done.</p>
-          <div>
-            <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-          </div>
-        </mat-step>
-      </mat-stepper>
-    </mat-card-content>
-  </mat-card>
+        </div>
+        <div class="buttons">
+          <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" matStepperNext>Confirm</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Pedido realizado</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
 </body>

@@ -1,22 +1,27 @@
- body {
-     padding: 50px;
- }
+table {
+    min-width: 1250px;
+}
 
- table {
-    min-width: 1300px;
+h2{
+    margin-left: 20px;
+}
+
+mat-form-field{
+    margin-left: 10px;
 }
 
 .contenedor {
     display: flexbox;
     flex-direction: column;
-    margin:1rem auto;
-    padding: 20px;
+    padding: 5px;
 }  
 
 .espacio {
     width: 40px;
 }
 
-button {
-    margin: 50px;
+mat-card{
+    border: 0.5px solid #395B64;
 }
+
+

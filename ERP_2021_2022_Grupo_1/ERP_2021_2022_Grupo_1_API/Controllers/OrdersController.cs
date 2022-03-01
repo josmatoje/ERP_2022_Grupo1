@@ -73,6 +73,29 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             return oOrder;
         }
 
+        /// <summary>
+        /// <b>GET api/*LastOrderID*/</b><br/>
+        /// <b>Prototype:</b> public IActionResult GetlastOrderID()<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for the last inserted order
+        /// returning the order id<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect the last inserted order's id,
+        /// if an error occurs during the execution, the user will be prompted with a ServiceUnavaible excepttion and if
+        /// the list is empty it will promp a NoContent exception
+        /// </summary>
+        /// <returns>IActionResult depending on the result of the call</returns>
+        [HttpGet("LastOrderID")]
+        public int GetLastOrderID()
+        {
+            int id=0;
+            try
+            {
+                id = new clsOrdersListBL().getLastOrderIDBL();
+            }
+            catch (Exception e) { }
+            return id;
+        }
+
 
         /// <summary>
         /// <b>POST api/*OrdersController*</b><br/>

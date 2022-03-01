@@ -1,5 +1,5 @@
 table {
-    min-width: 1250px;
+    width: 100%;
 }
 
 h2{
@@ -22,6 +22,24 @@ mat-form-field{
 
 mat-card{
     border: 0.5px solid #395B64;
+}
+
+td.mat-cell {
+  border-bottom-style: none;
+}
+
+
+input {
+  width: 50px;
+}
+
+th{
+  color: #395B64;
+}
+
+mat-list {
+    max-height: 385px;
+    overflow: auto;
 }
 
 

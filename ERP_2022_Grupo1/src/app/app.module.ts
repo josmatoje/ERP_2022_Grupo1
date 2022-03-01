@@ -8,8 +8,6 @@ import { initializeApp } from 'firebase/app';
 import {  } from 'firebase/auth';
 import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
 import { ListadoPedidosComponent } from './components/createOrder/listado-pedidos.component';
-import { ListadoProductosPorSupplierComponent } from './components/productsForSupplierList/listado-productos-por-supplier.component';
-import { ListadoProductosAnhadidosComponent } from './components/productsAddedList/listado-productos-anhadidos.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
@@ -47,8 +45,6 @@ const app = initializeApp(firebaseConfig);
     AppComponent,
     AuthSigninComponent,
     ListadoPedidosComponent,
-    ListadoProductosPorSupplierComponent,
-    ListadoProductosAnhadidosComponent,
     PruebaComponent,
     ConfirmOrderComponent,
     StepperCreateOrderCompleteComponent,

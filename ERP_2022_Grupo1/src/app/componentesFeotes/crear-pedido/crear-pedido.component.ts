@@ -6,6 +6,10 @@ import { ClsProductLine } from 'src/app/model/cls-product-line'
 
 import { SupplierService } from "src/app/services/supplierServices/supplier.service";
 import { ProductService } from "src/app/services/productServices/product.service";
+import { OrderService } from 'src/app/services/orderServices/order.service';
+import { OrderLinesService } from 'src/app/services/orderLinesservices/order-lines.service';
+import { ClsOrder } from 'src/app/model/cls-order';
+import { ClsOrderLine } from 'src/app/model/cls-order-line';
 
 
 @Component({
@@ -23,7 +27,7 @@ export class CrearPedidoComponent implements OnInit {
   
   supplierSeleccionado = this.arrayDeSuppliers[1];
   
-  constructor(public SupplierService: SupplierService, public ProductService: ProductService) { }
+  constructor(private SupplierService: SupplierService, private ProductService: ProductService, private OrderService : OrderService, private OrderLinesService: OrderLinesService) { }
   
   
   ngOnInit(): void {    
@@ -34,6 +38,7 @@ export class CrearPedidoComponent implements OnInit {
     //console.log(selected);    
     this.arrayCart=[];
     this.arrayProduct=[];
+    this.supplierSeleccionado=selected;
     this.ProductService.getProductBySupplierId(selected.idSupplier).subscribe(data => {
       data.forEach(prod => {
         let  prodTmp : ClsProductLine={
@@ -53,6 +58,7 @@ export class CrearPedidoComponent implements OnInit {
   aniadirProducto(productoSeleccionado: ClsProductLine){
     let unico=true;
     if (productoSeleccionado.amount!=0){
+      //todo verificar numero
       for (var i = 0, len = this.arrayCart.length; i < len; i++) {     
         let producto =this.arrayCart[i];
         if (producto.orderId==productoSeleccionado.orderId){
@@ -74,5 +80,51 @@ export class CrearPedidoComponent implements OnInit {
     this.arrayCart = this.arrayCart.filter(item => item !== productoSeleccionado);
   }     
   
+  enviarPedido(){
+    if(this.arrayCart==null||this.arrayCart.length==0){
+      alert("el carro esta vacio");
+      console.log(this.arrayCart.length);
+    }else{    
+      
+      const pedido: ClsOrder={
+        orderId: 0,
+        total: 1,
+        orderDate: new Date(),
+        limitOrderDate: new Date(),
+        notes:"cosa",
+        supplierId: this.supplierSeleccionado.idSupplier
+      }
+      console.log(pedido);
+      this.OrderService.insertOrder(pedido).subscribe; 
+      
+      //get last id
+      
+      this.arrayCart.forEach(linea=>{
+        let  lineaTMP : ClsOrderLine={
+          id: 0 ,
+          quantity: linea.amount,
+          currentUnitPrice: linea.unitPrice,
+          subtotal:Number (linea.amount)*Number(linea.unitPrice),
+          //todo get last id
+          orderId:1,
+          productId: linea.orderId          
+        };
+        console.log(lineaTMP);
+        this.OrderLinesService.insertOrderLine(lineaTMP).subscribe;
+      });
+      
+      
+    }
+    
+  }
+  /*
+  orderId: number;
+  total: number;
+  orderDate: Date;
+  limitOrderDate: Date;
+  notes: String;
+  supplierId: number;
+  */
 }
+
 

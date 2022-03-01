@@ -49,8 +49,7 @@ export class OrderService {
    * @returns Observable depending on the result of the call
    */
   insertOrder(order: ClsOrder): Observable<number> {   
-    return this.http.post<number>(this.url,
-      order, this.httpOptions);
+    return this.http.post<number>(this.url,order, this.httpOptions);
   }
 
    /**

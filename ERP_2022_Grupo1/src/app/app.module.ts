@@ -26,6 +26,7 @@ import { StepperCreateOrderCompleteComponent } from './components/stepper-create
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { PruebaLuisComponent } from './components/prueba-luis/prueba-luis.component';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -50,6 +51,7 @@ const app = initializeApp(firebaseConfig);
     PruebaComponent,
     ConfirmOrderComponent,
     StepperCreateOrderCompleteComponent,
+    PruebaLuisComponent,
   ],
   imports: [
     BrowserModule,

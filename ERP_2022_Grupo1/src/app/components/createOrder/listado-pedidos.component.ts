@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { ClsSupplier } from 'src/app/model/cls-supplier';
+import { SupplierService } from "src/app/services/supplierServices/supplier.service";
+
 
 @Component({
   selector: 'app-listado-pedidos',
@@ -9,16 +11,18 @@ import { ClsSupplier } from 'src/app/model/cls-supplier';
 })
 export class ListadoPedidosComponent implements OnInit {
 
-  constructor() { }
+  arrayDeSuppliers: Array<ClsSupplier> = [];
+  supplierSeleccionado = this.arrayDeSuppliers[1];
+  @Output() messageEvent = new EventEmitter<number>();
 
-  //select
-  suppliers: ClsSupplier[] = [
-    {idSupplier:1,name: 'Pepe'},
-    {idSupplier:2,name: 'Ernesto'},
-    {idSupplier:3,name: 'Mario'},
-    {idSupplier:4,name: 'Maria del Carmen'},
-  ];
+  constructor(public SupplierService: SupplierService) { }
 
   ngOnInit(): void {
+    this.SupplierService.getAllSuppliers().subscribe(data => this.arrayDeSuppliers = data);
   }
+
+  sendMessage() {
+    this.messageEvent.emit(this.supplierSeleccionado.idSupplier)
+  }
+
 }

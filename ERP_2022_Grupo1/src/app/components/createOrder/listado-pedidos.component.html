@@ -27,9 +27,9 @@
                     <tr>
                         <td VALIGN="top">
                             <mat-form-field appearance="fill">
-                                <mat-select>
+                                <mat-select [ngModel]="supplierSeleccionado" (valueChange)="sendMessage()">
                                     <mat-option>--</mat-option>
-                                    <mat-option *ngFor="let supplier of suppliers" [value]="supplier">
+                                    <mat-option *ngFor="let supplier of arrayDeSuppliers" [value]="supplier">
                                         {{supplier.name}}
                                     </mat-option>
                                 </mat-select>

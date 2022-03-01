@@ -1,5 +1,6 @@
+<app-listado-pedidos (messageEvent)="receiveMessage($event)"></app-listado-pedidos>
 
-  <table mat-table [dataSource]="listadoProductos">
+  <table mat-table [dataSource]="productList" class="example-table" >
     <!-- Nombre Column -->
     <ng-container matColumnDef="Nombre">
       <th mat-header-cell *matHeaderCellDef> Nombre </th>

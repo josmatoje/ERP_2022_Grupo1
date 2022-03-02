@@ -1,5 +1,7 @@
-table {
+.tablaProductos {
     width: 100%;
+    min-height: 400px;
+    width: 850px;
 }
 
 h2{
@@ -13,11 +15,12 @@ mat-form-field{
 .contenedor {
     display: flexbox;
     flex-direction: column;
+    margin: 1rem auto;
     padding: 5px;
 }  
 
 .espacio {
-    width: 40px;
+    width: 60px;
 }
 
 mat-card{
@@ -28,18 +31,30 @@ td.mat-cell {
   border-bottom-style: none;
 }
 
-
-input {
-  width: 50px;
-}
-
 th{
   color: #395B64;
 }
 
+.lista{
+    width:300px;
+    height: 402px;
+}
+
+.cantidad{
+    width: 50px;
+    text-align: end;
+}
+
 mat-list {
-    max-height: 385px;
-    overflow: auto;
+    width: max-content;
+    max-height: 300px; 
+    overflow: auto;  
+}
+
+.lineaseparatoria{
+    width: 300px;
+    height: 1px;
+    background-color: #395B64;
 }
 
 

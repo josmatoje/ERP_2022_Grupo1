@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { initializeApp } from 'firebase/app';
 import {  } from 'firebase/auth';
 import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
+import { ModulesComponent } from './components/modules/modules.component';
 import { ListadoPedidosComponent } from './components/createOrder/listado-pedidos.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
@@ -26,6 +27,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ErrorComponent } from './components/error/error.component';
 import { PruebaLuisComponent } from './components/prueba-luis/prueba-luis.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 
 
@@ -52,7 +54,10 @@ const app = initializeApp(firebaseConfig);
     StepperCreateOrderCompleteComponent,
     ErrorComponent,
     PruebaLuisComponent,
+    OrderListComponent,
+    ModulesComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -72,6 +77,7 @@ const app = initializeApp(firebaseConfig);
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule
+ 
   ],
 
   providers: [],

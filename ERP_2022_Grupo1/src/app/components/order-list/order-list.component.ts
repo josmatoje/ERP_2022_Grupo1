@@ -1,49 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
-export class ClsOrder{
-
-}
-
-const ELEMENT_DATA: ClsOrder[] = [
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 1, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 2, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1},
-  {orderId: 3, total: 100, orderDate: new Date("2019-01-16"), limitOrderDate: new Date("2019-01-16"),notes: " ",supplierId: 1}
-];
+import { ClsOrder } from 'src/app/model/cls-order';
+import { OrderService } from 'src/app/services/orderServices/order.service';
 
 @Component({
   selector: 'app-order-list',
@@ -51,14 +10,25 @@ const ELEMENT_DATA: ClsOrder[] = [
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements AfterViewInit{
-  displayedColumns: string[] = ['id', 'total', 'date','limit','edit', 'symbol'];
-  dataSource = new MatTableDataSource<ClsOrder>(ELEMENT_DATA);
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor() { 
 
+  displayedColumns: string[] = ['id', 'total', 'date','limit','edit', 'symbol'];
+  ordersList = new Array<ClsOrder>()
+  dataSource = new MatTableDataSource<ClsOrder>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  constructor(public OrderService: OrderService) { 
+        
   }
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
+
+  ngOnInit(): void {
+    this.OrderService.getAllOrders().subscribe(data => {this.ordersList = data
+      this.dataSource.data = this.ordersList;
+      this.dataSource.paginator = this.paginator;}) 
+      
+  }
+
+  ngAfterViewInit(): void {  
+    
   }
   
 }

@@ -41,9 +41,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator class="contenedor" [pageSizeOptions]="[12]"
-                     showFirstLastButtons 
-                     aria-label="Select page of orders">
+        <mat-paginator class="contenedor" [pageSizeOptions]="[12]" showFirstLastButtons>
       </mat-paginator>
     </div>
 </body>

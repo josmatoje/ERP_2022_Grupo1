@@ -27,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ErrorComponent } from './components/error/error.component';
 import { PruebaLuisComponent } from './components/prueba-luis/prueba-luis.component';
 
+
+
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCgwt2VRlrDGKe4iy9awUCtEXD47df43iI",

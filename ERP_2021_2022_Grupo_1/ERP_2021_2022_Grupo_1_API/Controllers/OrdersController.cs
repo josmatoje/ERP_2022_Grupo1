@@ -124,18 +124,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         {
             //TODO NO LE LLEGAN BIEN LOS PAPARÁMETROS
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderManagerBL().updateOrderBL(oOrder);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
             catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
 
             return result;
@@ -160,18 +164,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Put(int id, [FromBody] clsOrder oOrder)
         {
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderManagerBL().updateOrderBL(oOrder);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
             catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
 
             return result;
@@ -194,18 +202,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Delete(int id)
         {
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderManagerBL().deleteOrderBL(id);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
             catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
 
             return result;

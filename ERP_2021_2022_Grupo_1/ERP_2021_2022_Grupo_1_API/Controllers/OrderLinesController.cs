@@ -97,20 +97,23 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Post([FromBody] clsOrderLine oOrderLine)
         {
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderLineManagerBL().updateOrderLineBL(oOrderLine);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
             catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
-
             return result;
         }
 
@@ -132,18 +135,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Put(int id, [FromBody] clsOrderLine oOrderLine)
         {
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderLineManagerBL().updateOrderLineBL(oOrderLine);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
             catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
 
             return result;
@@ -166,18 +173,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Delete(int id)
         {
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderLineManagerBL().deleteOrderLineBL(id);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
             catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
 
             return result;

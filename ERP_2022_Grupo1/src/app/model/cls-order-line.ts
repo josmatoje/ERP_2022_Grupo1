@@ -7,4 +7,3 @@ export interface ClsOrderLine {
     orderId: number;
     productId: number;
 }
-//asdasdasd

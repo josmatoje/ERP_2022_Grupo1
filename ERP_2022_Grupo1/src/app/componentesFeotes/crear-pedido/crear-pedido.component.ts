@@ -24,6 +24,8 @@ export class CrearPedidoComponent implements OnInit {
   arrayProduct : Array<ClsProductLine>=[];
   
   arrayCart : Array<ClsProductLine>=[];
+  numeroUltimo:number=0;
+  
   
   supplierSeleccionado = this.arrayDeSuppliers[1];
   
@@ -80,12 +82,11 @@ export class CrearPedidoComponent implements OnInit {
     this.arrayCart = this.arrayCart.filter(item => item !== productoSeleccionado);
   }     
   
-  enviarPedido(){
+  async enviarPedido(){
     if(this.arrayCart==null||this.arrayCart.length==0){
       alert("el carro esta vacio");
       console.log(this.arrayCart.length);
-    }else{    
-      
+    }else{        
       const pedido: ClsOrder={
         orderId: 0,
         total: 1,
@@ -94,37 +95,28 @@ export class CrearPedidoComponent implements OnInit {
         notes:"cosa",
         supplierId: this.supplierSeleccionado.idSupplier
       }
-      console.log(pedido);
-      this.OrderService.insertOrder(pedido).subscribe; 
-      
-      //get last id
-      
-      this.arrayCart.forEach(linea=>{
-        let  lineaTMP : ClsOrderLine={
-          id: 0 ,
-          quantity: linea.amount,
-          currentUnitPrice: linea.unitPrice,
-          subtotal:Number (linea.amount)*Number(linea.unitPrice),
-          //todo get last id
-          orderId:1,
-          productId: linea.orderId          
-        };
-        console.log(lineaTMP);
-        this.OrderLinesService.insertOrderLine(lineaTMP).subscribe;
-      });
-      
-      
-    }
-    
+      console.log(JSON.stringify(pedido));
+      try{
+        this.OrderService.insertOrder(pedido).subscribe(patata => {
+          this.OrderService.getLastOrderId().subscribe(numero => {
+            this.arrayCart.forEach(linea=>{
+              let  lineaTMP : ClsOrderLine={
+                id: 0 ,
+                quantity: linea.amount,
+                currentUnitPrice: linea.unitPrice,
+                subtotal:Number (linea.amount)*Number(linea.unitPrice),
+                orderId: numero,
+                productId: linea.orderId          
+              };
+              this.OrderLinesService.insertOrderLine(lineaTMP).subscribe(lines => console.log(lines));
+            });
+          });
+        }); 
+      }catch(error){
+        console.log(error);
+      }      
+    }    
   }
-  /*
-  orderId: number;
-  total: number;
-  orderDate: Date;
-  limitOrderDate: Date;
-  notes: String;
-  supplierId: number;
-  */
 }
 
 

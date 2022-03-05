@@ -20,7 +20,6 @@ import { PruebaComponent } from './components/prueba/prueba.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
-import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
 import { StepperCreateOrderCompleteComponent } from './components/stepper-create-order-complete/stepper-create-order-complete.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
@@ -28,7 +27,10 @@ import { MatInputModule } from '@angular/material/input';
 import { ErrorComponent } from './components/error/error.component';
 import { PruebaLuisComponent } from './components/prueba-luis/prueba-luis.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ConfirmingDialogComponent } from './components/confirming-dialog/confirming-dialog.component';
 
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -50,12 +52,12 @@ const app = initializeApp(firebaseConfig);
     AuthSigninComponent,
     ListadoPedidosComponent,
     PruebaComponent,
-    ConfirmOrderComponent,
     StepperCreateOrderCompleteComponent,
     ErrorComponent,
     PruebaLuisComponent,
     OrderListComponent,
-    ModulesComponent
+    ModulesComponent,
+    ConfirmingDialogComponent
   ],
 
   imports: [
@@ -76,8 +78,10 @@ const app = initializeApp(firebaseConfig);
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
- 
+    MatInputModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
 
   providers: [],

@@ -4,10 +4,11 @@
         <table class="contenedor">
           <tr>
             <td VALIGN="top" align="start">
-              <h2>Pedido nº </h2>
+              <h2 id="numpedido">Pedido nº {{orderId}}</h2>
+              <textarea maxlength="200" matInput class="notas"></textarea>
             </td>
             <td class="espacio"></td>
-            <td rowspan="2">
+            <td rowspan="3" VALIGN="top">
               <mat-card>
                 <mat-card-content>
                   <table mat-table [dataSource]="productList" class="tablaProductos">
@@ -20,7 +21,7 @@
                     <!-- Descripcion Column -->
                     <ng-container matColumnDef="Descripcion">
                       <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-                      <td mat-cell *matCellDef="let product"> {{product.description}} </td>
+                      <td mat-cell *matCellDef="let product" class="celdadescripcion"> {{product.description}} </td>
                     </ng-container>
 
                     <!-- Categoria Column -->
@@ -62,7 +63,7 @@
               <br>
             </td>
             <td class="espacio"></td>
-            <td rowspan="2" VALIGN="top">
+            <td rowspan="3" VALIGN="top">
               <mat-card class="example-card">
                 <mat-card-content class="lista">
                   <h2 mat-subheader >Carrito: </h2>
@@ -75,7 +76,7 @@
                 </mat-card-content>
               </mat-card>
             </td>
-          </tr>
+          </tr>        
           <tr> 
             <td VALIGN="top">
               <mat-form-field appearance="fill">
@@ -89,6 +90,14 @@
             <td class="espacio"></td>
           </tr>
           <tr>
+            <td>
+              <mat-form-field appearance="fill">
+                <mat-label>Fecha límite de entrega</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </td>
           </tr>
         </table>
     </mat-card-content>

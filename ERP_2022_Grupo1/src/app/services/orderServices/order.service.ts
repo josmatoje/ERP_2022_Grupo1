@@ -40,6 +40,17 @@ export class OrderService {
   }
 
   /**
+  * Prototype: getOrderById(orderId: number): Observable<ClsOrder>
+  * Description: Calls the api to get the last Id inserted in the DB
+  * Preconditions: none
+  
+  * @returns Observable<number>
+  */
+   getLastOrderId(): Observable<number> {
+    return this.http.get<number>(this.url +'/LastOrderID');
+  }
+
+  /**
    * Prototype: insertOrder(order: ClsOrder): Observable<number>
    * Description: Calls the api to insert an order given  in the database
    * Preconditions: none

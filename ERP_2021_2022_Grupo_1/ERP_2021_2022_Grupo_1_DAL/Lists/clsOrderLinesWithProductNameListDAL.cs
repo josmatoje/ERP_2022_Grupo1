@@ -8,7 +8,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
 {
     public class clsOrderLinesWithProductNameListDAL : clsUtilitySelectDAL
     {
-        public clsOrderLineWithProductName getOrderLineWithProductNameDAL(int id)
+        public List<clsOrderLineWithProductName> getOrderLineListWithProductNameByOrderIdDAL(int id)
         {
             return null;
         }

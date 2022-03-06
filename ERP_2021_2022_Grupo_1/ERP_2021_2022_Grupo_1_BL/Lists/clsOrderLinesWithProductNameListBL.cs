@@ -8,9 +8,9 @@ namespace ERP_2021_2022_Grupo_1_BL.Lists
 {
     public class clsOrderLinesWithProductNameListBL
     {
-        public clsOrderLineWithProductName getOrderLineWithProductNameBL(int id)
+        public List<clsOrderLineWithProductName> getOrderLineListWithProductNameByOrderIdBL(int id)
         {
-            return new clsOrderLinesWithProductNameListDAL().getOrderLineWithProductNameDAL(id);
+            return new clsOrderLinesWithProductNameListDAL().getOrderLineListWithProductNameByOrderIdDAL(id);
         }
     }
 }

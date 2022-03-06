@@ -78,19 +78,17 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         }
 
         /// <summary>
-        /// <b>GET: api/*OrderLinesController*/GetOrderLinesById</b><br/>
-        /// <b>Prototype:</b> public IEnumerable<clsOrderLine> GetOrderLinesById(int id)<br/>
+        /// <b>GET: api/*OrderLinesController*/OrderId/5</b><br/>
+        /// <b>Prototype:</b> public IEnumerable<clsOrderLine> GetOrderLinesByOrderId(int id)<br/>
         /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of ordersLines and 
-        /// returning the response of the call<br/>
+        /// returning it<br/>
         /// <b>Preconditions:</b> none<br/>
-        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of ordersLines, 
-        /// if no error has occurred and the list is not empty, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the list is empty, it will return a 404 NotFound(), and if an exception has occurred, it will 
-        /// return a 400 BadRequest()
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of orderlines with the order id parameter,
+        /// if an error occurs during the execution, it throws a Exception and the return null
         /// </summary>
-        /// <returns>IActionResult depending on the result of the call</returns>
+        /// <returns>IEnumerable(clsOrderLine) list of orderlines from a order or null</returns>
         [HttpGet("OrderId/{id}")]
-        public IEnumerable<clsOrderLine> GetOrderLinesById(int id)
+        public IEnumerable<clsOrderLine> GetOrderLinesByOrderId(int id)
         {
 
             List<clsOrderLine> oOrderLinesList = null;

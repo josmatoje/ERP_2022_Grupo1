@@ -33,6 +33,15 @@ namespace ERP_2021_2022_Grupo_1_BL.Lists
             return new clsProductsListDAL().getProductDAL(id);
         }
 
+        /// <summary>
+        /// <b>Prototype:</b> public clsProduct getProductListSupplierBL(int idSupplier)<br/>
+        /// <b>Commentaries:</b> Returns a list of products from the DAL whose has this id supplier<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Call  clsProductsListDAL().getProductListSupplierDAL(idSupplier) and get the list of
+        /// products has the id parameter supplier
+        /// </summary>
+        /// <param name="int id"></param>
+        /// <returns> List(clsProduct) productList representing the list of products from the DAL</returns>
         public List<clsProduct> getProductListSupplierBL(int idSupplier)
         {
             return new clsProductsListDAL().getProductListSupplierDAL(idSupplier);

@@ -21,18 +21,17 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
     [ApiController]
     public class OrderLinesController : ControllerBase
     {
+
         /// <summary>
         /// <b>GET: api/*OrderLinesController*</b><br/>
-        /// <b>Prototype:</b> public IActionResult Get()<br/>
-        /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of ordersLines and 
-        /// returning the response of the call<br/>
+        /// <b>Prototype:</b> public IEnumerable(clsOrderLine) Get()<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of orderlines and 
+        /// returning it<br/>
         /// <b>Preconditions:</b> none<br/>
-        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of ordersLines, 
-        /// if no error has occurred and the list is not empty, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the list is empty, it will return a 404 NotFound(), and if an exception has occurred, it will 
-        /// return a 400 BadRequest()
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of orderlines,
+        /// if an error occurs during the execution, it throws a Exception and the return null
         /// </summary>
-        /// <returns>IActionResult depending on the result of the call</returns>
+        /// <returns>IEnumerable(clsOrderLine) list of orderlines or null</returns>
         [HttpGet]
         public IEnumerable<clsOrderLine> Get()
         {
@@ -50,20 +49,18 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             return oOrderLinesList;
         }
 
-        
+
         /// <summary>
         /// <b>GET api/*OrderLinesController*/5</b><br/>
-        /// <b>Prototype:</b> public IActionResult Get(int id)<br/>
-        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for a orderLines with id
-        /// returning the response of the call<br/>
+        /// <b>Prototype:</b> public clsOrderLine Get(int id)<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for a orderline with id and
+        /// returning it<br/>
         /// <b>Preconditions:</b> none<br/>
-        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a orderLines with the id parameter, 
-        /// if no error has occurred and the orderLines is not null, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the orderLines is null, it will return a 404 NotFound(), and if an exception has occurred, it will 
-        /// return a 400 BadRequest()
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect an orderline with the id parameter,
+        /// if an error occurs during the execution, it throws a Exception and the return null
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>IActionResult depending on the result of the call</returns>
+        /// <returns>clsOrderLine the orderline from DB or null</returns>
         [HttpGet("{id}")]
         public clsOrderLine Get(int id)
         {
@@ -88,7 +85,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to insert a order in the DB, 
         /// if no error has occurred and the number of rows affected is not 0, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the number of rows affected is 0, it will return a TODO, and if an exception has occurred, it will 
+        /// occurred but the number of rows affected is 0, it will return a 404 NotFound(), and if an exception has occurred, it will 
         /// return a 400 BadRequest()
         /// </summary>
         /// <param name="oOrderLine"></param>
@@ -125,7 +122,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to update a orderLine in the DB, 
         /// if no error has occurred and the number of rows affected is not 0, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the number of rows affected is 0, it will return a TODO, and if an exception has occurred, it will 
+        /// occurred but the number of rows affected is 0, it will return a 404 NotFound(), and if an exception has occurred, it will 
         /// return a 400 BadRequest()
         /// </summary>
         /// <param name="id"></param>
@@ -164,7 +161,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to delete a orderLine in the DB with her id parameter, 
         /// if no error has occurred and the number of rows affected is not 0, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the number of rows affected is 0, it will return a TODO, and if an exception has occurred, it will 
+        /// occurred but the number of rows affected is 0, it will return a 404 NotFound(), and if an exception has occurred, it will 
         /// return a 400 BadRequest()
         /// </summary>
         /// <param name="id"></param>

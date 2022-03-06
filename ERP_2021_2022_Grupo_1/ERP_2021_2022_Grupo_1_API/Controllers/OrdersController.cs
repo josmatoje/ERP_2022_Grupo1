@@ -26,19 +26,17 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <b>GET: api/*OrdersController*</b><br/>
         /// <b>Prototype:</b> public IEnumerable(clsOrder) Get()<br/>
         /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of orders and 
-        /// returning list of orders<br/>
+        /// returning it<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of orders,
-        /// if an error occurs during the execution, the user will be prompted with a ServiceUnavaible excepttion and if
-        /// the list is empty it will promp a NoContent exception
+        /// if an error occurs during the execution, it throws a Exception and the return null
         /// </summary>
-        /// <returns>IEnumerable(clsOrder)</returns>
+        /// <returns>IEnumerable(clsOrder) list of orders or null</returns>
 
         [HttpGet]
         public IEnumerable<clsOrder> Get()
         {
             List<clsOrder> orderList = null;
-            //ObjectResult result;
             try
             {
                 orderList = new clsOrdersListBL().getOrdersListBL();
@@ -54,16 +52,15 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
 
         /// <summary>
         /// <b>GET api/*OrdersController*/5</b><br/>
-        /// <b>Prototype:</b> public IActionResult Get(int id)<br/>
-        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for a order with id
-        /// returning the order<br/>
+        /// <b>Prototype:</b> public clsOrder Get(int id)<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for a order with id and
+        /// returning it<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect an order with the id parameter,
-        /// if an error occurs during the execution, the user will be prompted with a ServiceUnavaible excepttion and if
-        /// the list is empty it will promp a NoContent exception
+        /// if an error occurs during the execution, it throws a Exception and the return null
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>IActionResult depending on the result of the call</returns>
+        /// <returns>clsOrder the order from DB or null</returns>
         [HttpGet("{id}")]
         public clsOrder Get(int id)
         {
@@ -82,14 +79,13 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <summary>
         /// <b>GET api/*LastOrderID*/</b><br/>
         /// <b>Prototype:</b> public IActionResult GetlastOrderID()<br/>
-        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for the last inserted order
+        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for the last inserted order and
         /// returning the order id<br/>
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect the last inserted order's id,
-        /// if an error occurs during the execution, the user will be prompted with a ServiceUnavaible excepttion and if
-        /// the list is empty it will promp a NoContent exception
+        /// if an error occurs during the execution, it throws a Exception and return 0
         /// </summary>
-        /// <returns>IActionResult depending on the result of the call</returns>
+        /// <returns>int the number of the last order id</returns>
         [HttpGet("LastOrderID")]
         public int GetLastOrderID()
         {
@@ -114,7 +110,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to insert a order in the DB, 
         /// if no error has occurred and the number of rows affected is not 0, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the number of rows affected is 0, it will return a TODO, and if an exception has occurred, it will 
+        /// occurred but the number of rows affected is 0, it will return a 404 NotFound(), and if an exception has occurred, it will 
         /// return a 400 BadRequest()
         /// </summary>
         /// <param name="oOrder"></param>
@@ -122,7 +118,6 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] clsOrder oOrder)
         {
-            //TODO NO LE LLEGAN BIEN LOS PAPARÁMETROS
             int rowsAffected = 0;
             IActionResult result;
             try
@@ -154,7 +149,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to update a order in the DB, 
         /// if no error has occurred and the number of rows affected is not 0, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the number of rows affected is 0, it will return a TODO, and if an exception has occurred, it will 
+        /// occurred but the number of rows affected is 0, it will return a 404 NotFound(), and if an exception has occurred, it will 
         /// return a 400 BadRequest()
         /// </summary>
         /// <param name="id"></param>
@@ -193,7 +188,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// <b>Preconditions:</b> none<br/>
         /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to delete a order in the DB with her id parameter, 
         /// if no error has occurred and the number of rows affected is not 0, it will return a StatusCode 200 Ok(), if no error has 
-        /// occurred but the number of rows affected is 0, it will return a TODO, and if an exception has occurred, it will 
+        /// occurred but the number of rows affected is 0, it will return a 404 NotFound(), and if an exception has occurred, it will 
         /// return a 400 BadRequest()
         /// </summary>
         /// <param name="id"></param>

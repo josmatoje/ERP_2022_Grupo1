@@ -43,6 +43,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             return productList;
         }
 
+        /// <summary>
+        /// <b>Prototype:</b> public List(clsProduct) getProductListSupplierDAL(int idSupplier)<br/>
+        /// <b>Commentaries:</b>Returns a list of products from the DB given the id of a supplier<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b>Returns a list with the products of the Product table where its supplier is its id passed by parameter
+        /// </summary>
+        /// <returns> List(clsProduct) productList representing the list of products from the DB</returns>
         public List<clsProduct> getProductListSupplierDAL(int idSupplier)
         {
             openConection();

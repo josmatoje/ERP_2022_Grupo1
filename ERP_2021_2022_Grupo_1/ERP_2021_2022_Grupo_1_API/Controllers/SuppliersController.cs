@@ -21,7 +21,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
     [ApiController]
     public class SuppliersController : ControllerBase
     {
-        // GET: api/<SuppliersController>
+        /// <summary>
+        /// <b>GET: api/*SuppliersController*</b><br/>
+        /// <b>Prototype:</b> public IEnumerable(clsSupplier) Get()<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of suppliers and 
+        /// returning it<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of suppliers,
+        /// if an error occurs during the execution, it throws a Exception
+        /// </summary>
+        /// <returns>IEnumerable(clsSupplier) list of suppliers or null</returns>
         [HttpGet]
         public IEnumerable<clsSupplier> Get()
         {
@@ -38,7 +47,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             return suppliersList;
         }
 
-        // GET api/<SuppliersController>/5
+        /// <summary>
+        /// <b>GET api/*SuppliersController*/5</b><br/>
+        /// <b>Prototype:</b> public clsSupplier Get(int id)<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for a supplier with id and returning it<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a supplier with the id parameter,
+        /// if an error occurs during the execution, it throws a Exception
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>clsSupplier the supplier of the DB or null</returns>
         [HttpGet("{id}")]
         public clsSupplier Get(int id)
         {
@@ -53,24 +71,6 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
                 throw;
             }
             return supplier;
-        }
-
-        // POST api/<SuppliersController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<SuppliersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<SuppliersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

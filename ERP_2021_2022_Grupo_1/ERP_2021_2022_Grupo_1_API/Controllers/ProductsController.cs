@@ -20,8 +20,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        // GET: api/<ProductsController>
-        //TODO COMENT
+        /// <summary>
+        /// <b>GET: api/*ProductsController*</b><br/>
+        /// <b>Prototype:</b> public IEnumerable(clsProduct) Get()<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of products and 
+        /// returning list of products<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of products,
+        /// if an error occurs during the execution, it throws a Exception
+        /// </summary>
+        /// <returns>IEnumerable(clsProduct) list of products or null</returns>
         [HttpGet]
         public IEnumerable<clsProduct> Get()
         {
@@ -31,15 +39,24 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
                 productList = new clsProductsListBL().getProductsListBL();
             }
             catch (Exception)
-            { 
+            {
                 throw;
             }
 
             return productList;
         }
 
-        // GET api/<ProductsController>/5
-        //TODO COMENT
+        /// <summary>
+        /// <b>GET api/*ProductsController*/5</b><br/>
+        /// <b>Prototype:</b> public IActionResult Get(int id)<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for a product with id,
+        /// returning the product<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a product with the id parameter,
+        /// if an error occurs during the execution, it throws a Exception
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>clsProduct the product from DB or null</returns>
         [HttpGet("{id}")]
         public clsProduct Get(int id)
         {
@@ -55,8 +72,16 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             return product;
         }
 
-        //Dado un id de supplier te devuelve una lista con estos
-        // GET api/<ProductsController>/Supplier/5
+        /// <summary>
+        /// <b>GET api/*ProductsController*/Supplier/5</b><br/>
+        /// <b>Prototype:</b> public IEnumerable(clsProduct) GetProductListSupplier(int id)<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of products whose supplier has the
+        /// id parameter and the returning it<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of products with an id supplier,
+        /// if an error occurs during the execution, it throws a Exception
+        /// </summary>
+        /// <returns>IEnumerable(clsProduct) list products of supplier or null</returns>
         [HttpGet("Supplier/{id}")]
         public IEnumerable<clsProduct> GetProductListSupplier(int id)
         {
@@ -71,24 +96,6 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             }
 
             return productList;
-        }
-
-        // POST api/<ProductsController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<ProductsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProductsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

@@ -47,9 +47,9 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             }
 
             return oOrderLinesList;
-        }
+        }
 
-
+        
         /// <summary>
         /// <b>GET api/*OrderLinesController*/5</b><br/>
         /// <b>Prototype:</b> public clsOrderLine Get(int id)<br/>
@@ -76,6 +76,35 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
 
             return oOrderLine;
         }
+
+        /// <summary>
+        /// <b>GET: api/*OrderLinesController*/GetOrderLinesById</b><br/>
+        /// <b>Prototype:</b> public IEnumerable<clsOrderLine> GetOrderLinesById(int id)<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of ordersLines and 
+        /// returning the response of the call<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of ordersLines, 
+        /// if no error has occurred and the list is not empty, it will return a StatusCode 200 Ok(), if no error has 
+        /// occurred but the list is empty, it will return a 404 NotFound(), and if an exception has occurred, it will 
+        /// return a 400 BadRequest()
+        /// </summary>
+        /// <returns>IActionResult depending on the result of the call</returns>
+        [HttpGet]
+        public IEnumerable<clsOrderLine> GetOrderLinesById(int id)
+        {
+
+            List<clsOrderLine> oOrderLinesList = null;
+            try
+            {
+                oOrderLinesList = new clsOrderLinesListBL().getOrderLinesByOrderIdBL();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return oOrderLinesList;
+        } 
 
         /// <summary>
         /// <b>POST api/*OrderLinesController*</b><br/>
@@ -175,7 +204,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 rowsAffected = new clsOrderLineManagerBL().deleteOrderLineBL(id);
                 if (rowsAffected == 0)
-                {
+                {
                     result = NotFound("NotFound");
                 }
                 else

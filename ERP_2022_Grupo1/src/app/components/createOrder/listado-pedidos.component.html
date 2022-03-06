@@ -1,0 +1,105 @@
+<body>
+  <mat-card class="example-card">
+    <mat-card-content>
+        <table class="contenedor">
+          <tr>
+            <td VALIGN="top" align="start">
+              <h2 id="numpedido">Pedido nº {{orderId}}</h2>
+              <textarea maxlength="200" matInput class="notas"></textarea>
+            </td>
+            <td class="espacio"></td>
+            <td rowspan="3" VALIGN="top">
+              <mat-card>
+                <mat-card-content>
+                  <table mat-table [dataSource]="productList" class="tablaProductos">
+                    <!-- Nombre Column -->
+                    <ng-container matColumnDef="Nombre">
+                      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                      <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+                    </ng-container>
+
+                    <!-- Descripcion Column -->
+                    <ng-container matColumnDef="Descripcion">
+                      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+                      <td mat-cell *matCellDef="let product" class="celdadescripcion"> {{product.description}} </td>
+                    </ng-container>
+
+                    <!-- Categoria Column -->
+                    <ng-container matColumnDef="Categoria">
+                      <th mat-header-cell *matHeaderCellDef> Categoria </th>
+                      <td mat-cell *matCellDef="let product"> {{product.category}} </td>
+                    </ng-container>
+
+                    <!-- Precio Column -->
+                    <ng-container matColumnDef="Precio">
+                      <th mat-header-cell *matHeaderCellDef> Precio </th>
+                      <td mat-cell *matCellDef="let product"> {{product.unitPrice}} </td>
+                    </ng-container>
+
+                    <!-- Cantidad Column -->
+                    <ng-container matColumnDef="Cantidad">
+                      <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+                      <td mat-cell *matCellDef="let product">
+                        <input type="text" class="cantidad" [(ngModel)]="product.amount"> 
+                      </td>
+                    </ng-container>
+
+                    <!-- Anhadir Column -->
+                    <ng-container matColumnDef="Anhadir">
+                      <th mat-header-cell *matHeaderCellDef> </th>
+                      <td mat-cell *matCellDef="let product">
+                        <button mat-icon-button (click)="aniadirProducto(product)">
+                          <mat-icon aria-hidden="false">add_shopping_cart</mat-icon>
+                        </button>
+                      </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+                  <!-- <mat-paginator [length]="listadoProductos.length" [pageSize]="7" [hidePageSize]="true"></mat-paginator> -->
+                </mat-card-content>
+              </mat-card>
+              <br>
+            </td>
+            <td class="espacio"></td>
+            <td rowspan="3" VALIGN="top">
+              <mat-card class="example-card">
+                <mat-card-content class="lista">
+                  <h2 mat-subheader >Carrito: </h2>
+                  <div class="lineaseparatoria"></div>
+                  <mat-list role="list">
+                    <mat-list-item role="listitem" *ngFor="let product of arrayCart">{{product.name}} / Cantidad:
+                      {{product.amount}}</mat-list-item>
+                  </mat-list>
+                  <!-- <mat-paginator #paginator [length]="arrayCart.length" [pageSize]="5" [hidePageSize]="true"></mat-paginator> -->
+                </mat-card-content>
+              </mat-card>
+            </td>
+          </tr>        
+          <tr> 
+            <td VALIGN="top">
+              <mat-form-field appearance="fill">
+                <mat-select [ngModel]="supplierSeleccionado" (ngModelChange)="onChangeObj($event)">
+                  <mat-option *ngFor="let supplier of arrayDeSuppliers" [value]="supplier">
+                    {{supplier.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td class="espacio"></td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field appearance="fill">
+                <mat-label>Fecha límite de entrega</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+    </mat-card-content>
+  </mat-card>
+</body>

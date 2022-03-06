@@ -14,8 +14,8 @@
                   <table class="contenedor">
                     <tr>
                       <td VALIGN="top" align="start">
-                        <h2>Pedido nº {{data}}</h2>
-                        <textarea maxlength="200" matInput class="notas" [(ngModel)]="notes"></textarea>
+                        <h2>Pedido nº {{orderAEditar.orderId}}</h2>
+                        <textarea maxlength="200" matInput class="notas" [(ngModel)]="orderAEditar.notes"></textarea>
                       </td>
                       <td class="espacio"></td>                        
                       <td class="espacio"></td>
@@ -23,11 +23,19 @@
                         <mat-card class="example-card">
                           <mat-card-content class="lista">
                             <h2 mat-subheader >Carrito: </h2>
-                            <div class="lineaseparatoria"></div>
-                            <mat-list role="list">
-                              <mat-list-item role="listitem" *ngFor="let product of arrayCart">{{product.name}} / Cantidad:
-                                {{product.amount}}</mat-list-item>
-                            </mat-list>
+                          <div class="lineaseparatoria"></div>
+                          <table>
+                            <tr>
+                                <th>Nombre</th>
+                                <td></td>
+                                <th>Cantidad</th>
+                            </tr>
+                            <tr *ngFor="let product of arrayOrderLines">
+                                <td>{{product.productname}}</td>
+                                <td></td>
+                                <td><input type="text" class="cantidad" [(ngModel)]="product.quantity"></td>         
+                            </tr>  
+                            </table>     
                             <!-- <mat-paginator #paginator [length]="arrayCart.length" [pageSize]="5" [hidePageSize]="true"></mat-paginator> -->
                           </mat-card-content>
                         </mat-card>
@@ -40,7 +48,7 @@
                       <td>
                         <mat-form-field appearance="fill">
                           <mat-label>Fecha límite de entrega</mat-label>
-                          <input matInput [matDatepicker]="picker" [(ngModel)]="limitOrderDate">
+                          <input matInput [matDatepicker]="picker" [(ngModel)]="orderAEditar.limitOrderDate">
                           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
@@ -53,7 +61,7 @@
             <!-- Boton para ir a confirmar pedido -->
              <!-- *************************** -->
           </div>
-          <button class="buttoncreate" mat-raised-button color="primary" matStepperNext>Update</button>
+          <button class="buttoncreate" mat-raised-button color="primary" matStepperNext (click)="calcularTotal()">Update</button>
         </mat-step>
         <mat-step label="Confirmar pedido">
           <!-- *************************** -->
@@ -65,16 +73,16 @@
                 <h2 mat-subheader >Carrito: </h2>
                 <div class="lineaseparatoria"></div>
                 <mat-list role="list">
-                  <mat-list-item role="listitem" *ngFor="let product of arrayCart">{{product.name}} / Cantidad:
-                    {{product.amount}}</mat-list-item>
+                  <mat-list-item role="listitem" *ngFor="let product of arrayOrderLines">{{product.productname}} / Cantidad:
+                    {{product.quantity}}</mat-list-item>
                 </mat-list>
-                <div>Total: {{total}} €</div>
+                <div>Total: {{orderAEditar.total}} €</div>
               </mat-card-content>
             </mat-card>
           </div>
           <div class="buttons">
             <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-            <button mat-raised-button color="primary" matStepperNext>Confirm</button>
+            <button mat-raised-button color="primary" matStepperNext (click)="updateOrder()">Confirm</button>
           </div>
         </mat-step>
         <mat-step>

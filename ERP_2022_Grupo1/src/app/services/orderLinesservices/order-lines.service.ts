@@ -64,7 +64,7 @@ export class OrderLinesService {
    * @returns Observable depending on the result of the call
    */
   updateOrderLine(orderLine: ClsOrderLine): Observable<number> {  
-    return this.http.put<number>(this.url, orderLine, this.httpOptions);
+    return this.http.put<number>(this.url+'/'+ orderLine.id, orderLine, this.httpOptions);
   }
 
   /**

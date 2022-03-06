@@ -32,6 +32,7 @@ export class OrderListComponent implements AfterViewInit {
       this.ordersList = data
       this.dataSource.data = this.ordersList;
       this.dataSource.paginator = this.paginator;
+      console.log(data)
     })
 
   }
@@ -80,6 +81,13 @@ export class OrderListComponent implements AfterViewInit {
   }
    
   updatePedido(orderId:number){
-    const dialogRef = this.dialog.open(StepperEditOrderComponent, {data:{orderId}});   
+
+    const dialogRef = this.dialog.open(StepperEditOrderComponent, {
+      backdropClass : 'bdrop',
+      data:orderId
+    });   
+    
+    dialogRef.afterClosed().subscribe(result => this.actualizaLista())
+    
   }
 }

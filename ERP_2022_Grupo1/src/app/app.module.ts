@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { AuthSigninComponent } from './components/auth-signin/auth-signin.component';
 import { SigninFormComponent } from './components/signin-form/signin-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ModulesComponent } from './components/modules/modules.component';
@@ -52,7 +50,6 @@ const app = initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     AppComponent,
-    AuthSigninComponent,
     SigninFormComponent,
     LoginFormComponent,
     ListadoPedidosComponent,

@@ -87,8 +87,7 @@ export class StepperCreateOrderCompleteComponent implements OnInit {
     alert("Introduzca una cantidad a solicitar primero")
   }
   
-  enviarPedido(){  
-    
+  enviarPedido(){      
     if(this.arrayCart==null||this.arrayCart.length==0){
       alert("El carro esta vacio");
     }else{        

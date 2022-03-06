@@ -1,4 +1,5 @@
-﻿using ERP_2021_2022_Grupo_1_BL.Lists;
+﻿using ERP_2021_2022_Grupo_1_API.Models;
+using ERP_2021_2022_Grupo_1_BL.Lists;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -17,7 +18,7 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             clsOrderLineWithProductName orderLineWithProductName = null;
             try
             {
-                orderLineWithProductName = new clsOrderLineWithProductNameListBL().geOrderLineWithProductNameBL(id);
+                orderLineWithProductName = new clsOrderLinesWithProductNameListBL().getOrderLineWithProductNameBL(id);
             }
             catch (Exception)
             {

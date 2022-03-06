@@ -32,5 +32,17 @@ namespace ERP_2021_2022_Grupo_1_BL.Lists
         {
             return new clsOrderLinesListDAL().getOrderLineDAL(id);
         }
+
+        /// <summary>
+        /// <b>Prototype:</b> public List<clsOrderLine> getOrderLinesByOrderBL(int id)<br/>
+        /// <b>Commentaries:</b>Returns a list of order lines from the DAL given an OrderID<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Returns a list with the order line list from the OrderLine table with the OrderID given
+        /// </summary>
+        /// <returns>List(clsOrderLine) orderLineList representing the list of order line from the DAL</returns>
+        public List<clsOrderLine> getOrderLinesByOrderBL(int id)
+        {
+            return new clsOrderLinesListDAL().getOrderLinesByOrderDAL(id);
+        }
     }
 }

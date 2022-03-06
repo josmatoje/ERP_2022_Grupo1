@@ -11,6 +11,7 @@ import { SupplierService } from "../../src/app/services/supplierServices/supplie
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarOrderComponent } from './componenetesFeotes/editar-order/editar-order.component';
 
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -28,7 +29,8 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    CrearPedidoComponent
+    CrearPedidoComponent,
+    EditarOrderComponent
     
   ],
   imports: [

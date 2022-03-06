@@ -82,7 +82,7 @@ export class CrearPedidoComponent implements OnInit {
     this.arrayCart = this.arrayCart.filter(item => item !== productoSeleccionado);
   }     
   
-  async enviarPedido(){
+   enviarPedido(){
     if(this.arrayCart==null||this.arrayCart.length==0){
       alert("el carro esta vacio");
       console.log(this.arrayCart.length);

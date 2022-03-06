@@ -8,7 +8,7 @@
     <tr *ngFor="let product of arrayOrderLines">
         
         <td> 
-            {{product.nombre}}
+            {{product.productname}}
         </td>  
         <td> 
             <input type="tel" [(ngModel)]="product.quantity" >            
@@ -23,3 +23,6 @@
     </tr>
     
 </table>
+
+<input type="text" [(ngModel)]="orderAEditar.notes">
+

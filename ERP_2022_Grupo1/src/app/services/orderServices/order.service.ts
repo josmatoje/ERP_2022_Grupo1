@@ -74,7 +74,7 @@ export class OrderService {
   * @returns Observable depending on the result of the call
   */
   updateOrder(order: ClsOrder): Observable<number> {  
-    return this.http.put<number>(this.url, order, this.httpOptions);
+    return this.http.put<number>(this.url+'/'+ order.orderId, order, this.httpOptions);
   }
   
   /**

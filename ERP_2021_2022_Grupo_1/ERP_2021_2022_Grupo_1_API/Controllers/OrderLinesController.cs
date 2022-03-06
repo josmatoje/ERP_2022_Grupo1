@@ -89,14 +89,14 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         /// return a 400 BadRequest()
         /// </summary>
         /// <returns>IActionResult depending on the result of the call</returns>
-        [HttpGet]
+        [HttpGet("OrderId/{id}")]
         public IEnumerable<clsOrderLine> GetOrderLinesById(int id)
         {
 
             List<clsOrderLine> oOrderLinesList = null;
             try
             {
-                oOrderLinesList = new clsOrderLinesListBL().getOrderLinesByOrderIdBL();
+                oOrderLinesList = new clsOrderLinesListBL().getOrderLinesByOrderBL(id);
             }
             catch (Exception)
             {

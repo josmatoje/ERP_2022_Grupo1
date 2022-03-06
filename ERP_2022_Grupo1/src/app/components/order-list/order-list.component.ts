@@ -7,6 +7,8 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { StepperCreateOrderCompleteComponent } from '../stepper-create-order-complete/stepper-create-order-complete.component';
 import { ConfirmingDialogComponent } from '../confirming-dialog/confirming-dialog.component';
+import { ClsOrderLine } from 'src/app/model/cls-order-line';
+import { StepperEditOrderComponent } from '../stepper-edit-order/stepper-edit-order.component';
 
 
 @Component({
@@ -64,7 +66,11 @@ export class OrderListComponent implements AfterViewInit {
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
         try {
-          this.accionConfirmarBorrado(orderid)          
+          this.OrderService.deleteOrderById(orderid).subscribe(lines => {
+            console.log(lines)
+            this.actualizaLista()
+            }
+          );         
         } catch (error) {
           console.log(error);
         }
@@ -72,9 +78,8 @@ export class OrderListComponent implements AfterViewInit {
     } 
     ); 
   }
-
-  accionConfirmarBorrado(orderid:number){
-    this.OrderService.deleteOrderById(orderid).subscribe(lines => console.log(lines));
-    this.actualizaLista();
+   
+  updatePedido(orderId:number){
+    const dialogRef = this.dialog.open(StepperEditOrderComponent, {data:{orderId}});   
   }
 }

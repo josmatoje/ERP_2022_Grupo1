@@ -1,0 +1,89 @@
+<body>
+    <div class="bar">    <button class="close" mat-icon-button (click)="close()" >
+        <mat-icon >close</mat-icon>
+      </button>
+    </div>
+      <mat-stepper #stepper>
+        <mat-step label="Crear pedido">
+          <div class="minheight">
+            <!-- *************************** -->
+            <!-- Parte de creacion de pedido -->
+            <!-- *************************** -->
+            <mat-card class="example-card">
+              <mat-card-content>
+                  <table class="contenedor">
+                    <tr>
+                      <td VALIGN="top" align="start">
+                        <h2>Pedido nº {{data}}</h2>
+                        <textarea maxlength="200" matInput class="notas" [(ngModel)]="notes"></textarea>
+                      </td>
+                      <td class="espacio"></td>                        
+                      <td class="espacio"></td>
+                      <td rowspan="3" VALIGN="top">
+                        <mat-card class="example-card">
+                          <mat-card-content class="lista">
+                            <h2 mat-subheader >Carrito: </h2>
+                            <div class="lineaseparatoria"></div>
+                            <mat-list role="list">
+                              <mat-list-item role="listitem" *ngFor="let product of arrayCart">{{product.name}} / Cantidad:
+                                {{product.amount}}</mat-list-item>
+                            </mat-list>
+                            <!-- <mat-paginator #paginator [length]="arrayCart.length" [pageSize]="5" [hidePageSize]="true"></mat-paginator> -->
+                          </mat-card-content>
+                        </mat-card>
+                      </td>
+                    </tr>        
+                    <tr> 
+                      <td class="espacio"></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Fecha límite de entrega</mat-label>
+                          <input matInput [matDatepicker]="picker" [(ngModel)]="limitOrderDate">
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                      </td>
+                    </tr>
+                  </table>
+              </mat-card-content>
+            </mat-card>   
+             <!-- *************************** -->
+            <!-- Boton para ir a confirmar pedido -->
+             <!-- *************************** -->
+          </div>
+          <button class="buttoncreate" mat-raised-button color="primary" matStepperNext>Update</button>
+        </mat-step>
+        <mat-step label="Confirmar pedido">
+          <!-- *************************** -->
+            <!-- Confirmar pedido -->
+             <!-- *************************** -->
+          <div class="minheight">
+            <mat-card class="listafinal">
+              <mat-card-content class="lista">
+                <h2 mat-subheader >Carrito: </h2>
+                <div class="lineaseparatoria"></div>
+                <mat-list role="list">
+                  <mat-list-item role="listitem" *ngFor="let product of arrayCart">{{product.name}} / Cantidad:
+                    {{product.amount}}</mat-list-item>
+                </mat-list>
+                <div>Total: {{total}} €</div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="buttons">
+            <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" matStepperNext>Confirm</button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Update done</ng-template>
+          <p>Update correctly done</p>
+          <div>
+            <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+  </body>
+  

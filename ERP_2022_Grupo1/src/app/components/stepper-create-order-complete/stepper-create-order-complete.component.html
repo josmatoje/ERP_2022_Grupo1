@@ -1,5 +1,9 @@
 <body>
-  <div class="bar"></div>
+  <div class="bar">
+    <button class="close" mat-icon-button (click)="close()" >
+      <mat-icon >close</mat-icon>
+    </button>
+  </div>
     <mat-stepper #stepper>
       <mat-step label="Crear pedido">
         <div class="minheight">
@@ -75,10 +79,21 @@
                         <mat-card-content class="lista">
                           <h2 mat-subheader >Carrito: </h2>
                           <div class="lineaseparatoria"></div>
-                          <mat-list role="list">
-                            <mat-list-item role="listitem" *ngFor="let product of arrayCart">{{product.name}} / Cantidad:
-                              {{product.amount}}</mat-list-item>
-                          </mat-list>
+                          <table>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                            </tr>
+                            <tr *ngFor="let product of arrayCart">
+                                <td>{{product.name}}</td>
+                                <td>{{product.amount}}</td>   
+                                <td>
+                                  <button  mat-icon-button color="warn" (click)="eliminarProducto(product)">
+                                    <mat-icon>delete</mat-icon>
+                                  </button>          
+                                </td>        
+                            </tr>  
+                            </table>                      
                           <!-- <mat-paginator #paginator [length]="arrayCart.length" [pageSize]="5" [hidePageSize]="true"></mat-paginator> -->
                         </mat-card-content>
                       </mat-card>
@@ -113,7 +128,7 @@
           <!-- Boton para ir a confirmar pedido -->
            <!-- *************************** -->
         </div>
-        <button class="buttoncreate" mat-raised-button color="primary" matStepperNext>Create</button>
+        <button class="buttoncreate" mat-raised-button color="primary" matStepperNext (click)="calcularTotal()">Create</button>
       </mat-step>
       <mat-step label="Confirmar pedido">
         <!-- *************************** -->
@@ -124,7 +139,7 @@
             <mat-card-content class="lista">
               <h2 mat-subheader >Carrito: </h2>
               <div class="lineaseparatoria"></div>
-              <mat-list role="list">
+              <mat-list role="list" class="listaTotal">
                 <mat-list-item role="listitem" *ngFor="let product of arrayCart">{{product.name}} / Cantidad:
                   {{product.amount}}</mat-list-item>
               </mat-list>
@@ -139,10 +154,7 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Pedido realizado</ng-template>
-        <p>You are now done.</p>
-        <div>
-          <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-        </div>
+        <p>Order completed</p>        
       </mat-step>
     </mat-stepper>
 </body>

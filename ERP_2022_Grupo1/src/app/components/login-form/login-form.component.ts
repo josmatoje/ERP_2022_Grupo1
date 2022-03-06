@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup} from '@angular/forms';
 import * as firebase from '../../../firebase/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from '@firebase/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +15,8 @@ export class LoginFormComponent implements OnInit {
 
   email: FormControl;
   password: FormControl;
-  constructor() { }
+  
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.email = new FormControl('', [Validators.required, Validators.email]);
@@ -51,7 +53,6 @@ export class LoginFormComponent implements OnInit {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        alert(user.email);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -65,18 +66,16 @@ export class LoginFormComponent implements OnInit {
 
     onAuthStateChanged(auth, (user) => {
       if (user) {//Si ha iniciado sesion
-        //User tiene muchaspropiedades disponibles
+        //User tiene muchas propiedades disponibles
         const uid = user.uid;
         const email = user.email;
         const photoUrl = user.photoURL;
-      } else {//Si ha cerrado sesion
-
-      }
+        this.router.navigateByUrl('modules')
+      } 
     });
 
     signInWithEmailAndPassword(auth, this.email.value, this.password.value).then((userCredential) => {
         const user = userCredential.user;
-        alert('Usuario inició sesión');
     })
     .catch((error) => {
       const errorCode = error.code;

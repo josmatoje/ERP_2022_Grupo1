@@ -33,6 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ConfirmingDialogComponent } from './components/confirming-dialog/confirming-dialog.component';
+import { StepperEditOrderComponent } from './components/stepper-edit-order/stepper-edit-order.component';
 
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -61,7 +62,8 @@ const app = initializeApp(firebaseConfig);
     PruebaLuisComponent,
     OrderListComponent,
     ModulesComponent,
-    ConfirmingDialogComponent
+    ConfirmingDialogComponent,
+    StepperEditOrderComponent
   ],
 
   imports: [

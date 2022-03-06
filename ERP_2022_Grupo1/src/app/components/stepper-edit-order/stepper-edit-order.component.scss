@@ -54,7 +54,7 @@ mat-form-field{
 }  
 
 .espacio {
-  width: 40px;
+  width: 60px;
 }
 
 mat-card{
@@ -70,7 +70,7 @@ color: #395B64;
 }
 
 .lista{
-  width:250px;
+  width:200px;
   height: 402px;
 }
 
@@ -108,12 +108,7 @@ mat-list {
 }
 
 .close{
-  float: right;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
-.listaTotal{
-  height: 300px;
-  overflow: auto;
-}
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+  }

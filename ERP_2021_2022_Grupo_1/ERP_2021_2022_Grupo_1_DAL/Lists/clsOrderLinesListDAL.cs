@@ -66,6 +66,38 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             closeFlow();
             return orderLine;
         }
+
+        /// <summary>
+        /// <b>Prototype:</b> public List<clsOrderLine> getOrderLinesByOrderDAL(int id)<br/>
+        /// <b>Commentaries:</b>Returns a list of order lines from the DB given and OrderID<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Returns a list with the order line list from the OrderLine table with the same OrderID
+        /// </summary>
+        /// <returns> List(clsOrderLine) orderLineList representing the list of order line from the DB</returns>
+        public List<clsOrderLine> getOrderLinesByOrderDAL(int id)
+        {
+            clsOrderLine orderLine;
+            List<clsOrderLine> orderLineList = new List<clsOrderLine>();
+            openConection();
+            MyReader = executeSelectCondition("SELECT ID, Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal FROM OrderLines WHERE OrderID = @id", id);
+
+            if (MyReader.HasRows)
+            {
+                while (MyReader.Read())
+                {
+                    orderLine = new clsOrderLine((int)MyReader["ID"],
+                                                    (int)MyReader["Quantity"],
+                                                    Decimal.ToDouble((decimal)MyReader["UnitPriceAtTime"]),
+                                                    Decimal.ToDouble((decimal)MyReader["UnitPriceAtTime"]),
+                                                    (int)MyReader["OrderID"],
+                                                    (int)MyReader["ProductID"]);
+                    orderLineList.Add(orderLine);
+                }
+            }
+            closeFlow();
+            return orderLineList;
+        }
         #endregion
     }
+
 }

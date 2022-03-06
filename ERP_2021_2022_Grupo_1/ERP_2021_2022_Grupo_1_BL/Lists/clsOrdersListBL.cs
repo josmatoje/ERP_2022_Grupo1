@@ -32,5 +32,17 @@ namespace ERP_2021_2022_Grupo_1_BL.Lists
         {
             return new clsOrdersListDAL().getOrderDAL(id);
         }
+
+        /// <summary>
+        /// <b>Prototype:</b> public List<clsOrder> getLastOrderIDBL()<br/>
+        /// <b>Commentaries:</b>Returns an order's id from the DAL<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Returns an order id which is the last inserted one's at the database
+        /// </summary>
+        /// <returns> clsOrder order representing the last inserted order's id at the database from the DAL</returns>
+        public int getLastOrderIDBL()
+        {
+            return new clsOrdersListDAL().getLastOrderIDDAL();
+        }
     }
 }

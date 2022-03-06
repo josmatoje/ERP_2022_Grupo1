@@ -65,6 +65,27 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             closeFlow();
             return order;
         }
+
+        /// <summary>
+        /// <b>Prototype:</b> public clsOrder getLastOrderIDDAL()<br/>
+        /// <b>Commentaries:</b>Returns the last inserted order's id in the DB<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Returns an order id which is the last inserted one's in the DB
+        /// </summary>
+        /// <returns> clsOrder order the last inserted order's id in the DB from the DB</returns>
+        public int getLastOrderIDDAL()
+        {
+            int id=0;
+            openConection();
+            MyReader = executeSelect("SELECT TOP(1) ID, Total, OrderDate, LimitDate, Notes, SupplierID FROM Orders ORDER BY ID DESC");
+            if (MyReader.HasRows)
+            {
+                MyReader.Read();
+                id = (int)MyReader["ID"];
+            }
+            closeFlow();
+            return id;
+        }
         #endregion
     }
 }

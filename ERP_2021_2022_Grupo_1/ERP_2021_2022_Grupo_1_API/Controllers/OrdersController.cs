@@ -43,7 +43,10 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 orderList = new clsOrdersListBL().getOrdersListBL();
             }
-            catch (Exception e) { }
+            catch (Exception) 
+            {
+                throw;
+            }
 
             return orderList;
         }
@@ -69,8 +72,37 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 oOrder = new clsOrdersListBL().getOrderBL(id);
             }
-            catch (Exception e) { }
+            catch (Exception) 
+            {
+                throw;
+            }
             return oOrder;
+        }
+
+        /// <summary>
+        /// <b>GET api/*LastOrderID*/</b><br/>
+        /// <b>Prototype:</b> public IActionResult GetlastOrderID()<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb,asking for the last inserted order
+        /// returning the order id<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect the last inserted order's id,
+        /// if an error occurs during the execution, the user will be prompted with a ServiceUnavaible excepttion and if
+        /// the list is empty it will promp a NoContent exception
+        /// </summary>
+        /// <returns>IActionResult depending on the result of the call</returns>
+        [HttpGet("LastOrderID")]
+        public int GetLastOrderID()
+        {
+            int id=0;
+            try
+            {
+                id = new clsOrdersListBL().getLastOrderIDBL();
+            }
+            catch (Exception) 
+            { 
+                throw;
+            }
+            return id;
         }
 
 
@@ -92,18 +124,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         {
             //TODO NO LE LLEGAN BIEN LOS PAPARÁMETROS
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderManagerBL().updateOrderBL(oOrder);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
 
             return result;
@@ -128,18 +164,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Put(int id, [FromBody] clsOrder oOrder)
         {
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderManagerBL().updateOrderBL(oOrder);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
 
             return result;
@@ -162,18 +202,22 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
         public IActionResult Delete(int id)
         {
             int rowsAffected = 0;
-            IActionResult result = Ok();
+            IActionResult result;
             try
             {
                 rowsAffected = new clsOrderManagerBL().deleteOrderBL(id);
                 if (rowsAffected == 0)
                 {
-                    result = NotFound();
+                    result = NotFound("NotFound");
+                }
+                else
+                {
+                    result = Ok(rowsAffected);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                result = BadRequest();
+                result = BadRequest("BadRequest");
             }
 
             return result;

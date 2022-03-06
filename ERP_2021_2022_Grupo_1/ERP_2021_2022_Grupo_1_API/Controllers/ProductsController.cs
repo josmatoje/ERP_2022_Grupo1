@@ -30,8 +30,10 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 productList = new clsProductsListBL().getProductsListBL();
             }
-            catch (Exception e)
-            { }
+            catch (Exception)
+            { 
+                throw;
+            }
 
             return productList;
         }
@@ -46,26 +48,30 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
             {
                 product = new clsProductsListBL().getProductBL(id);
             }
-            catch (Exception e) { }
+            catch (Exception) 
+            {
+                throw;
+            }
             return product;
         }
 
-        // POST api/<ProductsController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        //Dado un id de supplier te devuelve una lista con estos
+        // GET api/<ProductsController>/Supplier/5
+        [HttpGet("Supplier/{id}")]
+        public IEnumerable<clsProduct> GetProductListSupplier(int id)
         {
+            List<clsProduct> productList = null;
+            try
+            {
+                productList = new clsProductsListBL().getProductListSupplierBL(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return productList;
         }
 
-        // PUT api/<ProductsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProductsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

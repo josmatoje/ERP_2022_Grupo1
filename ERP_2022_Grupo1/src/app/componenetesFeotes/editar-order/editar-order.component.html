@@ -1,1 +1,25 @@
-<p>editar-order works!</p>
+<table>
+    <tr>
+        <th>id del producto </th>
+        <th>cantidad</th>
+        <th>precio</th>
+        <th>Quitar</th>
+    </tr>
+    <tr *ngFor="let product of arrayOrderLines">
+        
+        <td> 
+            {{product.nombre}}
+        </td>  
+        <td> 
+            <input type="tel" [(ngModel)]="product.quantity" >            
+        </td>        
+        <td> 
+            {{product.currentUnitPrice}}
+        </td>       
+        <button (click)="alterarFila(product)">Eliminar</button>            
+
+        <td>
+        </td>        
+    </tr>
+    
+</table>

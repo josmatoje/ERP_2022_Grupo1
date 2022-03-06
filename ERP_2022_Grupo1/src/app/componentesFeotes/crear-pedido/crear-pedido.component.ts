@@ -89,7 +89,7 @@ export class CrearPedidoComponent implements OnInit {
     }else{        
       const pedido: ClsOrder={
         orderId: 0,
-        total: 1,
+        total: this.calcularTotal(),
         orderDate: new Date(),
         limitOrderDate: new Date(),
         notes:"cosa",
@@ -116,6 +116,13 @@ export class CrearPedidoComponent implements OnInit {
         console.log(error);
       }      
     }    
+  }
+  calcularTotal(): number {
+    let total = 0;
+    this.arrayCart.forEach(prod => 
+      total = total + Number(prod.amount) * Number(prod.unitPrice)
+    );
+    return total;
   }
 }
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ClsOrderLine } from 'src/app/model/cls-order-line';
+import { ClsOrderLineConNombre } from 'src/app/model/cls-order-line-con-nombre';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,18 @@ export class OrderLinesService {
   getAllOrderLines(): Observable<ClsOrderLine[]> {
     return this.http.get<ClsOrderLine[]>(this.url);
   }
+
+    /**
+   * Prototype: getAllOrderLines(): Observable<clsOrderLines[]> 
+   * Description: Calls the api to get a list with all the ordersLines in the database
+   * Preconditions: none
+   * Postconditions: Full orderLines' list of the database
+   *  
+   * @returns Observable<clsOrderLine[]>
+   */
+     getAllOrderLinesFromOrder(id:number): Observable<ClsOrderLineConNombre[]> {
+      return this.http.get<ClsOrderLineConNombre[]>(this.url+'/OrderId/'+id);
+    }
 
   /**
    * Prototype: getOrderLineById(orderId: number): Observable<ClsOrderLine>

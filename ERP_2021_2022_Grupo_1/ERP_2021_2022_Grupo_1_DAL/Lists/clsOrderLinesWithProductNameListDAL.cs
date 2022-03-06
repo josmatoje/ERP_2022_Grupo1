@@ -14,7 +14,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
             List<clsOrderLineWithProductName> orderLineList = new List<clsOrderLineWithProductName>();
             openConection();
             MyReader = executeSelectCondition("SELECT [OrderLines].ID, Quantity, UnitPriceAtTime, OrderID, ProductID, Subtotal, Name FROM OrderLines " +
-                                        "INNER JOIN Products ON [OrderLines].ProductID = [Products].ID" +
+                                        "INNER JOIN Products ON [OrderLines].ProductID = [Products].ID " +
                                         "WHERE OrderId = @id", id);
 
 

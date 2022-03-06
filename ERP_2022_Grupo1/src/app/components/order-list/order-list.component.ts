@@ -15,40 +15,40 @@ import { ConfirmingDialogComponent } from '../confirming-dialog/confirming-dialo
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements AfterViewInit {
-
+  
   displayedColumns: string[] = ['id', 'total', 'date', 'limit', 'edit', 'symbol'];
   ordersList = new Array<ClsOrder>()
   dataSource = new MatTableDataSource<ClsOrder>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
+  
   constructor(public OrderService: OrderService, private router: Router, private dialog: MatDialog) {
-
+    
   }
-
+  
   ngOnInit(): void {
     this.OrderService.getAllOrders().subscribe(data => {
       this.ordersList = data
       this.dataSource.data = this.ordersList;
       this.dataSource.paginator = this.paginator;
     })
-
+    
   }
-
+  
   ngAfterViewInit(): void {
-
+    
   }
-
+  
   goCreateOrder() {
     const dialogConfig = new MatDialogConfig();
-
+    
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.backdropClass = 'bdrop';
-
+    
     const dialogRef = this.dialog.open(StepperCreateOrderCompleteComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => this.actualizaLista())
   }
-
+  
   actualizaLista() {
     this.OrderService.getAllOrders().subscribe(data => {
       this.ordersList = data
@@ -56,15 +56,18 @@ export class OrderListComponent implements AfterViewInit {
       this.dataSource.paginator = this.paginator;
     })
   }
-
+  
   borrarPedido(orderid: number) {
-
+    
     const dialogRef = this.dialog.open(ConfirmingDialogComponent);
-
+    
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
         try {
-          this.accionConfirmarBorrado(orderid)          
+          this.OrderService.deleteOrderById(orderid).subscribe(lines => {
+            console.log(lines)
+            this.actualizaLista();
+          });          
         } catch (error) {
           console.log(error);
         }
@@ -72,9 +75,9 @@ export class OrderListComponent implements AfterViewInit {
     } 
     ); 
   }
-
+  
   accionConfirmarBorrado(orderid:number){
-    this.OrderService.deleteOrderById(orderid).subscribe(lines => console.log(lines));
-    this.actualizaLista();
+    
+    
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup} from '@angular/forms';
 import * as firebase from '../../../firebase/firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from '@firebase/auth';
 
 @Component({
   selector: 'app-login-form',
@@ -15,15 +15,15 @@ export class LoginFormComponent implements OnInit {
   email: FormControl;
   password: FormControl;
   constructor() { }
-  
+
   ngOnInit(): void {
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required]);
     this.form=new FormGroup(
-      {      
+      {
         email : this.email,
         password : this.password
-      }      
+      }
     );
   }
 
@@ -34,12 +34,12 @@ export class LoginFormComponent implements OnInit {
     }else{
       text = this.email.hasError('email') ? 'Not a valid email' : '';
     }
-    
+
     return text;
   }
 
-  getErrorMessagePassword() {  
-    return this.password.hasError('required') ? 'You must enter a value' : '';    
+  getErrorMessagePassword() {
+    return this.password.hasError('required') ? 'You must enter a value' : '';
   }
 
   public createAccount() {
@@ -62,6 +62,18 @@ export class LoginFormComponent implements OnInit {
 
   public login(){
     const auth = firebase.default;
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {//Si ha iniciado sesion
+        //User tiene muchaspropiedades disponibles
+        const uid = user.uid;
+        const email = user.email;
+        const photoUrl = user.photoURL;
+      } else {//Si ha cerrado sesion
+
+      }
+    });
+
     signInWithEmailAndPassword(auth, this.email.value, this.password.value).then((userCredential) => {
         const user = userCredential.user;
         alert('Usuario inició sesión');

@@ -1,6 +1,6 @@
 import { initializeApp } from '@firebase/app';
 import { getAuth } from '@firebase/auth'
-
+//Firebase configuration string
 const firebaseConfig = {
   apiKey: "AIzaSyCgwt2VRlrDGKe4iy9awUCtEXD47df43iI",
   authDomain: "login-erp-a95b6.firebaseapp.com",

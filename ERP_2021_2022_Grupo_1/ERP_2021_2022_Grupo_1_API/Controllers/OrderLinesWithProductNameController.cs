@@ -15,14 +15,14 @@ namespace ERP_2021_2022_Grupo_1_API.Controllers
     {
         /// <summary>
         /// <b>GET api/*OrderLinesWithProductNameController*/5</b><br/>
-        /// <b>Prototype:</b> public IEnumerable(clsOrderLine) Get()<br/>
-        /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of orderlines and 
+        /// <b>Prototype:</b> public IEnumerable(clsOrderLineWithProductName) Get()<br/>
+        /// <b>Commentaries:</b> Execute an API call with the GET verb, asking for a list of orderlines with his product names and 
         /// returning it<br/>
         /// <b>Preconditions:</b> none<br/>
-        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of orderlines,
+        /// <b>Postconditions:</b> It makes a call to its corresponding method in the DB to collect a list of orderlines with his product names,
         /// if an error occurs during the execution, it throws a Exception and the return null
         /// </summary>
-        /// <returns>IEnumerable(clsOrderLine) list of orderlines or null</returns>
+        /// <returns>IEnumerable(clsOrderLineWithProductName) list of orderlinesWithProductNames or null</returns>
         [HttpGet("{id}")]
         public IEnumerable<clsOrderLineWithProductName> Get(int id)
         {

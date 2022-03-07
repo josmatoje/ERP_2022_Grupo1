@@ -14,11 +14,25 @@ export class ConfirmingDialogComponent implements OnInit {
 ngOnInit() {
 
 }
-
+/**
+ * Header: save()
+ * 
+ * Description: Este metodo cierra el dialog y guarda los datos
+ * 
+ * Precondition: Ninguna
+ * Postcondition: Cierra el dialog y guarda los datos.
+ */
 save() {
     this.dialogRef.close(true);
 }
-
+/**
+ * Header: close()
+ * 
+ * Description: Este metodo se encarga de cerrar el dialog
+ * 
+ * Precondition: Ninguna
+ * Postcondition: Cierra el dialog
+ */
 close() {
     this.dialogRef.close();
 }

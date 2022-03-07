@@ -28,13 +28,16 @@ export class OrderListComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.OrderService.getAllOrders().subscribe(data => {
-      this.ordersList = data
-      this.dataSource.data = this.ordersList;
-      this.dataSource.paginator = this.paginator;
-      console.log(data)
-    })
-
+    try{
+      this.OrderService.getAllOrders().subscribe(data => {
+        this.ordersList = data
+        this.dataSource.data = this.ordersList;
+        this.dataSource.paginator = this.paginator;
+        console.log(data)
+      })
+    }catch(Exception){
+        this.router.navigateByUrl('error')
+    }
   }
 
   ngAfterViewInit(): void {
@@ -52,14 +55,35 @@ export class OrderListComponent implements AfterViewInit {
     dialogRef.afterClosed().subscribe(result => this.actualizaLista())
   }
 
+  /**
+   * Header: actualizaLista() 
+   * 
+   * Description: Este metodo se encarga de actualizar la lista de pedidos.
+   * 
+   * Precondition: Ninguna
+   * Postcondition: Actualizar la lista de pedidos
+   */
   actualizaLista() {
-    this.OrderService.getAllOrders().subscribe(data => {
-      this.ordersList = data
-      this.dataSource.data = this.ordersList;
-      this.dataSource.paginator = this.paginator;
-    })
+    try{
+      this.OrderService.getAllOrders().subscribe(data => {
+        this.ordersList = data
+        this.dataSource.data = this.ordersList;
+        this.dataSource.paginator = this.paginator;
+      })
+    }catch(Exception){
+      this.router.navigateByUrl('error')
+    }
   }
 
+  /**
+   * Header: borrarPedido(orderid: number)
+   * 
+   * Description: Este metodo se encarga de borrar un pedido.
+   * 
+   * Precondition: Ninguna
+   * Postcondition: Borra un pedido en base a su id.
+   * @param orderid number
+   */
   borrarPedido(orderid: number) {
 
     const dialogRef = this.dialog.open(ConfirmingDialogComponent);
@@ -73,13 +97,21 @@ export class OrderListComponent implements AfterViewInit {
             }
           );         
         } catch (error) {
-          console.log(error);
+          this.router.navigateByUrl('error');
         }
       }      
     } 
     ); 
   }
-   
+  /**
+   * Header: updatePedido(orderId:number)
+   * 
+   * Description: Este metodo se encarga actualizar el pedido
+   * 
+   * Precondition: Ninguna
+   * Postcondition: Actualiza el pedido
+   * @param orderId number
+   */
   updatePedido(orderId:number){
 
     const dialogRef = this.dialog.open(StepperEditOrderComponent, {

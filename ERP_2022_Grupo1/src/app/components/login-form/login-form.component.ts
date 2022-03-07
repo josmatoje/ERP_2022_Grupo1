@@ -53,6 +53,7 @@ export class LoginFormComponent implements OnInit {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        alert('Se ha creado el usuario :)')
       })
       .catch((error) => {
         const errorCode = error.code;

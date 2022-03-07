@@ -13,6 +13,14 @@ export class ModulesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Header: goOrdersList()
+   * 
+   * Description: Este metodo se encarga de ir a la pagina de lista de pedidos
+   * 
+   * Precondition: Ninguna
+   * Postcondition: Navega a la lista de pedidos
+   */
   goOrdersList(){
     this.router.navigateByUrl('orderlist')
   }

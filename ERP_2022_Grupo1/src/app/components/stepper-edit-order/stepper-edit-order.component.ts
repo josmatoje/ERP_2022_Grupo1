@@ -14,6 +14,7 @@ import { OrderListComponent } from '../order-list/order-list.component';
 import { ClsOrderLineConNombre } from 'src/app/model/cls-order-line-con-nombre';
 import { OrderLineConNombreService } from 'src/app/services/orderLineConNombre/order-line-con-nombre.service';
 import { not } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stepper-edit-order',
@@ -35,25 +36,34 @@ export class StepperEditOrderComponent implements OnInit {
   limitOrderDate:Date;
   orderid:number;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: number,private dialogRef: MatDialogRef<OrderListComponent>,public SupplierService: SupplierService, public ProductService: ProductService, private OrderService : OrderService, private OrderLinesService: OrderLinesService,private dialog:MatDialog,private orderLineConNombreService: OrderLineConNombreService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: number,private router:Router,private dialogRef: MatDialogRef<OrderListComponent>,public SupplierService: SupplierService, public ProductService: ProductService, private OrderService : OrderService, private OrderLinesService: OrderLinesService,private dialog:MatDialog,private orderLineConNombreService: OrderLineConNombreService) {
     
   }
 
   ngOnInit(): void {
     this.orderid = this.data;
-    this.OrderService.getOrderById(this.orderid).subscribe(data => {
-      this.orderAEditar = data;
-      this.notes = this.orderAEditar.notes;
-      this.limitOrderDate = this.orderAEditar.limitOrderDate;     
-    });
-
-    
-    this.orderLineConNombreService.getAllOrderLinesFromOrderWithName(this.orderid).subscribe(data => {
-      this.arrayOrderLines = data;
-      console.log(data)
-    });
+    try{
+      this.OrderService.getOrderById(this.orderid).subscribe(data => {
+        this.orderAEditar = data;
+        this.notes = this.orderAEditar.notes;
+        this.limitOrderDate = this.orderAEditar.limitOrderDate;     
+      });
+      this.orderLineConNombreService.getAllOrderLinesFromOrderWithName(this.orderid).subscribe(data => {
+        this.arrayOrderLines = data;
+        console.log(data)
+      });
+    }catch(Exception){
+      this.router.navigateByUrl('error');
+    }
   }
-  
+  /**
+   * header: updateOrder() 
+   * 
+   * Description: Este metodo se encarga de gestionar cuando se actualiza y cuando un pedido
+   * 
+   * Precondition: Ninguna
+   * Poscondition: Actualiza el pedido
+   */
   updateOrder() {
     let todoOk = true;
     this.arrayOrderLines.forEach(lineaTMP => {
@@ -69,6 +79,15 @@ export class StepperEditOrderComponent implements OnInit {
       this.updatePedido();
   }
 
+  /**
+   * Header: updatelinea(lineaTMP:ClsOrderLineConNombre)
+   * 
+   * Description: Este metodo se encarga de actualizar una linea de un pedido.
+   * 
+   * Precondition: Ninguna
+   * Postcondition: Actualiza la linea de pedido
+   * @param lineaTMP ClsOrderLineConNombre
+   */
   updatelinea(lineaTMP:ClsOrderLineConNombre) {
     let lineaPedido: ClsOrderLine = {
       id: lineaTMP.id,
@@ -78,9 +97,21 @@ export class StepperEditOrderComponent implements OnInit {
       orderId: lineaTMP.orderId,
       productId: lineaTMP.productId
     }
-    this.OrderLinesService.updateOrderLine(lineaPedido).subscribe(data => console.log(data));
+    try{
+      this.OrderLinesService.updateOrderLine(lineaPedido).subscribe(data => console.log(data));
+    }catch(Exception){
+      this.router.navigateByUrl('error');
+    }
   }
 
+  /**
+   * Header: updatePedido()
+   * 
+   * Description: Este metodo se encarga de actualizar un pedido.
+   * 
+   * Precondition: Ninguna
+   * Postcondition: Actualiza el pedido
+   */
   updatePedido() {
     const pedido: ClsOrder = {
       orderId: this.orderAEditar.orderId,
@@ -91,15 +122,37 @@ export class StepperEditOrderComponent implements OnInit {
       supplierId: this.orderAEditar.supplierId
     }
     this.orderAEditar = pedido;
-    this.OrderService.updateOrder(pedido).subscribe(data => console.log(data));
+    try{
+      this.OrderService.updateOrder(pedido).subscribe(data => console.log(data));
+    }catch(Exception){
+      this.router.navigateByUrl('error');
+    }
   }
 
   displayedColumns: string[] = ['Nombre', 'Descripcion', 'Categoria', 'Precio', 'Cantidad', 'Anhadir'];
 
+  /**
+   * Header: eliminarProducto(productoSeleccionado: ClsOrderLineConNombre)
+   * 
+   * Description: Este metodo se encarga de eliminar un producto de un pedido.
+   * 
+   * Precondition: Ninguna
+   * Postcondition: Elimina el producto del pedido
+   * @param productoSeleccionado
+   */
   eliminarProducto(productoSeleccionado: ClsOrderLineConNombre){   
     this.arrayOrderLines = this.arrayOrderLines.filter(item => item !== productoSeleccionado);
   }
 
+  /**
+   * Header: calcularTotal():number
+   * 
+   * Description: Este metodo se encarga de calcular el total del pedido.
+   * 
+   * Precondition: Ninguna
+   * Postcondition: Calcula el total del pedido
+   * @returns total: number
+   */
   calcularTotal():number{
     let total = 0;
     this.arrayOrderLines.forEach(prod => 
@@ -109,6 +162,14 @@ export class StepperEditOrderComponent implements OnInit {
     return total;
   }
   
+  /**
+   * Header:close()
+   * 
+   * Description: Este metodo se encargaa de cerra un dialog
+   * 
+   * Preconditions: Ninguna
+   * Postconditions: Cierra el dialog
+   */
   close(){
     this.dialogRef.close();
   }

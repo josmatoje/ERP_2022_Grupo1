@@ -43,5 +43,8 @@
         </table>
         <mat-paginator class="contenedor"  [pageSize]="8" [hidePageSize]="true" showFirstLastButtons>
       </mat-paginator>
+      <div *ngIf="cargando">
+        <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif">
+      </div>
     </div>
 </body>

@@ -8,7 +8,6 @@ import { initializeApp } from 'firebase/app';
 import { SigninFormComponent } from './components/signin-form/signin-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ModulesComponent } from './components/modules/modules.component';
-import { ListadoPedidosComponent } from './components/createOrder/listado-pedidos.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
@@ -52,7 +51,6 @@ const app = initializeApp(firebaseConfig);
     AppComponent,
     SigninFormComponent,
     LoginFormComponent,
-    ListadoPedidosComponent,
     PruebaComponent,
     StepperCreateOrderCompleteComponent,
     ErrorComponent,

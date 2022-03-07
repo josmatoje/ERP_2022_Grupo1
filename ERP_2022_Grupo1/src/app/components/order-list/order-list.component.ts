@@ -18,6 +18,7 @@ import { StepperEditOrderComponent } from '../stepper-edit-order/stepper-edit-or
 })
 export class OrderListComponent implements AfterViewInit {
 
+  cargando:boolean = true;
   displayedColumns: string[] = ['id', 'total', 'date', 'limit', 'edit', 'symbol'];
   ordersList = new Array<ClsOrder>()
   dataSource = new MatTableDataSource<ClsOrder>();
@@ -33,7 +34,7 @@ export class OrderListComponent implements AfterViewInit {
         this.ordersList = data
         this.dataSource.data = this.ordersList;
         this.dataSource.paginator = this.paginator;
-        console.log(data)
+        this.cargando=false;      
       })
     }catch(Exception){
         this.router.navigateByUrl('error')

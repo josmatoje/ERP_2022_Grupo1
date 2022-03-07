@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./listado-pedidos.component.scss'],
 })
 export class ListadoPedidosComponent implements OnInit {
-
+  cargando:boolean= true;
   arrayDeSuppliers: Array<ClsSupplier> = [];
   supplierSeleccionado = this.arrayDeSuppliers[1];
   productList:Array<ClsProductLine>=[];
@@ -39,7 +39,10 @@ export class ListadoPedidosComponent implements OnInit {
 
   ngOnInit(): void {
     try{
-      this.SupplierService.getAllSuppliers().subscribe(data => this.arrayDeSuppliers = data);
+      this.SupplierService.getAllSuppliers().subscribe(data => {
+        this.arrayDeSuppliers = data
+        this.cargando=false;      
+      });
       this.OrderService.getLastOrderId().subscribe(data => this.orderId = data+1);
     }catch(Exception){
       this.router.navigateByUrl('error')

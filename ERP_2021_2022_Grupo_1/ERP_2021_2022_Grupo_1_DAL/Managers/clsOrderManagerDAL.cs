@@ -58,7 +58,7 @@ namespace ERP_2021_2022_Grupo_1_DAL.Managers
         /// <param name="order"></param>
 
         private void createCommand(clsOrder order) {
-            MyCommand.Parameters.Add("@Total", System.Data.SqlDbType.Int).Value = order.Total;
+            MyCommand.Parameters.Add("@Total", System.Data.SqlDbType.Money).Value = order.Total;
             MyCommand.Parameters.Add("@OrderDate", System.Data.SqlDbType.Date).Value = order.OrderDate;
             MyCommand.Parameters.Add("@LimitDate", System.Data.SqlDbType.Date).Value = order.LimitOrderDate;
             MyCommand.Parameters.Add("@Notes", System.Data.SqlDbType.NVarChar).Value = order.Notes;

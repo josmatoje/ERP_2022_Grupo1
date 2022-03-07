@@ -91,7 +91,7 @@ export class StepperCreateOrderCompleteComponent implements OnInit {
    */
   aniadirProducto(productoSeleccionado: ClsProductLine){
     let unico=true;
-    if (productoSeleccionado.amount!=0){
+    if (!isNaN(productoSeleccionado.amount) && productoSeleccionado.amount > 0 ){
       //todo verificar numero
       for (var i = 0, len = this.arrayCart.length; i < len; i++) {     
         let producto =this.arrayCart[i];
@@ -107,7 +107,7 @@ export class StepperCreateOrderCompleteComponent implements OnInit {
       productoSeleccionado.amount=0;
     }
     else
-    alert("Introduzca una cantidad a solicitar primero");
+    alert("Cantidad erronea");
   }
   /**
    * Header: enviarPedido()

@@ -8,6 +8,13 @@ namespace ERP_2021_2022_Grupo_1_DAL.Lists
 {
     public class clsOrderLinesWithProductNameListDAL : clsUtilitySelectDAL
     {
+        /// <summary>
+        /// <b>Prototype:</b> public List<clsOrderLineWithProductName> getOrderLineListWithProductNameByOrderIdDAL(int id)<br/>
+        /// <b>Commentaries:</b>Returns a list of order line list from the DB with the productNames<br/>
+        /// <b>Preconditions:</b> none<br/>
+        /// <b>Postconditions:</b> Returns a list with the order line list from the OrderLine table and the order id given
+        /// </summary>
+        /// <returns> List(clsOrderLineWithProductName) orderLineList representing the list of order line from the DB</returns>
         public List<clsOrderLineWithProductName> getOrderLineListWithProductNameByOrderIdDAL(int id)
         {
             clsOrderLineWithProductName orderLine;
